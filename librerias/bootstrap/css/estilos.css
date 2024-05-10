@@ -1,0 +1,19 @@
+header{
+	background: red;
+}
+
+section{
+	background: yellow;
+}
+
+aside{
+	background: blue;
+}
+
+.color1{
+	background: gray;
+}
+
+footer{
+	background: green;
+}

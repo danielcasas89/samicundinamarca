@@ -1,0 +1,51 @@
+.list-unstyled{
+
+    font-family: helvetica,arial;
+    color: #454B4B;
+    font-size: 12px;
+    padding-bottom: 5px;
+    text-align: justify;
+    font-weight: bold;
+}
+.regis{
+    margin-bottom: 0.5rem;
+}
+.passNotMatch{
+    display:none;
+}
+.card-header {
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.progressBarIami{
+    display:none;
+}
+.progressBarCanguro{
+    display:none;
+}
+.tableiami {
+    padding: .95rem !important;
+}
+
+.saveSuccess{
+    display: none;
+} 
+.saveError{
+    display: none;
+} 
+.firtLine{
+    display: none;
+
+}
+.modal-backdrop {
+    z-index: -1 !important;
+    
+    /* bug fix - no overlay */    
+    display: none; 
+  }
+
+.modal-content {
+    margin: 2px auto;
+    z-index: 1100 !important;
+}
+
