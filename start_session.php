@@ -1,6 +1,5 @@
 <?php 
 //INICIA LA SESION, RECIBE password y usuario por POST
-//DEVUELVE {type, msg, data}
 if(isset($_REQUEST['usuario'])){ 
 	$conexion = mysqli_connect("localhost", "admin_sami", "15demarzoDc5051", "sami_db");
 

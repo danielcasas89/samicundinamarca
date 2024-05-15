@@ -1,6 +1,5 @@
 <?php
 session_start();
-//se comprueba que la entrada a la aplicacion se hizo por la pagina inicial
 if(isset($_SESSION['usuario_sesion'])){
 	header ("Location: http://samicundinamarca.com/home");
     exit();
@@ -20,6 +19,7 @@ if(isset($_SESSION['usuario_sesion'])){
         <script src="js/funciones.js"></script>
     </head>
 	<body class="text-center">  
+		
 	<div class="container">
 		<div class="row justify-content-md-center">		
 			<div class="col-md-auto">
@@ -38,7 +38,7 @@ if(isset($_SESSION['usuario_sesion'])){
 						</div>				
 						<button type="submit" class="btn btn-lg btn-primary btn-block">Acceder</button>
 						<img  class="img-fluid" src="imagenes/logo_head.png" alt="">
-						<label id="copy">Copyright &copy; 2020, Todos los derechos reservados.</label>
+						<label id="copy">Copyright &copy; <script>document.write(new Date().getFullYear())</script>, Todos los derechos reservados.</label>
 				</form>					
 			</div>				
 		</div>

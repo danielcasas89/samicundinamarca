@@ -119,14 +119,14 @@ if(isset($_SESSION['usuario_sesion'])){
                                         <div class="widget-content-right">
                                             <div class="widget-numbers text-white">
                                             <?php
-                                            $consulta="SELECT COUNT(*) as total FROM `core__registro_blh`";
+                                            $consulta="SELECT COUNT(DISTINCT(documento)) as total FROM `core__registro_donantes` where fk_atributos__Estados=2;";
                                             $resultado=mysqli_query($conexion,$consulta);
                                                 if(mysqli_num_rows($resultado)){
                                                     while($usuario=mysqli_fetch_assoc($resultado)){ 
                                                         echo "<span>$usuario[total]</span>";  
                                                     }
                                                 }
-                                                mysqli_free_result($resultado);         
+                                                mysqli_free_result($resultado);        
                                             ?>                                        
                                         </div>
                                         </div>
@@ -407,6 +407,7 @@ En el componente “Equipos y temperaturas” están las herramientas para reali
 
                     <script>
                              $(document).ready(function(){
+                                
         $('.mm-active').removeClass('mm-active');
         $("#menuHome").addClass("mm-active");
 

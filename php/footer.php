@@ -28,7 +28,7 @@
                         <div class="container">
                             <div class="row">
                             <div class="col-md-8 col-sm-6 col-xs-12">
-                                <p class="copyright-text">Copyright &copy; 2023 Todos los derechos reservados.
+                                <p class="copyright-text">Copyright &copy; <script>document.write(new Date().getFullYear())</script>, Todos los derechos reservados.
                                 </p>
                             </div>
                             </div>
