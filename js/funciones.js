@@ -27,6 +27,7 @@ const autenticar = function () {
   var data = {
     usuario: $("#usuario").val(),
     password: $("#password").val(),
+    token: $("#token").val(),
   };
   $.ajax({
     url: "start_session.php",
@@ -50,7 +51,7 @@ const autenticar = function () {
 };
 
 $(document).ready(function () {
-  $("#formulario").submit(function (ev) {
+  $("#formLogin").submit(function (ev) {
     ev.preventDefault();
     autenticar();
   });

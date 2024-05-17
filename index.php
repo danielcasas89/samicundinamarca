@@ -1,9 +1,9 @@
 <?php
-session_start();
-if(isset($_SESSION['usuario_sesion'])){
+
+if(isset($_SESSION['usuario_sesion'])):
 	header ("Location: http://samicundinamarca.com/home");
     exit();
-}
+endif;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,14 +16,15 @@ if(isset($_SESSION['usuario_sesion'])){
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/estilos.css">
         <script src="librerias/jquery/jquery-1.11.2.min.js"></script>
-        <script src="js/funciones.js"></script>
+		<script src="https://www.google.com/recaptcha/api.js"></script>
+		<script>function onSubmit(token){let formData=$("#formulario").serialize();$.ajax({url:"start_sessionTest.php",type:"POST",async:true,dataType:"json",data:formData,success:function(rta){if(rta.type=="info"){window.location="home"}else{$(".alertLogin").html(rta.msg);$(".alertLogin").show()}},error:function(rta){$(".alertLogin").html(rta.msg);$(".alertLogin").show()},})}</script>	
     </head>
 	<body class="text-center">  
 		
 	<div class="container">
 		<div class="row justify-content-md-center">		
 			<div class="col-md-auto">
-				<form id="formulario" class="form-signin">
+				<form id="formulario" method="post" class="form-signin">
 					<div class="form-group">
 					<div class="alert alert-danger fade show alertLogin" role="alert"></div>
 					<h3 class="themeoptions-heading">SAMI</h3>
@@ -35,8 +36,10 @@ if(isset($_SESSION['usuario_sesion'])){
 						<div class="form-group input-group">
 							<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key fa-fw"></i></span></div>
 							<input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required />
-						</div>				
-						<button type="submit" class="btn btn-lg btn-primary btn-block">Acceder</button>
+							<input type="hidden" name="token" id="token" value="<?php echo $token; ?>"/>
+						</div>	
+						<!-- Submit button with reCAPTCHA trigger -->			
+						<button type="submit" class="btn btn-lg btn-primary btn-block g-recaptcha" data-sitekey="6LfcN98pAAAAAOttg6DIYLTVVxX49rA3UUX0RSCr" data-callback='onSubmit' data-action='submit'>Acceder</button>
 						<img  class="img-fluid" src="imagenes/logo_head.png" alt="">
 						<label id="copy">Copyright &copy; <script>document.write(new Date().getFullYear())</script>, Todos los derechos reservados.</label>
 				</form>					
