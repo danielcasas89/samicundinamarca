@@ -88,14 +88,11 @@ if(!empty($_POST['g-recaptcha-response'])){
 			$rta->type = 'error';
 			$rta->msg = 'No se enviaron usuario y/o contraseña.';
 			echo json_encode($rta);
-		}
-		
+		}		
 	}
 	else{		
 		$rta->type = 'error';
 		$rta->msg = 'No bots allowed.';
 		echo json_encode($rta);
-	}
-
-	
+	}	
 }

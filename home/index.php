@@ -40,8 +40,7 @@ if(isset($_SESSION['usuario_sesion'])){
         $serieVolumenPasteAdmin .= "$cantidadPasteAdmin]},";
     }
     $serierPasteAdmin = rtrim($serieVolumenPasteAdmin, ",");
-    ?>
-    
+    ?>   
     
                 <div class="app-main__outer">
                     <div class="app-main__inner">
@@ -331,13 +330,8 @@ Esta es una herramienta diseñada para el fortalecimiento de las estrategias IAM
                                                     <td class="tableiami" id="dilig4"></td>
                                                 </tr>
                                                 </tbody>
-                                            </table>
-
-                                                    
-                                                
+                                            </table>  
                                                 </div>
-
-
                                                     </div>
                                                 </div>
                                             </div>                                                                                         
@@ -349,14 +343,14 @@ Esta es una herramienta diseñada para el fortalecimiento de las estrategias IAM
                             </div>
                             <?php
                             }
-                            if($_SESSION['perfil'] == 'Sala de Extraccion' ){
+                            if($_SESSION['perfil'] == 'Sala de Extraccion'  || $_SESSION['perfil'] == 'Canguro' ){
                             ?> 
                             <div class="col-md-12 col-lg-12">
                                 <div class="mb-3 card">
                                     <div class="card-header-tab card-header-tab-animation card-header">
                                         <div class="card-header-title">
                                             <i class="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
-                                            Sala de Extracción
+                                            Sistema de Acompañamiento Materno Infantíl
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -406,11 +400,10 @@ En el componente “Equipos y temperaturas” están las herramientas para reali
                     </div>
 
                     <script>
-                             $(document).ready(function(){
+$(document).ready(function(){
                                 
         $('.mm-active').removeClass('mm-active');
         $("#menuHome").addClass("mm-active");
-
 
         function listarHospitales(){
             $.ajax({
@@ -570,111 +563,7 @@ En el componente “Equipos y temperaturas” están las herramientas para reali
 
 
 
-                             });
-        Highcharts.chart('container', {
-	        chart: {
-	            type: 'column'
-	        },
-	        colors: ['#FC2B36','#10CA2F', '#ADB1AF','#2BB0FC','#f0ad4e','#337ab7'],
-	        title: {
-	            text: 'Total Usuarias del BLH por mes'
-	        },
-	        xAxis: {
-	            categories: ['Mes']
-	        },
-	        yAxis: {
-	            title: {
-	                text: 'Numero Donaciones'
-	            }
-	        },
-	        plotOptions: {
-            	series: {
-                	dataLabels: {
-                    	align: 'center',
-                    	enabled: true
-                	}
-            	}
-        	}, 
-	        series: [<?=$serie?>]
-        });	  
-        Highcharts.chart('estadisticaVolumen', {
-	        chart: {
-	            type: 'column'
-	        },
-	        colors: ['#ADB1AF','#2BB0FC','#f0ad4e','#337ab7'],
-	        title: {
-	            text: 'Volumen recolectado BLH'
-	        },
-	        xAxis: {
-	            categories: ['Mes']
-	        },
-	        yAxis: {
-	            title: {
-	                text: 'Cantidad (mL)'
-	            }
-	        },
-	        plotOptions: {
-            	series: {
-                	dataLabels: {
-                    	align: 'center',
-                    	enabled: true
-                	}
-            	}
-        	}, 
-	        series: [<?=$serieVolumen?>]
-        });	
-       Highcharts.chart('estadisticaAdminPaste', {
-	        chart: {
-	            type: 'column'
-	        },
-	        colors: ['#2BB0FC','#f0ad4e','#337ab7'],
-	        title: {
-	            text: 'Volumen LH pasteurizada administrada'
-	        },
-	        xAxis: {
-	            categories: ['Mes']
-	        },
-	        yAxis: {
-	            title: {
-	                text: 'Cantidad (mL)'
-	            }
-	        },
-	        plotOptions: {
-            	series: {
-                	dataLabels: {
-                    	align: 'center',
-                    	enabled: true
-                	}
-            	}
-        	}, 
-	        series: [<?=$serierPasteAdmin?>]
-        }); 
-        Highcharts.chart('estadisticaVolumenHijoPropio', {
-	        chart: {
-	            type: 'column'
-	        },
-	        colors: ['#FC2B36','#337ab7','#2BB0FC'],
-	        title: {
-	            text: 'Volumen recolectado hijo propio'
-	        },
-	        xAxis: {
-	            categories: ['Mes']
-	        },
-	        yAxis: {
-	            title: {
-	                text: 'Cantidad (mL)'
-	            }
-	        },
-	        plotOptions: {
-            	series: {
-                	dataLabels: {
-                    	align: 'center',
-                    	enabled: true
-                	}
-            	}
-        	}, 
-	        series: [<?=$serieVolumen?>]
-        });	
+    }); 
 </script>
 <?php 
 	require '../php/footer.php';

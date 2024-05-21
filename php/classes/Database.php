@@ -2,7 +2,6 @@
 class Database{
 	static $mysqli = null;
 
-
 	static $tables = array(
 			//'core__encuestas'=>array('estado','creado_por','fecha_creacion','modificado_por','fecha_modificacion','latitud','longitud','eps','ips','lugar','sector','p1','p2','p3','p4','p5','p6','p7','p8','p9','p10','p11','p12','p13','p14','p15','p16','p17','p18','p19','p20','p21','p22','p23','p24','p25','p26_1','p27','p28','p30','p31','p32','p33','p34','p35','p36','p37','p38','p39','p40','p41','p42','p43','p44','p45','p46','p47','p48','p49','p50','p51','p52','p53','p54','p55','p56','p57','p58','p26_2','p26_3','p26_4','p26_5','p59'),
 			'gestion__usuarios'=>array("id__usuarios","login","password","fk_gestion__perfiles","ultimo_acceso","fk_atributos__estados","creado_por_i","fecha_creacion_i","modificado_por_i","fecha_modificacion_i","observaciones", "fk_gestion__usuarios"),
@@ -262,20 +261,6 @@ class Database{
 		static::conectar();
 		if($result = static::$mysqli->query($query)){
 
-			$rowcount=mysqli_num_rows($result);
-
-			return $rowcount;
-		}else{
-			throw new Exception("La búsqueda no pudo realizarse. $query (".
-				static::$mysqli->errno . ") " . static::$mysqli->error);
-		}
-
-	} 
-
-	static function queryTotalEncuestasEnse(){
-		
-		static::conectar();
-		if($result = static::$mysqli->query("SELECT * FROM `sami_db`.`core__encuestas`;")){
 			$rowcount=mysqli_num_rows($result);
 
 			return $rowcount;

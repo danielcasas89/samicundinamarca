@@ -1,10 +1,6 @@
 <?php 
 
 class Encuesta{
-	private $directorioFotos = "../../fotos/";
-
-	private $nameImgs = array('sistadmimg01', 'sistadmimg02', 'sistadmimg03', 'alternadorimg01', 
-					'alternadorimg02', 'alternadorimg03','embarcacionimg01', 'embarcacionimg02', 'embarcacionimg03');
 
 	private $totalCampos = 120;
 

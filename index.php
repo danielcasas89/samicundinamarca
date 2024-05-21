@@ -17,7 +17,7 @@ endif;
         <link rel="stylesheet" href="css/estilos.css">
         <script src="librerias/jquery/jquery-1.11.2.min.js"></script>
 		<script src="https://www.google.com/recaptcha/api.js"></script>
-		<script>function onSubmit(token){let formData=$("#formulario").serialize();$.ajax({url:"start_sessionTest.php",type:"POST",async:true,dataType:"json",data:formData,success:function(rta){if(rta.type=="info"){window.location="home"}else{$(".alertLogin").html(rta.msg);$(".alertLogin").show()}},error:function(rta){$(".alertLogin").html(rta.msg);$(".alertLogin").show()},})}</script>	
+		<script>function onSubmit(token){let formData=$("#formulario").serialize();$.ajax({url:"start_session.php",type:"POST",async:true,dataType:"json",data:formData,success:function(rta){if(rta.type=="info"){window.location="home"}else{$(".alertLogin").html(rta.msg);$(".alertLogin").show()}},error:function(rta){$(".alertLogin").html(rta.msg);$(".alertLogin").show()},})}</script>	
     </head>
 	<body class="text-center">  
 		
