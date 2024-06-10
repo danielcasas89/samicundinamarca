@@ -39,7 +39,7 @@ else
 //echo $consulta;exit();
 
 try{
-    $dataEncuesta = Database::ejecutarQuerySelectVerificacion($consulta);  
+    $dataListaEquipos = Database::ejecutarQuerySelectVerificacion($consulta);  
 }catch(Exception $ex){
     echo  'error generando reporte';
 }  
@@ -78,7 +78,7 @@ $objPHPExcel->getActiveSheet()->setCellValue('I1','ESTADO EQUIPO');
 $objPHPExcel->getActiveSheet()->setCellValue('J1','HOSPITAL');
 
 $j=2;
-for ($i=0; $i < count($dataEncuesta); $i++) 
+for ($i=0; $i < count($dataListaEquipos); $i++) 
 {
 	$cell1 = 'A'.$j; 
     $cell2 = 'B'.$j; 
@@ -90,16 +90,16 @@ for ($i=0; $i < count($dataEncuesta); $i++)
     $cell8 = 'H'.$j; 
     $cell9 = 'I'.$j; 
     $cell10 = 'J'.$j; 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataEncuesta[$i]['id_core__equipos']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataEncuesta[$i]['equipo']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataEncuesta[$i]['marca']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataEncuesta[$i]['modelo']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataEncuesta[$i]['serial']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataEncuesta[$i]['identificacion']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataEncuesta[$i]['responsable_accion']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataEncuesta[$i]['fecha_accion']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataEncuesta[$i]['estadoEquipo']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataEncuesta[$i]['nombre_hospital']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataListaEquipos[$i]['id_core__equipos']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataListaEquipos[$i]['equipo']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataListaEquipos[$i]['marca']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataListaEquipos[$i]['modelo']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataListaEquipos[$i]['serial']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataListaEquipos[$i]['identificacion']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataListaEquipos[$i]['responsable_accion']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataListaEquipos[$i]['fecha_accion']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataListaEquipos[$i]['estadoEquipo']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataListaEquipos[$i]['nombre_hospital']); 
     $j++;	
 }
 

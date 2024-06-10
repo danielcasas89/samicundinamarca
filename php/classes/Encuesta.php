@@ -1,6 +1,6 @@
 <?php 
 
-class Encuesta{
+class Sami{
 
 	private $totalCampos = 120;
 
@@ -800,6 +800,45 @@ class Encuesta{
 		return $rta;	
 
 	}
+	public function listarTotalDonacionesBLHHospital()
+ 	{ 
+		$query = "SELECT COUNT(*) as total, hosp.short_name_hospital as nombre 
+		 FROM `core__donacion_blh_sala` cd 
+		 LEFT JOIN core__registro_donantes cr ON cd.id_registro_blh = cr.id_registro_blh 
+		 INNER JOIN gestion__usuarios gu ON cd.creado_por = gu.id__usuarios 
+		INNER JOIN aux__hospitales hosp ON hosp.id_hospital = gu.fk_aux__hospitales 
+		WHERE hosp.short_name_hospital!='PRACTICA HOSPITAL'
+		GROUP BY gu.fk_aux__hospitales ORDER BY total DESC; ";
+		//echo $query;exit();
+ 		$rta = new StdClass();
+		$rta->msg = '';  
+		try{
+			$rta->data = Database::ejecutarQuerySelect($query);
+			$rta->type = 'info';
+		}catch(Exception $ex){
+			$rta->type = 'error';
+			$rta->msg = $ex->getMessage().'('.$ex->getCode().')';
+		}
+		return $rta;
+		
+	}
+
+	public function listarTotalDonantesBLHHospital()
+	{ 
+	   $query = "SELECT COUNT(*) as total,hosp.short_name_hospital as nombre FROM core__registro_donantes r INNER JOIN gestion__usuarios gu ON r.creado_por = gu.id__usuarios INNER JOIN aux__hospitales hosp ON hosp.id_hospital = gu.fk_aux__hospitales WHERE hosp.nombre_hospital!='PRACTICA HOSPITAL' GROUP BY gu.fk_aux__hospitales;";
+	   //echo $query;exit();
+		$rta = new StdClass();
+	   $rta->msg = '';  
+	   try{
+		   $rta->data = Database::ejecutarQuerySelect($query);
+		   $rta->type = 'info';
+	   }catch(Exception $ex){
+		   $rta->type = 'error';
+		   $rta->msg = $ex->getMessage().'('.$ex->getCode().')';
+	   }
+	   return $rta;
+	   
+   }
 
 	public function registrarDonacionBLHSala($tabla,$campos)
  	{  
@@ -1192,7 +1231,61 @@ class Encuesta{
 		}
 		$rta->diligenciamiento = $totalAnswered*100/169;
 		$rta->totalAnswered = $totalAnswered;
+		$rta->query = $query;
 		return $rta;
+
+	}
+
+    // Public function to compare objects by name
+    public function compareByName($other) {
+        return strcmp($this->cumplimiento, $other->cumplimiento);
+    }
+
+
+
+	public function calcularDiligenciamientoAll()
+	{
+		function compareByName($a, $b) {
+			return strcmp($a->cumplimiento, $b->cumplimiento);
+		}
+
+		
+		$query = "SELECT hosp.short_name_hospital as hospital,hosp.nombre_hospital as nombre, `p11`, `p12`, `p13`, `p14`, `p15`, `p16`, `p17`, `p18`, `p19`, `p110`, `p111`, `p112`, `p21`, `p22`, `p23`, `p24`, `p25`, `p26`, `p27`, `p28`, `p29`, `p31`, `p32`, `p33`, `p34`, `p35`, `p36`, `p37`, `p38`, `p39`, `p310`, `p311`, `p312`, `p313`, `p314`, `p315`, `p316`, `p317`, `p318`, `p319`, `p320`, `p321`, `p41`, `p42`, `p43`, `p44`, `p45`, `p46`, `p47`, `p48`, `p49`, `p410`, `p411`, `p412`, `p413`, `p414`, `p415`, `p416`, `p417`, `p51`, `p52`, `p53`, `p54`, `p55`, `p56`, `p57`, `p58`, `p59`, `p510`, `p511`, `p512`, `p513`, `p514`, `p515`, `p516`, `p61`, `p62`, `p63`, `p64`, `p65`, `p66`, `p67`, `p68`, `p69`, `p610`, `p611`, `p612`, `p613`, `p614`, `p615`, `p616`, `p617`, `p618`, `p619`, `p620`, `p621`, `p622`, `p623`, `p624`, `p625`, `p71`, `p72`, `p73`, `p74`, `p75`, `p76`, `p77`, `p78`, `p79`, `p710`, `p711`, `p81`, `p82`, `p83`, `p84`, `p85`, `p86`, `p87`, `p88`, `p89`, `p810`, `p811`, `p812`, `p813`, `p814`, `p815`, `p816`, `p817`, `p818`, `p819`, `p820`, `p821`, `p822`, `p823`, `p91`, `p92`, `p93`, `p94`, `p95`, `p96`, `p97`, `p98`, `p99`, `p910`, `p911`, `p912`, `p913`, `p914`, `p915`, `p916`, `p917`, `p918`, `p919`, `p101`, `p102`, `p103`, `p104`, `p105`, `p106`, `p107`, `p108`, `p109`, `p1010`, `p1011`, `p1012`, `p1013`, `p1014`, `p1015`, `p1016` FROM `core__indicador_iami` iami
+INNER JOIN aux__hospitales hosp ON iami.hospital= hosp.id_hospital WHERE trimestre='primer' AND ano='2024' LIMIT 30;";	
+		
+		$arrEncuestas = Database::ejecutarQuerySelect($query);			
+		$rta = new StdClass();
+		$totalAnswered = 0;
+		$hospital = ""; 
+		$nombre_hospital = "";
+		$hospital_JSON = array();
+		foreach ($arrEncuestas as $numReg=>$registro) {	
+			$object = new stdClass();		
+			foreach ($registro as $key=>$valCampo){	
+				if(!is_null($valCampo) && ($valCampo != "" || $valCampo !=NULL) && ($valCampo == "SI" || $valCampo == "NO" || $valCampo == "NA"))
+				{
+					$totalAnswered++;
+				}
+				if ($key == "hospital"){
+					$hospital = $valCampo;
+				}
+				if ($key == "nombre"){
+					$nombre_hospital = $valCampo;
+				}				
+			}
+			$object->hospital = $hospital;
+			$object->nombre_hospital = $nombre_hospital; 
+			$object->cumplimiento = round($totalAnswered*100/169,2);
+			$hospital_JSON[] = $object;
+			$totalAnswered = 0;	
+		}
+		
+		// Custom sorting function
+		usort($hospital_JSON, function($a, $b) {
+			return $b->cumplimiento <=> $a->cumplimiento;
+		});
+
+		return $hospital_JSON;
 
 	}
 
@@ -1200,7 +1293,7 @@ class Encuesta{
 	{
 		
 		$query = "SELECT * FROM `core__indicador_iami` WHERE trimestre='".$trimeste."' AND hospital ='".$idHospital."' AND ano='".$year."'";	
-		//echo $query;exit();
+	//	echo $query;exit();
 		$arrEncuestas = Database::ejecutarQuerySelect($query);			
 		$rta = new StdClass();
 		$p1Good = 0;
@@ -1298,13 +1391,15 @@ class Encuesta{
 		$arrPaso9= array("p91","p92","p93","p94","p95","p96","p97","p98","p99","p910","p911","p912","p913","p914","p915","p916","p917","p918","p919");
 		$arrPaso10= array("p101","p102","p103","p104","p105","p106","p107","p108","p109","p1010","p1011","p1012","p1013","p1014","p1015","p1016");
 
-		$paso1Trimestre1 = $this->calcularCumplimientoPasos("primer",$idHospital,$arrPaso1,$year);
-
+		
 		$rta = new StdClass();
+	//	$rta->dataPaso1Trimestre1 = $this->calcularCumplimientoPasos("primer",$idHospital,$arrPaso1,$year);
+	
 		$rta->msg = '';  
 		try{
 			$rta->type = 'info';
 			$rta->dataPaso1Trimestre1 = $this->calcularCumplimientoPasos("primer",$idHospital,$arrPaso1,$year);
+		
 			$rta->dataPaso1Trimestre2 = $this->calcularCumplimientoPasos("segundo",$idHospital,$arrPaso1,$year);
 			$rta->dataPaso1Trimestre3 = $this->calcularCumplimientoPasos("tercero",$idHospital,$arrPaso1,$year);
 			$rta->dataPaso1Trimestre4 = $this->calcularCumplimientoPasos("cuarto",$idHospital,$arrPaso1,$year);
@@ -1527,7 +1622,7 @@ class Encuesta{
 			WHERE id_core__pasteurizacion_blh IS NULL AND gu.fk_aux__hospitales =".$hospital;
 		}
 
-		//echo $query;exit();
+	//	echo $query;exit();
 
 
  		$rta = new StdClass();

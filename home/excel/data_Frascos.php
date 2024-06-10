@@ -52,13 +52,13 @@ else
 
 
 try{
-    $dataEncuesta = Database::ejecutarQuerySelectVerificacion($consulta);  
+    $dataFrascos = Database::ejecutarQuerySelectVerificacion($consulta);  
 }catch(Exception $ex){
     echo  'error generando reporte';
 }  
   
 
-//print_r($dataEncuesta);
+//print_r($dataFrascos);
 //exit();
 
 // Create new PHPExcel object
@@ -97,7 +97,7 @@ $objPHPExcel->getActiveSheet()->setCellValue('M1','RESPONSABLE ACCION');
 
 
 $j=2;
-for ($i=0; $i < count($dataEncuesta); $i++) { 
+for ($i=0; $i < count($dataFrascos); $i++) { 
 
 	$cell1 = 'A'.$j; 
     $cell2 = 'B'.$j; 
@@ -112,19 +112,19 @@ for ($i=0; $i < count($dataEncuesta); $i++) {
     $cell11 = 'K'.$j; 
     $cell12 = 'L'.$j; 
     $cell13 = 'M'.$j; 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataEncuesta[$i]['id_frasco']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataEncuesta[$i]['fecha_creacion']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataEncuesta[$i]['nombreDonante']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataEncuesta[$i]['telefono']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataEncuesta[$i]['fecha_extraccion']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataEncuesta[$i]['cantidad']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataEncuesta[$i]['recoleccionEn']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataEncuesta[$i]['fecha_recepcion']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataEncuesta[$i]['DiasExtraccion']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataEncuesta[$i]['tipoLeche']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell11, $dataEncuesta[$i]['ResponsableRegistroDonacion']);
-    $objPHPExcel->getActiveSheet()->setCellValue($cell12, $dataEncuesta[$i]['accion']);   
-    $objPHPExcel->getActiveSheet()->setCellValue($cell13, $dataEncuesta[$i]['responsable_accion']);   
+    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataFrascos[$i]['id_frasco']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataFrascos[$i]['fecha_creacion']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataFrascos[$i]['nombreDonante']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataFrascos[$i]['telefono']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataFrascos[$i]['fecha_extraccion']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataFrascos[$i]['cantidad']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataFrascos[$i]['recoleccionEn']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataFrascos[$i]['fecha_recepcion']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataFrascos[$i]['DiasExtraccion']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataFrascos[$i]['tipoLeche']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell11, $dataFrascos[$i]['ResponsableRegistroDonacion']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell12, $dataFrascos[$i]['accion']);   
+    $objPHPExcel->getActiveSheet()->setCellValue($cell13, $dataFrascos[$i]['responsable_accion']);   
 
     
     $j++;	

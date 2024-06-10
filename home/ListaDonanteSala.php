@@ -140,7 +140,7 @@ if(isset($_SESSION['usuario_sesion'])){
             $("#menuListaDonanteSala").addClass("mm-active");                   
             $("#regBLH").addClass("mm-show");
             $('#listDonantes').DataTable({
-                "order": [[ 0, "desc" ]]
+                "order": [[ 6, "desc" ]]
             });	
         });
 

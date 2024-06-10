@@ -36,11 +36,10 @@ endif;
 						<div class="form-group input-group">
 							<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key fa-fw"></i></span></div>
 							<input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required />
-							<input type="hidden" name="token" id="token" value="<?php echo $token; ?>"/>
 						</div>	
 						<!-- Submit button with reCAPTCHA trigger -->			
 						<button type="submit" class="btn btn-lg btn-primary btn-block g-recaptcha" data-sitekey="6LfcN98pAAAAAOttg6DIYLTVVxX49rA3UUX0RSCr" data-callback='onSubmit' data-action='submit'>Acceder</button>
-						<img  class="img-fluid" src="imagenes/logo_head.png" alt="">
+						<img  class="img-fluid" src="imagenes/logo-gobernacion_.png" alt="">
 						<label id="copy">Copyright &copy; <script>document.write(new Date().getFullYear())</script>, Todos los derechos reservados.</label>
 				</form>					
 			</div>				

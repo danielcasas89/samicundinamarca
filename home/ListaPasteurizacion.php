@@ -208,18 +208,9 @@ if(isset($_SESSION['usuario_sesion'])){
 
 <script>
         $(document).ready(function() {
-            
-            $('.mm-active').removeClass('mm-active');
-            $("#menuPasteurizacion").addClass("mm-active");
 
-            $('#listDonantes').DataTable( {
-            "order": [[ 1, "desc" ]],
-            "pageLength": 25
-            
-            });
-
-            $('.passigID').click(function()
-            {
+            $('.passigID').on('click', function(event){           
+              
                 var ids = $(this).attr('data-id');
                 $.ajax({
                     url: '../php/services/Front.php',
@@ -232,6 +223,7 @@ if(isset($_SESSION['usuario_sesion'])){
                     },
                     success: function(rta){
                         console.warn(rta);
+                        console.warn("listarDetallePool");
                         $('#fk_atributos__estados').val(rta.data[0].fk_atributos__estados);
                         $('#id_core__pool_blh').val(rta.data[0].id_core__pool_blh);                        
                     },
@@ -246,6 +238,17 @@ if(isset($_SESSION['usuario_sesion'])){
                 });
             
             });
+
+            $('#listDonantes').DataTable( {
+            "order": [[ 1, "desc" ]],
+            "pageLength": 25
+            
+            });
+         
+            $('.mm-active').removeClass('mm-active');
+            $("#menuPasteurizacion").addClass("mm-active");
+
+
 
             $('.buttonBenef').click(function()
             {
@@ -297,8 +300,8 @@ if(isset($_SESSION['usuario_sesion'])){
                     },
                     success: function(rta){      
                         console.warn(rta);                
-                       // $('#exampleModal').modal('toggle');
-                        location.reload();
+                     
+                       location.reload();
 
                     },
                     error: function(objAjax, textStatus, strErrorThrown ){

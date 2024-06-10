@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
-	@require '../php/cabecera.php';
+	@require '../php/header.php';
 	?>
     <link href="https://demo.dashboardpack.com/architectui-html-pro/main.d810cf0ae7f39f28f336.css" rel="stylesheet">
                 <div class="app-main__outer">

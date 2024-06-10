@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
-	@require '../php/cabecera.php';
+	@require '../php/header.php';
 	?>
                 <div class="app-main__outer">
                     <div class="app-main__inner">
@@ -174,7 +174,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                     </select></div>                                                    
 
                                                     <div class=" form-group col-md-4 regis">   
-                                            <button type="submit" class="mt-2 btn btn-primary">Registrar Datos</button>
+                                            <button type="submit" class="mt-2 btn btn-primary">Actualizar</button>
                                             </div> 
                         </div>
 

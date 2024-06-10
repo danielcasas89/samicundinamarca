@@ -33,6 +33,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                 <th class="text-center">#</th>
                                                 <th class="text-center">Login</th>
                                                 <th class="text-center">Perfil</th>
+                                                <th class="text-center">Hospital</th>
                                                 <th class="text-center">Correo</th>
                                                 <th class="text-center">Último acceso</th>
                                                 <th class="text-center">Estado</th>
@@ -50,13 +51,16 @@ if(isset($_SESSION['usuario_sesion'])){
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>   
                                             <?php
-                                            $consulta="SELECT usuario.id__usuarios,nombre_perfiles,superior.nombre AS ns,usuario.nombre AS nu,usuario.mail,usuario.dependencia,usuario.telefono_contacto,
-                                                usuario.login,usuario.ultimo_acceso,atributos__estados.nombre AS ne,id__estados
-                                                FROM ((gestion__usuarios AS usuario INNER JOIN gestion__usuarios AS superior ON usuario.fk_gestion__usuarios=superior.id__usuarios)
-                                                INNER JOIN atributos__estados ON usuario.fk_atributos__estados=id__estados)
-                                                INNER JOIN gestion__perfiles ON usuario.fk_gestion__perfiles=id__perfiles ORDER BY  `usuario`.`id__usuarios` asc";
+                                            $consulta="SELECT usuario.id__usuarios,nombre_perfiles,superior.nombre AS ns,usuario.nombre AS nu,usuario.mail,usuario.dependencia,usuario.telefono_contacto,nombre_hospital,
+                                            usuario.login,usuario.ultimo_acceso,atributos__estados.nombre AS ne,id__estados
+                                            FROM ((gestion__usuarios AS usuario INNER JOIN gestion__usuarios AS superior ON usuario.fk_gestion__usuarios=superior.id__usuarios)
+                                            INNER JOIN atributos__estados ON usuario.fk_atributos__estados=id__estados)
+                                            INNER JOIN gestion__perfiles ON usuario.fk_gestion__perfiles=id__perfiles 
+                                            INNER JOIN aux__hospitales ON usuario.fk_aux__hospitales = aux__hospitales.id_hospital
+                                            ORDER BY  `usuario`.`id__usuarios` asc;";
                                             $resultado=mysqli_query($conexion,$consulta);
 
                                             
@@ -65,6 +69,7 @@ if(isset($_SESSION['usuario_sesion'])){
                     echo "<td>$usuario[id__usuarios]</td>";  
                     echo "<td>$usuario[login]</td>"; 
                     echo "<td>$usuario[nombre_perfiles]</td>";
+                    echo "<td>$usuario[nombre_hospital]</td>";
                     echo "<td>$usuario[mail]</td>";
                     if($usuario['ultimo_acceso']=='0000-00-00 00:00:00'){
                         echo "<TD><span class='label label-warning'>$usuario[ultimo_acceso]</span></td>";
@@ -109,6 +114,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                 <th class="text-center">#</th>
                                                 <th class="text-center">Login</th>
                                                 <th class="text-center">Perfil</th>
+                                                <th class="text-center">Hospital</th>
                                                 <th class="text-center">Correo</th>
                                                 <th class="text-center">Último acceso</th>
                                                 <th class="text-center">Estado</th>
@@ -140,7 +146,7 @@ if(isset($_SESSION['usuario_sesion'])){
             
             
             $('#userTables').DataTable({
-                "order": [[ 4, "desc" ]]
+                "order": [[ 5, "desc" ]]
                 });
 
             $('.passigID').click(function()

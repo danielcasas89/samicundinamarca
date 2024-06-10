@@ -1,11 +1,152 @@
-[26-Nov-2020 03:10:59 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/danielcasas89/public_html/fundacionceges.com/iami/includes/sesion.php on line 2
-[28-Nov-2020 02:36:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/danielcasas89/public_html/samicundinamarca.com/logout.php on line 2
-[28-Nov-2020 02:36:41 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/danielcasas89/public_html/samicundinamarca.com/logout.php on line 2
-[29-Dec-2022 14:20:01 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 19
-[29-Dec-2022 14:20:01 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, boolean given in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 57
-[29-Dec-2022 14:20:22 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 19
-[29-Dec-2022 14:20:22 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, boolean given in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 57
-[22-Jul-2023 21:16:02 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 19
-[22-Jul-2023 21:16:02 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, boolean given in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 57
-[23-Jul-2023 02:04:27 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 19
-[23-Jul-2023 02:04:27 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, boolean given in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 57
+[29-May-2024 12:01:21 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 12:25:10 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 12:45:14 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 13:13:03 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 13:20:28 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 13:24:20 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 14:35:32 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 14:41:57 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 15:37:22 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 15:38:02 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 16:32:50 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 16:48:12 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 17:32:53 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 17:39:17 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 17:55:56 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 18:43:47 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 19:41:07 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 19:47:00 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 19:53:53 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 19:55:01 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 20:10:13 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 97
+[29-May-2024 20:57:43 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 20:59:41 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 22:14:36 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 22:21:15 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 22:23:12 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 22:32:27 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 23:14:43 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 23:33:37 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[29-May-2024 23:40:08 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 00:29:04 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 02:43:23 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 12:21:31 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 13:01:12 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 13:38:18 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 97
+[30-May-2024 13:38:42 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 13:52:05 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 13:53:43 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 14:54:35 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 15:08:54 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 17:10:41 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 17:11:07 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 17:34:09 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 18:06:53 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 18:09:33 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 18:16:59 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 19:09:39 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 19:34:30 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 19:34:48 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 19:37:04 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 19:39:24 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 19:56:22 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 20:09:14 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 20:16:56 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 20:41:09 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 20:53:02 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 21:14:32 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 21:34:33 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 21:57:43 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 22:01:30 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 22:47:11 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 23:25:09 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[30-May-2024 23:34:51 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 12:04:30 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 12:14:59 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 12:15:18 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 13:00:10 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 13:08:34 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 13:12:03 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 97
+[31-May-2024 13:12:11 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 13:12:12 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 16:27:58 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 16:40:42 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 17:01:36 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 17:04:19 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 17:44:07 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 18:00:58 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 18:10:30 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 18:23:19 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 18:38:33 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 18:50:42 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 18:57:01 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 18:58:06 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 19:02:08 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 19:23:36 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 19:27:21 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 19:30:59 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 19:43:23 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 19:48:25 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 19:49:41 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 19:55:11 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 20:08:25 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 20:12:51 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 20:30:11 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 20:38:22 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 21:47:05 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 22:55:40 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 23:18:38 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[31-May-2024 23:38:42 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 12:46:30 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 12:48:20 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 13:01:07 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 13:16:00 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 14:09:31 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 14:21:17 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 15:02:44 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 15:03:21 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 15:44:50 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 15:49:34 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 15:50:42 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 15:54:10 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 16:21:40 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 16:41:12 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 16:57:54 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 17:02:47 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 17:22:53 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 17:55:51 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 17:58:08 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 18:37:32 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 18:43:20 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 20:25:36 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 21:58:50 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 22:11:13 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 22:12:50 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 22:17:22 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 22:26:57 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 22:31:52 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 23:12:53 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[01-Jun-2024 23:26:52 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[02-Jun-2024 00:30:21 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[02-Jun-2024 00:56:52 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[02-Jun-2024 01:11:59 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[02-Jun-2024 12:32:57 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[02-Jun-2024 12:46:16 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[02-Jun-2024 12:47:04 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[02-Jun-2024 12:48:13 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[02-Jun-2024 13:40:12 UTC] PHP Notice:  Undefined index: nombre_hospital in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 73
+[02-Jun-2024 13:50:42 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 52
+[02-Jun-2024 13:50:42 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, boolean given in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 89
+[02-Jun-2024 13:50:57 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 52
+[02-Jun-2024 13:50:57 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, boolean given in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 89
+[02-Jun-2024 16:32:31 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 98
+[02-Jun-2024 23:25:04 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 98
+[05-Jun-2024 22:01:31 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 98
+[07-Jun-2024 19:46:55 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 98
+[07-Jun-2024 20:21:53 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 98
+[07-Jun-2024 21:49:38 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 98
+[07-Jun-2024 21:49:42 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 98
+[07-Jun-2024 21:49:58 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 98
+[07-Jun-2024 21:50:00 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 98
+[07-Jun-2024 21:51:36 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 98
+[09-Jun-2024 14:22:48 UTC] PHP Warning:  Creating default object from empty value in /home/danielcasas89/public_html/samicundinamarca.com/start_session.php on line 98

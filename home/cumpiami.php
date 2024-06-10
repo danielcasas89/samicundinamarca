@@ -3,6 +3,9 @@ session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/cabecera.php';
 	?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
                 <div class="app-main__outer">
                     <div class="app-main__inner">
                         <div class="app-page-title">
@@ -41,8 +44,9 @@ if(isset($_SESSION['usuario_sesion'])){
                                                 <form id="registro_paso">
                                                 <div class="form-row">
                                                     <div class=" form-group col-md-6 regis">
-                                                        <label for="hospital" class="">Seleccione un Hospital:</label>                                                       
-                                                         <select id='hospital' required name='hospital' class='form-control' >
+                                                        <label for="hospitalIami" class="">Seleccione un Hospital:</label>                                                       
+                                                         <select id='hospitalIami' required name='hospitalIami' class='form-control' >
+                                                            
                                                         </select>
                                                     </div> 
                                                     <div class=" form-group col-md-6 regis">
@@ -52,6 +56,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                                 <option value='2021'>2021</option>
                                                                 <option value='2022'>2022</option>
                                                                 <option value='2023'>2023</option>
+                                                                <option value='2024'>2024</option>
                                                         </select>
                                                     </div>   
 
@@ -178,17 +183,17 @@ if(isset($_SESSION['usuario_sesion'])){
                 success: function(rta){
                     if (rta.perfil == "IAMII")
                     {                          
-                        $("#hospital").append("<option value='"+rta.data[0].id_hospital+"'>"+rta.data[0].nombre_hospital+"</option>");
-                        $('#hospital').prop('disabled',true);
+                        $("#hospitalIami").append("<option value='"+rta.data[0].id_hospital+"'>"+rta.data[0].nombre_hospital+"</option>");
+                        $('#hospitalIami').prop('disabled',true);
                     }
                     else
                     {                        
-                        $("#hospital").append("<option value=''>--</option>");
+                        $("#hospihospitalIamital").append("<option value=''>--</option>");
                         for(var i=0;i<rta.data.length;i++){
-                            $("#hospital").append("<option value='"+rta.data[i].id_hospital+"'>"+rta.data[i].nombre_hospital+"</option>");
+                            $("#hospitalIami").append("<option value='"+rta.data[i].id_hospital+"'>"+rta.data[i].nombre_hospital+"</option>");
                         }
                     }
-                    $('#hospital').trigger("change");
+                    $('#hospitalIami').trigger("change");
                 },
                 error: function(objAjax, textStatus, strErrorThrown ){
                     //console.debug(textStatus);
@@ -201,9 +206,9 @@ if(isset($_SESSION['usuario_sesion'])){
             });
         }
 
-        $('#hospital, #year').change(function()
+        $('#hospitalIami, #year').change(function()
         {
-            var hospital = $('#hospital').val();
+            var hospital = $('#hospitalIami').val();
             var year = $('#year').val();
             var values = {};
 
@@ -307,7 +312,10 @@ if(isset($_SESSION['usuario_sesion'])){
                         });
 
                 },
-                error: function(objAjax, textStatus, strErrorThrown ){
+                error: function(rta ){
+                    
+                    console.warn(" error cumpiiami");
+                    console.warn(rta);
                     if(typeof callbackError != 'undefined'){
                         callbackError(textStatus);
                     }else{

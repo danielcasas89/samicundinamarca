@@ -39,7 +39,7 @@ else
 //echo $consulta;exit();
 
 try{
-    $dataEncuesta = Database::ejecutarQuerySelectVerificacion($consulta);  
+    $dataListaTemp = Database::ejecutarQuerySelectVerificacion($consulta);  
 }catch(Exception $ex){
     echo  'error generando reporte';
 }  
@@ -78,7 +78,7 @@ $objPHPExcel->getActiveSheet()->setCellValue('I1','USUARIO REGISTRO');
 $objPHPExcel->getActiveSheet()->setCellValue('J1','HOSPITAL');
 
 $j=2;
-for ($i=0; $i < count($dataEncuesta); $i++) 
+for ($i=0; $i < count($dataListaTemp); $i++) 
 {
 	$cell1 = 'A'.$j; 
     $cell2 = 'B'.$j; 
@@ -90,16 +90,16 @@ for ($i=0; $i < count($dataEncuesta); $i++)
     $cell8 = 'H'.$j; 
     $cell9 = 'I'.$j; 
     $cell10 = 'J'.$j; 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataEncuesta[$i]['identificacion']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataEncuesta[$i]['equipo']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataEncuesta[$i]['fecha']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataEncuesta[$i]['hora']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataEncuesta[$i]['temp_actual']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataEncuesta[$i]['temp_minima']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataEncuesta[$i]['temp_maxima']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataEncuesta[$i]['fechaRegistro']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataEncuesta[$i]['UsuarioRegistro']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataEncuesta[$i]['nombre_hospital']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataListaTemp[$i]['identificacion']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataListaTemp[$i]['equipo']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataListaTemp[$i]['fecha']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataListaTemp[$i]['hora']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataListaTemp[$i]['temp_actual']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataListaTemp[$i]['temp_minima']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataListaTemp[$i]['temp_maxima']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataListaTemp[$i]['fechaRegistro']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataListaTemp[$i]['UsuarioRegistro']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataListaTemp[$i]['nombre_hospital']); 
     $j++;	
 }
 

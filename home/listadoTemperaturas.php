@@ -75,7 +75,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                 FROM core__temperaturas ct
                                                 INNER JOIN core__equipos ce ON ct.fk_equipos = ce.id_core__equipos
                                                 INNER JOIN gestion__usuarios gu ON ct.creado_por = gu.id__usuarios
-                                                WHERE gu.fk_aux__hospitales =".$hospital;
+                                                WHERE gu.fk_aux__hospitales ='".$hospital."' ORDER BY ct.fecha_creacion  ";
                                               
                                             }
                                             $resultado=mysqli_query($conexion,$consulta);
@@ -176,7 +176,7 @@ if(isset($_SESSION['usuario_sesion'])){
             
             $('#listDonantes').DataTable({
 
-                "order": [[ 2, "asc" ]]
+                "order": [[ 3, "desc" ]]
             });	
 
             

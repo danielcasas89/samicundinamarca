@@ -45,13 +45,248 @@ const autenticar = function () {
     },
     error: function (rta) {
       console.debug(rta);
-      alert("Error en la conexion");
+      alert(rta);
     },
   });
 };
 
 $(document).ready(function () {
-  $("#formLogin").submit(function (ev) {
+  function listarHospitales() {
+    console.warn("listar hospitales");
+    $.ajax({
+      url: "../php/services/Front.php",
+      type: "POST",
+      async: true,
+      dataType: "json",
+      data: {
+        command: "listarHospitalUsuario",
+      },
+      success: function (rta) {
+        console.warn(rta);
+        if (rta.perfil == "IAMII") {
+          $("#mostrarHospital").html(rta.data[0].nombre_hospital);
+          $("#hospital").append(
+            "<option value='" +
+              rta.data[0].id_hospital +
+              "'>" +
+              rta.data[0].nombre_hospital +
+              "</option>"
+          );
+          $("#hospital").prop("disabled", true);
+        }
+        $("#hospital").trigger("change");
+      },
+      error: function (objAjax, textStatus, strErrorThrown) {
+        //console.debug(textStatus);
+        if (typeof callbackError != "undefined") {
+          callbackError(textStatus);
+        } else {
+          alert("Error en la conexion con el servidor: " + textStatus);
+        }
+      },
+    });
+  }
+
+  $("#hospital").change(function () {
+    var hospital = $("#hospital").val();
+    const currentYear = new Date();
+
+    var values = {};
+    if (hospital == "") {
+      return;
+    }
+
+    $("table > tbody > tr").each(function () {
+      $(this)
+        .children("td")
+        .each(function () {
+          $(this).html("");
+          $(this).css("background-color", "white");
+        });
+    });
+    $.ajax({
+      url: "../php/services/Front.php",
+      type: "POST",
+      async: true,
+      dataType: "json",
+      data: {
+        command: "cumplimientoIami",
+        hospital: hospital,
+        year: currentYear.getFullYear(),
+      },
+      success: function (rta) {
+        console.warn("cumplimientoIami");
+        console.warn(rta);
+        $("#dilig1").html(
+          rta.dataDiligTrimestre1.diligenciamiento.toFixed(1) + "%"
+        );
+        $("#dilig2").html(
+          rta.dataDiligTrimestre2.diligenciamiento.toFixed(1) + "%"
+        );
+        $("#dilig3").html(
+          rta.dataDiligTrimestre3.diligenciamiento.toFixed(1) + "%"
+        );
+        $("#dilig4").html(
+          rta.dataDiligTrimestre4.diligenciamiento.toFixed(1) + "%"
+        );
+        $("#paso1tr1").html(
+          rta.dataPaso1Trimestre1.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso1tr2").html(
+          rta.dataPaso1Trimestre2.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso1tr3").html(
+          rta.dataPaso1Trimestre3.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso1tr4").html(
+          rta.dataPaso1Trimestre4.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso2tr1").html(
+          rta.dataPaso2Trimestre1.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso2tr2").html(
+          rta.dataPaso2Trimestre2.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso2tr3").html(
+          rta.dataPaso2Trimestre3.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso2tr4").html(
+          rta.dataPaso2Trimestre4.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso3tr1").html(
+          rta.dataPaso3Trimestre1.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso3tr2").html(
+          rta.dataPaso3Trimestre2.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso3tr3").html(
+          rta.dataPaso3Trimestre3.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso3tr4").html(
+          rta.dataPaso3Trimestre4.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso4tr1").html(
+          rta.dataPaso4Trimestre1.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso4tr2").html(
+          rta.dataPaso4Trimestre2.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso4tr3").html(
+          rta.dataPaso4Trimestre3.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso4tr4").html(
+          rta.dataPaso4Trimestre4.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso5tr1").html(
+          rta.dataPaso5Trimestre1.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso5tr2").html(
+          rta.dataPaso5Trimestre2.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso5tr3").html(
+          rta.dataPaso5Trimestre3.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso5tr4").html(
+          rta.dataPaso5Trimestre4.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso6tr1").html(
+          rta.dataPaso6Trimestre1.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso6tr2").html(
+          rta.dataPaso6Trimestre2.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso6tr3").html(
+          rta.dataPaso6Trimestre3.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso6tr4").html(
+          rta.dataPaso6Trimestre4.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso7tr1").html(
+          rta.dataPaso7Trimestre1.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso7tr2").html(
+          rta.dataPaso7Trimestre2.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso7tr3").html(
+          rta.dataPaso7Trimestre3.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso7tr4").html(
+          rta.dataPaso7Trimestre4.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso8tr1").html(
+          rta.dataPaso8Trimestre1.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso8tr2").html(
+          rta.dataPaso8Trimestre2.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso8tr3").html(
+          rta.dataPaso8Trimestre3.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso8tr4").html(
+          rta.dataPaso8Trimestre4.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso9tr1").html(
+          rta.dataPaso9Trimestre1.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso9tr2").html(
+          rta.dataPaso9Trimestre2.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso9tr3").html(
+          rta.dataPaso9Trimestre3.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso9tr4").html(
+          rta.dataPaso9Trimestre4.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso10tr1").html(
+          rta.dataPaso10Trimestre1.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso10tr2").html(
+          rta.dataPaso10Trimestre2.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso10tr3").html(
+          rta.dataPaso10Trimestre3.cumplimiento.toFixed(1) + "%"
+        );
+        $("#paso10tr4").html(
+          rta.dataPaso10Trimestre4.cumplimiento.toFixed(1) + "%"
+        );
+
+        $("table > tbody > tr").each(function () {
+          $(this)
+            .children("td")
+            .each(function () {
+              var data = $(this).html();
+              var res = data.replace("%", "");
+              if (res == 0.0) {
+                $(this).css("background-color", "white");
+                $(this).css("color", "black");
+              } else if (res > 0 && res <= 59) {
+                $(this).css("background-color", "rgb(241 87 87)");
+                $(this).css("color", "white");
+              } else if (res >= 60 && res <= 79) {
+                $(this).css("background-color", "yellow");
+                $(this).css("color", "black");
+              } else if (res >= 80) {
+                $(this).css("background-color", "rgb(74 171 74)");
+                $(this).css("color", "white");
+              }
+            });
+        });
+      },
+      error: function (objAjax, textStatus, strErrorThrown) {
+        if (typeof callbackError != "undefined") {
+          callbackError(textStatus);
+        } else {
+          alert("Error en la conexion con el servidor: " + textStatus);
+        }
+      },
+    });
+
+    return false;
+  });
+
+  listarHospitales();
+
+  $("#formulario").submit(function (ev) {
     ev.preventDefault();
     autenticar();
   });

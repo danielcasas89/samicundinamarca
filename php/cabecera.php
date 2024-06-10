@@ -25,29 +25,25 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
 	<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-    
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>    
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/drilldown.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>  
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>  
 
 <!-- Start of  Zendesk Widget script -->
 <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=49e28534-a39f-4b5d-afe7-a1a7e402258b"> </script>
 <!-- End of  Zendesk Widget script -->
 
-
-
 </head>
-<body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
             <a href="index.php" class="mm-active"><div class="logo-src">
-                <img  class="img-fluid" src="imagenes/logo_head.png" alt="">
+                <img  class="img-fluid" src="../imagenes/logo_head.png" alt="">
                 </div></a>
                 <div class="header__pane ml-auto">
                     <div>
@@ -79,20 +75,23 @@ session_start();
             </div>    <div class="app-header__content">
                 <div class="app-header-left">
                     <div class="search-wrapper">
-                        <div class="input-holder">
+                    <span class="badge badge-pill badge-primary"><?php echo ucwords(str_replace("_"," ",$_SESSION['nombre_hospital']));?></span>
+                      <!--  <div class="input-holder">
                             <input type="text" class="search-input" placeholder="Type to search">
                             <button class="search-icon"><span></span></button>
                         </div>
-                        <button class="close"></button>
+                        <button class="close"></button>-->
                     </div>
-                    <ul class="header-menu nav">
+                    
+                   <!-- <ul class="header-menu nav">
                         <li class="dropdown nav-item">
                             <a href="javascript:void(0);" class="nav-link">
                                 <i class="nav-link-icon fa fa-cog"></i>
                                 Configuracion
                             </a>
                         </li>
-                    </ul>        </div>
+                    </ul> -->       
+                </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
                         <div class="widget-content p-0">
@@ -314,31 +313,7 @@ session_start();
                                 <?php                                 
                                     if($_SESSION['perfil'] == 'Banco de leche' || $_SESSION['perfil'] == 'Administrador Sistema'){
                                 ?>
-                                <li class="app-sidebar__heading">Bancos de Leche</li>
-                                <!--<li>
-                                    <a id="menuRegistroDonantes" href="registroDonantesBLH.php">
-                                        <i class="metismenu-icon pe-7s-mouse">
-                                        </i>Registro Donantes BLH
-                                    </a>
-                                </li>
-                                <li>
-                                    <a id="menuListaDonantes" href="ListaDonantes.php">
-                                        <i class="metismenu-icon pe-7s-note2">
-                                        </i>Lista de Donantes
-                                    </a>
-                                </li>
-                                <li>
-                                    <a id="menuRegistroDonaciones" href="donacionblh.php">
-                                        <i class="metismenu-icon pe-7s-mouse">
-                                        </i>Registro Donación BLH
-                                    </a>
-                                </li>
-                                <li>
-                                    <a id="menuListaFrascos" href="listaFrascosblh.php">
-                                        <i class="metismenu-icon pe-7s-note2">
-                                        </i>Lista de Frascos BLH
-                                    </a>
-                                </li>-->
+                                <li class="app-sidebar__heading">Bancos de Leche</li>                               
                                 <li>
                                     <a id="menuRegistroProcesamiento" href="procesamientoblh.php">
                                         <i class="metismenu-icon pe-7s-display2">
@@ -586,8 +561,7 @@ session_start();
                                             </a>
                                         </li>
                                     </ul>
-                                </li>                                
-                                
+                                </li>
                                 <?php
                                     }
                                     if($_SESSION['perfil'] == 'Canguro' || $_SESSION['perfil'] == 'Administrador Sistema'){

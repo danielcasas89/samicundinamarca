@@ -28,7 +28,7 @@ if(!empty($_POST['g-recaptcha-response'])){
 	// Decode JSON data of API response in array 
 	$responseData = json_decode($response); 
 	// If the reCAPTCHA API response is valid 
-	if(!empty($responseData) && $responseData->success && $responseData->score >= 0.5){ 
+	if(!empty($responseData) && $responseData->success && $responseData->score>= 0.5){ 
 
 		if(isset($_REQUEST['usuario']) && isset($_REQUEST['usuario'])){ 
 			$conexion = mysqli_connect("localhost", "admin_sami", "15demarzoDc5051", "sami_db");
@@ -40,10 +40,13 @@ if(!empty($_POST['g-recaptcha-response'])){
 			$rta = new stdClass();
 		
 			mysqli_set_charset($conexion, "utf8");
-			$consulta="SELECT *,gestion__usuarios.fk_atributos__estados AS estado,
+			$consulta="SELECT *,gestion__usuarios.fk_atributos__estados AS estado, nombre_hospital,
 				gestion__perfiles.fk_atributos__estados AS estado_perfil
-				FROM gestion__usuarios INNER JOIN gestion__perfiles ON fk_gestion__perfiles=id__perfiles
+				FROM gestion__usuarios 
+				INNER JOIN gestion__perfiles ON fk_gestion__perfiles=id__perfiles
+				INNER JOIN aux__hospitales ON gestion__usuarios.fk_aux__hospitales = aux__hospitales.id_hospital
 				AND login='$_REQUEST[usuario]' AND password=MD5('$_REQUEST[password]')";
+
 			//echo $consulta;exit();	
 			$resultado=mysqli_query($conexion,$consulta);
 			if($usuario = mysqli_fetch_array($resultado)){
@@ -68,8 +71,9 @@ if(!empty($_POST['g-recaptcha-response'])){
 					  $_SESSION['nombre']=$usuario['nombre'];	
 					$_SESSION['login_sesion']=$usuario['login'];
 					$_SESSION['fk_aux__hospitales']=$usuario['fk_aux__hospitales'];
-					   $_SESSION['perfil']=$usuario['nombre_perfiles'];
-					   session_write_close();
+					$_SESSION['nombre_hospital']=$usuario['nombre_hospital'];
+					$_SESSION['perfil']=$usuario['nombre_perfiles'];
+					session_write_close();
 		
 					$rta->type = 'info';
 					$rta->msg = '';

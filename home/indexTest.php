@@ -2,16 +2,16 @@
 
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
-    @require '../php/cabecera.php';
+    @require '../php/header.php';
     include_once('../php/classes/Encuesta.php');
 
-$estadistica = new Sami();
-$estadisticaIami = new Sami();
+$estadistica = new Encuesta();
+$estadisticaIami = new Encuesta();
 
 $resultado = $estadistica->listarTotalDonacionesBLHHospital();
 $resultadoDonantes = $estadistica->listarTotalDonantesBLHHospital();
 
-$estadisticaIami = new Sami();
+$estadisticaIami = new Encuesta();
 
 $resultadoIami = $estadisticaIami->calcularDiligenciamientoAll();
 

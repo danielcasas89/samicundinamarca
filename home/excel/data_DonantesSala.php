@@ -41,13 +41,13 @@ else
 //echo $query;exit();
 
 try{
-    $dataEncuesta = Database::ejecutarQuerySelectVerificacion($query);  
+    $dataDonantes = Database::ejecutarQuerySelectVerificacion($query);  
 }catch(Exception $ex){
     echo  'error generando reporte';
 }  
   
 
-//print_r($dataEncuesta);
+//print_r($dataDonantes);
 //exit();
 
 // Create new PHPExcel object
@@ -93,7 +93,7 @@ $objPHPExcel->getActiveSheet()->setCellValue('U1','FECHA PARTO');
 $objPHPExcel->getActiveSheet()->setCellValue('V1','ESTADO DONANTE');  
 
 $j=2;
-for ($i=0; $i < count($dataEncuesta); $i++) { 
+for ($i=0; $i < count($dataDonantes); $i++) { 
 
 	$cell1 = 'A'.$j; 
     $cell2 = 'B'.$j; 
@@ -118,28 +118,28 @@ for ($i=0; $i < count($dataEncuesta); $i++) {
     $cell21 = 'U'.$j; 
     $cell22 = 'V'.$j;
     $cell23 = 'W'.$j;
-    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataEncuesta[$i]['id_registro_blh']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataEncuesta[$i]['nombreUsuaria']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataEncuesta[$i]['documento']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataEncuesta[$i]['fecha_nacimiento']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataEncuesta[$i]['edad']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataEncuesta[$i]['telefono']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataEncuesta[$i]['celular']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataEncuesta[$i]['direccion']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataEncuesta[$i]['departamento']); 	
-    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataEncuesta[$i]['nombre_municipio']); 	
-    $objPHPExcel->getActiveSheet()->setCellValue($cell11, $dataEncuesta[$i]['profesion']); 	
-    $objPHPExcel->getActiveSheet()->setCellValue($cell12, $dataEncuesta[$i]['pesoBebe']);	  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell13, $dataEncuesta[$i]['nombreHijo']);
-    $objPHPExcel->getActiveSheet()->setCellValue($cell14, $dataEncuesta[$i]['controlPrenatal']); 	
-    $objPHPExcel->getActiveSheet()->setCellValue($cell15, $dataEncuesta[$i]['tipoIps']); 	
-    $objPHPExcel->getActiveSheet()->setCellValue($cell16, $dataEncuesta[$i]['control']);  		
-    $objPHPExcel->getActiveSheet()->setCellValue($cell17, $dataEncuesta[$i]['pesoInicial']); 	
-    $objPHPExcel->getActiveSheet()->setCellValue($cell18, $dataEncuesta[$i]['pesoFinal']); 	
-    $objPHPExcel->getActiveSheet()->setCellValue($cell19, $dataEncuesta[$i]['talla']); 	
-    $objPHPExcel->getActiveSheet()->setCellValue($cell20, $dataEncuesta[$i]['semanas']); 	
-    $objPHPExcel->getActiveSheet()->setCellValue($cell21, $dataEncuesta[$i]['fecha_parto']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell22, $dataEncuesta[$i]['nombre_estado']); 	
+    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataDonantes[$i]['id_registro_blh']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataDonantes[$i]['nombreUsuaria']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataDonantes[$i]['documento']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataDonantes[$i]['fecha_nacimiento']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataDonantes[$i]['edad']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataDonantes[$i]['telefono']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataDonantes[$i]['celular']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataDonantes[$i]['direccion']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataDonantes[$i]['departamento']); 	
+    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataDonantes[$i]['nombre_municipio']); 	
+    $objPHPExcel->getActiveSheet()->setCellValue($cell11, $dataDonantes[$i]['profesion']); 	
+    $objPHPExcel->getActiveSheet()->setCellValue($cell12, $dataDonantes[$i]['pesoBebe']);	  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell13, $dataDonantes[$i]['nombreHijo']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell14, $dataDonantes[$i]['controlPrenatal']); 	
+    $objPHPExcel->getActiveSheet()->setCellValue($cell15, $dataDonantes[$i]['tipoIps']); 	
+    $objPHPExcel->getActiveSheet()->setCellValue($cell16, $dataDonantes[$i]['control']);  		
+    $objPHPExcel->getActiveSheet()->setCellValue($cell17, $dataDonantes[$i]['pesoInicial']); 	
+    $objPHPExcel->getActiveSheet()->setCellValue($cell18, $dataDonantes[$i]['pesoFinal']); 	
+    $objPHPExcel->getActiveSheet()->setCellValue($cell19, $dataDonantes[$i]['talla']); 	
+    $objPHPExcel->getActiveSheet()->setCellValue($cell20, $dataDonantes[$i]['semanas']); 	
+    $objPHPExcel->getActiveSheet()->setCellValue($cell21, $dataDonantes[$i]['fecha_parto']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell22, $dataDonantes[$i]['nombre_estado']); 	
     $j++;	
 }
 

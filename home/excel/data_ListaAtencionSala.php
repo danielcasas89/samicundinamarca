@@ -1,12 +1,9 @@
 <?php
 session_start();
 
-
 $idUsuario = $_SESSION['login_sesion'];
 $perfil = $_SESSION['perfil'];
 $hospital = $_SESSION['fk_aux__hospitales'];
-
-
 
 /** Error reporting */
 error_reporting(E_ALL);
@@ -47,13 +44,13 @@ else
   //  echo $query;exit();
 
 try{
-    $dataEncuesta = Database::ejecutarQuerySelectVerificacion($query);  
+    $dataAtenciones = Database::ejecutarQuerySelectVerificacion($query);  
 }catch(Exception $ex){
     echo  'error generando reporte';
 }  
   
 
-//print_r($dataEncuesta);
+//print_r($dataAtenciones);
 //exit();
 
 // Create new PHPExcel object
@@ -98,7 +95,7 @@ $objPHPExcel->getActiveSheet()->setCellValue('T1','HOSPITAL');
 
 
 $j=2;
-for ($i=0; $i < count($dataEncuesta); $i++) { 
+for ($i=0; $i < count($dataAtenciones); $i++) { 
 
 	$cell1 = 'A'.$j; 
     $cell2 = 'B'.$j; 
@@ -120,26 +117,26 @@ for ($i=0; $i < count($dataEncuesta); $i++) {
     $cell18 = 'R'.$j; 
     $cell19 = 'S'.$j;  
     $cell20 = 'T'.$j;  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataEncuesta[$i]['id_core__atencion_sala']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataEncuesta[$i]['nombre']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataEncuesta[$i]['documento']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataEncuesta[$i]['fecha_parto']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataEncuesta[$i]['fecha_atencion']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataEncuesta[$i]['hora_llegada']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataEncuesta[$i]['hora_salida']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataEncuesta[$i]['atencion_prestada']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataEncuesta[$i]['tipo_extraccion']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataEncuesta[$i]['tipoLeche']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell11, $dataEncuesta[$i]['cantidad']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell12, $dataEncuesta[$i]['destino_leche']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell13, $dataEncuesta[$i]['observaciones']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell14, $dataEncuesta[$i]['responsableAtencion']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell15, $dataEncuesta[$i]['accion']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell16, $dataEncuesta[$i]['DiasExtraccion']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell17, $dataEncuesta[$i]['responsable_accion']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell18, $dataEncuesta[$i]['fecha_accion']);    
-    $objPHPExcel->getActiveSheet()->setCellValue($cell19, $dataEncuesta[$i]['estadoAtencion']);    
-    $objPHPExcel->getActiveSheet()->setCellValue($cell20, $dataEncuesta[$i]['nombre_hospital']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataAtenciones[$i]['id_core__atencion_sala']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataAtenciones[$i]['nombre']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataAtenciones[$i]['documento']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataAtenciones[$i]['fecha_parto']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataAtenciones[$i]['fecha_atencion']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataAtenciones[$i]['hora_llegada']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataAtenciones[$i]['hora_salida']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataAtenciones[$i]['atencion_prestada']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataAtenciones[$i]['tipo_extraccion']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataAtenciones[$i]['tipoLeche']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell11, $dataAtenciones[$i]['cantidad']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell12, $dataAtenciones[$i]['destino_leche']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell13, $dataAtenciones[$i]['observaciones']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell14, $dataAtenciones[$i]['responsableAtencion']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell15, $dataAtenciones[$i]['accion']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell16, $dataAtenciones[$i]['DiasExtraccion']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell17, $dataAtenciones[$i]['responsable_accion']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell18, $dataAtenciones[$i]['fecha_accion']);    
+    $objPHPExcel->getActiveSheet()->setCellValue($cell19, $dataAtenciones[$i]['estadoAtencion']);    
+    $objPHPExcel->getActiveSheet()->setCellValue($cell20, $dataAtenciones[$i]['nombre_hospital']);  
     $j++;	
 }
 

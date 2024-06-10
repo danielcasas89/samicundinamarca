@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
-	@require '../php/cabecera.php';
+	@require '../php/header.php';
 	?>
                 <div class="app-main__outer">
                     <div class="app-main__inner">

@@ -35,13 +35,13 @@ else
 
 //echo $consulta;exit();
 try{
-    $dataEncuesta = Database::ejecutarQuerySelectVerificacion($consulta);  
+    $dataLista = Database::ejecutarQuerySelectVerificacion($consulta);  
 }catch(Exception $ex){
     echo  'error generando reporte';
 }  
   
 
-//print_r($dataEncuesta);
+//print_r($dataLista);
 //exit();
 
 // Create new PHPExcel object
@@ -81,7 +81,7 @@ $objPHPExcel->getActiveSheet()->setCellValue('Q1', 'KCAL');
 
 
 $j=2;
-for ($i=0; $i < count($dataEncuesta); $i++) { 
+for ($i=0; $i < count($dataLista); $i++) { 
 	$cell1 = 'A'.$j; 
     $cell2 = 'B'.$j; 
     $cell3 = 'C'.$j; 
@@ -100,23 +100,23 @@ for ($i=0; $i < count($dataEncuesta); $i++) {
     $cell16 = 'P'.$j; 
     $cell17 = 'Q'.$j; 
 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataEncuesta[$i]['frasco_pasteurizado']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataEncuesta[$i]['cantidad']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataEncuesta[$i]['acidez1']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataEncuesta[$i]['acidez2']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataEncuesta[$i]['acidez3']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataEncuesta[$i]['media']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataEncuesta[$i]['resultado']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataEncuesta[$i]['ct1']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataEncuesta[$i]['ct2']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataEncuesta[$i]['ct3']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell11, $dataEncuesta[$i]['mediact']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell12, $dataEncuesta[$i]['cc1']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell13, $dataEncuesta[$i]['cc2']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell14, $dataEncuesta[$i]['cc3']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell15, $dataEncuesta[$i]['mediacc']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell16, $dataEncuesta[$i]['crema']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell17, $dataEncuesta[$i]['kcal']);   
+    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataLista[$i]['frasco_pasteurizado']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataLista[$i]['cantidad']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataLista[$i]['acidez1']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataLista[$i]['acidez2']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataLista[$i]['acidez3']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataLista[$i]['media']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataLista[$i]['resultado']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataLista[$i]['ct1']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataLista[$i]['ct2']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataLista[$i]['ct3']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell11, $dataLista[$i]['mediact']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell12, $dataLista[$i]['cc1']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell13, $dataLista[$i]['cc2']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell14, $dataLista[$i]['cc3']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell15, $dataLista[$i]['mediacc']); 
+    $objPHPExcel->getActiveSheet()->setCellValue($cell16, $dataLista[$i]['crema']);  
+    $objPHPExcel->getActiveSheet()->setCellValue($cell17, $dataLista[$i]['kcal']);   
     $j++;	
 }
 

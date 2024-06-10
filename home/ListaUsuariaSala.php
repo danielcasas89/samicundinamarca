@@ -127,7 +127,8 @@ if(isset($_SESSION['usuario_sesion'])){
             $('.mm-active').removeClass('mm-active');
             $("#menuListaUsuarias").addClass("mm-active");
             $("#regAtencSala").addClass("mm-show");
-            $('#listDonantes').DataTable({
+            $('#listDonantes').DataTable({                
+                "pageLength": 20,
                 "order": [[ 5, "asc" ]]
             });	
 
