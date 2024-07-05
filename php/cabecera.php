@@ -4,7 +4,7 @@ require '../includes/Basedatos.php';
 require '../php/classes/Database.php';
 $conexion=conectar();
 session_write_close();
-session_start(); 
+session_start();
 ?>
 <!doctype html>
 <html lang="es">
@@ -21,29 +21,25 @@ session_start();
     <link href="./main.css" rel="stylesheet">
     <link href="./styles.css" rel="stylesheet">
     <script src="../librerias/jquery/jquery-1.11.2.min.js"></script>
-    <script src="../js/funciones.js"></script> 
+    <script src="../js/funciones.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
 	<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>    
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script src="https://code.highcharts.com/modules/drilldown.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>  
-
-<!-- Start of  Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=49e28534-a39f-4b5d-afe7-a1a7e402258b"> </script>
-<!-- End of  Zendesk Widget script -->
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 </head>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
             <a href="index.php" class="mm-active"><div class="logo-src">
-                <img  class="img-fluid" src="../imagenes/logo_head.png" alt="">
+                <img  class="img-fluid" src="../images/logo_head.png" alt="">
                 </div></a>
                 <div class="header__pane ml-auto">
                     <div>
@@ -76,27 +72,12 @@ session_start();
                 <div class="app-header-left">
                     <div class="search-wrapper">
                     <span class="badge badge-pill badge-primary"><?php echo ucwords(str_replace("_"," ",$_SESSION['nombre_hospital']));?></span>
-                      <!--  <div class="input-holder">
-                            <input type="text" class="search-input" placeholder="Type to search">
-                            <button class="search-icon"><span></span></button>
-                        </div>
-                        <button class="close"></button>-->
                     </div>
-                    
-                   <!-- <ul class="header-menu nav">
-                        <li class="dropdown nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-cog"></i>
-                                Configuracion
-                            </a>
-                        </li>
-                    </ul> -->       
                 </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
                         <div class="widget-content p-0">
                             <div class="widget-content-wrapper">
-                                
                             <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
                                     <?php echo ucwords(str_replace("_"," ",$_SESSION['nombre']));?>
@@ -128,139 +109,6 @@ session_start();
                     <div class="theme-settings__options-wrapper">
                         <h3 class="themeoptions-heading">Layout Options
                         </h3>
-                        <div class="p-3">
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left mr-3">
-                                                <div class="switch has-switch switch-container-class" data-class="fixed-header">
-                                                    <div class="switch-animate switch-on">
-                                                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="success">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-content-left">
-                                                <div class="widget-heading">Fixed Header
-                                                </div>
-                                                <div class="widget-subheading">Makes the header top fixed, always visible!
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left mr-3">
-                                                <div class="switch has-switch switch-container-class" data-class="fixed-sidebar">
-                                                    <div class="switch-animate switch-on">
-                                                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="success">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-content-left">
-                                                <div class="widget-heading">Fixed Sidebar
-                                                </div>
-                                                <div class="widget-subheading">Makes the sidebar left fixed, always visible!
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left mr-3">
-                                                <div class="switch has-switch switch-container-class" data-class="fixed-footer">
-                                                    <div class="switch-animate switch-off">
-                                                        <input type="checkbox" data-toggle="toggle" data-onstyle="success">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-content-left">
-                                                <div class="widget-heading">Fixed Footer
-                                                </div>
-                                                <div class="widget-subheading">Makes the app footer bottom fixed, always visible!
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <h3 class="themeoptions-heading">
-                            <div>
-                                Header Options
-                            </div>
-                            <button type="button" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-header-cs-class" data-class="">
-                                Restore Default
-                            </button>
-                        </h3>
-                        <div class="p-3">
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <h5 class="pb-2">Choose Color Scheme
-                                    </h5>
-                                    <div class="theme-settings-swatches">
-                                        <div class="swatch-holder bg-primary switch-header-cs-class" data-class="bg-primary header-text-light">
-                                        </div>
-                                        <div class="swatch-holder bg-secondary switch-header-cs-class" data-class="bg-secondary header-text-light">
-                                        </div>
-                                        <div class="swatch-holder bg-happy-green switch-header-cs-class" data-class="bg-happy-green header-text-light">
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <h3 class="themeoptions-heading">
-                            <div>Sidebar Options</div>
-                            <button type="button" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-sidebar-cs-class" data-class="">
-                                Restore Default
-                            </button>
-                        </h3>
-                        <div class="p-3">
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <h5 class="pb-2">Choose Color Scheme
-                                    </h5>
-                                    <div class="theme-settings-swatches">
-                                        <div class="swatch-holder bg-primary switch-sidebar-cs-class" data-class="bg-primary sidebar-text-light">
-                                        </div>
-                                       
-                                        <div class="swatch-holder bg-slick-carbon switch-sidebar-cs-class" data-class="bg-slick-carbon sidebar-text-light">
-                                        </div>
-                                        <div class="swatch-holder bg-asteroid switch-sidebar-cs-class" data-class="bg-asteroid sidebar-text-light">
-                                        </div>
-                                        <div class="swatch-holder bg-malibu-beach switch-sidebar-cs-class" data-class="bg-malibu-beach sidebar-text-light">
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <h3 class="themeoptions-heading">
-                            <div>Main Content Options</div>
-                            <button type="button" class="btn-pill btn-shadow btn-wide ml-auto active btn btn-focus btn-sm">Restore Default
-                            </button>
-                        </h3>
-                        <div class="p-3">
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <h5 class="pb-2">Page Section Tabs
-                                    </h5>
-                                    <div class="theme-settings-swatches">
-                                        <div role="group" class="mt-2 btn-group">
-                                            <button type="button" class="btn-wide btn-shadow btn-primary btn btn-secondary switch-theme-class" data-class="body-tabs-line">
-                                                Line
-                                            </button>
-                                            <button type="button" class="btn-wide btn-shadow btn-primary active btn btn-secondary switch-theme-class" data-class="body-tabs-shadow">
-                                                Shadow
-                                            </button>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -310,10 +158,10 @@ session_start();
                                         Datos Generales
                                     </a>
                                 </li>
-                                <?php                                 
+                                <?php
                                     if($_SESSION['perfil'] == 'Banco de leche' || $_SESSION['perfil'] == 'Administrador Sistema'){
                                 ?>
-                                <li class="app-sidebar__heading">Bancos de Leche</li>                               
+                                <li class="app-sidebar__heading">Bancos de Leche</li>
                                 <li>
                                     <a id="menuRegistroProcesamiento" href="procesamientoblh.php">
                                         <i class="metismenu-icon pe-7s-display2">
@@ -383,7 +231,7 @@ session_start();
                                                 <i class="metismenu-icon pe-7s-note2">
                                                 </i>Lista de Beneficiarios
                                             </a>
-                                        </li>                                       
+                                        </li>
                                         <li>
                                             <a id="menuLhpDisponible" href="lhpDisponible.php">
                                                 <i class="metismenu-icon pe-7s-note2">
@@ -392,18 +240,18 @@ session_start();
                                         </li>
                                     </ul>
                                 </li>
-                                
+
                                 <li>
                                     <a id="menuReportesBlh"  href="reportesBlh.php">
                                         <i class="metismenu-icon pe-7s-display2">
                                         </i>Reportes
                                     </a>
                                 </li>
-                                <?php  
-                                }                                 
+                                <?php
+                                }
                                     if($_SESSION['perfil'] == 'Sala de Extraccion' || $_SESSION['perfil'] == 'Administrador Sistema' || $_SESSION['perfil'] == 'Banco de leche'){
                                 ?>
-                                <li class="app-sidebar__heading">Sala de Extracción</li>                                
+                                <li class="app-sidebar__heading">Sala de Extracción</li>
                                 <li>
                                     <a href="#">
                                         <i class="metismenu-icon pe-7s-note2"></i>
@@ -432,11 +280,11 @@ session_start();
                                         <li>
                                             <a id="menuListaAtenciones" href="ListaAtencionSala.php">
                                                 <i class="metismenu-icon pe-7s-note2">
-                                                </i>Lista de atenciones 
+                                                </i>Lista de atenciones
                                             </a>
                                         </li>
                                     </ul>
-                                </li> 
+                                </li>
                                 <li>
                                     <a href="#">
                                         <i class="metismenu-icon pe-7s-note2"></i>
@@ -476,7 +324,7 @@ session_start();
                                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                     </a>
                                     <ul id="regEquip">
-                                        <li>                                            
+                                        <li>
                                             <a id="menuRegistroEquipos" href="registroEquiposSala.php">
                                                 <i class="metismenu-icon pe-7s-mouse">
                                                 </i>Registro Equipos
@@ -500,15 +348,15 @@ session_start();
                                                 </i>Lista de Temperaturas
                                             </a>
                                         </li>
-                                        
-                                
+
+
                                     </ul>
                                     <li>
                                     <a id="menuRegistroIndBancoLeche" href="registroIndBL.php">
                                         <i class="metismenu-icon pe-7s-note2">
                                         </i>Registro indicadores
                                     </a>
-                                </li>                                 
+                                </li>
                                 <li>
                                     <a href="#">
                                         <i class="metismenu-icon pe-7s-note2"></i>
@@ -525,7 +373,7 @@ session_start();
                                     </ul>
                                 </li>
                                 <?php
-                                    }                                
+                                    }
                                     if($_SESSION['perfil'] == 'IAMII' || $_SESSION['perfil'] == 'Administrador Sistema' || $_SESSION['perfil'] == 'Administrador IAMII'){
                                 ?>
                                 <li class="app-sidebar__heading">IAMII</li>
@@ -602,7 +450,7 @@ session_start();
                                 </li>
 
                                 <?php
-                                    }                                
+                                    }
                                     if($_SESSION['perfil'] == 'Administrador Sistema'){
                                 ?>
                                 <li class="app-sidebar__heading">Usuarios</li>
@@ -613,9 +461,9 @@ session_start();
                                     </a>
                                 </li>
                                 <?php
-                                    } 
+                                    }
                                 ?>
                             </ul>
                         </div>
                     </div>
-                </div> 
+                </div>

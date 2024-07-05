@@ -39,7 +39,7 @@ endif;
 						</div>	
 						<!-- Submit button with reCAPTCHA trigger -->			
 						<button type="submit" class="btn btn-lg btn-primary btn-block g-recaptcha" data-sitekey="6LfcN98pAAAAAOttg6DIYLTVVxX49rA3UUX0RSCr" data-callback='onSubmit' data-action='submit'>Acceder</button>
-						<img  class="img-fluid" src="imagenes/logo-gobernacion_.png" alt="">
+						<img  class="img-fluid" src="images/logo-gobernacion_.png" alt="">
 						<label id="copy">Copyright &copy; <script>document.write(new Date().getFullYear())</script>, Todos los derechos reservados.</label>
 				</form>					
 			</div>				

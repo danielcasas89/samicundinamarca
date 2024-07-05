@@ -17,7 +17,7 @@ if (PHP_SAPI == 'cli')
 /** Include PHPExcel */
 require_once dirname(__FILE__) . '/Classes/PHPExcel.php';
 include_once('../../php/classes/Database.php');
-include_once('../../php/classes/Encuesta.php');
+include_once('../../php/classes/Classes.php');
 
 if ($perfil == "Administrador Sistema")
 {

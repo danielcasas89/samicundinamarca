@@ -18,7 +18,7 @@ if (PHP_SAPI == 'cli')
 /** Include PHPExcel */
 require_once dirname(__FILE__) . '/Classes/PHPExcel.php';
 include_once('../../php/classes/Database.php');
-include_once('../../php/classes/Encuesta.php');
+include_once('../../php/classes/Classes.php');
 
 
 $query = "SELECT *, DATEDIFF(NOW(),cd.fecha_extraccion) as DiasExtraccion,cd.fecha_creacion as fechaRegistro FROM `core__donacion_blh` cd LEFT JOIN core__registro_blh cr ON cd.id_registro_blh = cr.id_registro_blh ORDER BY `DiasExtraccion` ASC";

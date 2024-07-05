@@ -28,8 +28,9 @@ if(!empty($_POST['g-recaptcha-response'])){
 	// Decode JSON data of API response in array 
 	$responseData = json_decode($response); 
 	// If the reCAPTCHA API response is valid 
+	
+	$rta = new stdClass();
 	if(!empty($responseData) && $responseData->success && $responseData->score>= 0.5){ 
-
 		if(isset($_REQUEST['usuario']) && isset($_REQUEST['usuario'])){ 
 			$conexion = mysqli_connect("localhost", "admin_sami", "15demarzoDc5051", "sami_db");
 
@@ -37,7 +38,6 @@ if(!empty($_POST['g-recaptcha-response'])){
 			$tz_obj = new DateTimeZone($tz);		
 			$today = new DateTime("now", $tz_obj);
 			$today_formatted = $today->format('Y-m-d H:i:s');
-			$rta = new stdClass();
 		
 			mysqli_set_charset($conexion, "utf8");
 			$consulta="SELECT *,gestion__usuarios.fk_atributos__estados AS estado, nombre_hospital,

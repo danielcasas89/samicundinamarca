@@ -18,7 +18,7 @@ if (PHP_SAPI == 'cli')
 /** Include PHPExcel */
 require_once dirname(__FILE__) . '/Classes/PHPExcel.php';
 include_once('../../php/classes/Database.php');
-include_once('../../php/classes/Encuesta.php');
+include_once('../../php/classes/Classes.php');
 
 
 $query = "SELECT r.*,m.*,a.nombre as nombre_estado FROM core__registro_blh r LEFT JOIN aux__municipios m ON r.municipio = m.id_municipio INNER JOIN atributos__estados a ON r.fk_atributos__estados = a.id__estados ORDER BY `r`.`fk_atributos__estados` ASC ";

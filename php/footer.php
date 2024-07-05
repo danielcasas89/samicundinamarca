@@ -16,7 +16,7 @@
                                 </ul>
                             </div>
                             <div class="col-sm-12 col-md-3">
-                                <img class="img-responsive center-block" src="../imagenes/logo-gobernacion_footer.png" style="width:200px;float:right;" alt="">
+                                <img class="img-responsive center-block" src="../images/logo-gobernacion_footer.png" style="width:200px;float:right;" alt="">
                             </div>
                             </div>
                             <hr>

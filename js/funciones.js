@@ -52,7 +52,6 @@ const autenticar = function () {
 
 $(document).ready(function () {
   function listarHospitales() {
-    console.warn("listar hospitales");
     $.ajax({
       url: "../php/services/Front.php",
       type: "POST",
@@ -284,7 +283,7 @@ $(document).ready(function () {
     return false;
   });
 
-  listarHospitales();
+  // listarHospitales();
 
   $("#formulario").submit(function (ev) {
     ev.preventDefault();
@@ -391,6 +390,46 @@ $(document).ready(function () {
           $("html, body").animate({ scrollTop: "0px" }, 0);
           $("#registro_beneficiarios")[0].reset();
           $(".saveSuccess").show();
+        } else {
+          alert("Error enviando el formato. Consulte al administrador");
+        }
+      },
+      error: function (objAjax, textStatus, strErrorThrown) {
+        //console.debug(textStatus);
+        if (typeof callbackError != "undefined") {
+          callbackError(textStatus);
+        } else {
+          alert("Error en la conexion con el servidor: " + textStatus);
+        }
+      },
+    });
+    e.preventDefault();
+    return false;
+  });
+
+  $("#registro_datos_usuario").submit(function (e) {
+    var values = {};
+    $.each($("#registro_datos_usuario").serializeArray(), function (i, field) {
+      values[field.name] = field.value;
+    });
+
+    $.ajax({
+      url: "../php/services/Front.php",
+      type: "POST",
+      async: true,
+      dataType: "json",
+      data: {
+        command: "registrarDatosUsuario",
+        tabla: "gestion__usuarios",
+        campos: values,
+      },
+      success: function (rta) {
+        console.warn(rta);
+        if (rta.type == "info") {
+          console.warn(rta);
+          /* $("html, body").animate({ scrollTop: "0px" }, 0);
+          $("#registro_beneficiarios")[0].reset();
+          $(".saveSuccess").show();*/
         } else {
           alert("Error enviando el formato. Consulte al administrador");
         }
