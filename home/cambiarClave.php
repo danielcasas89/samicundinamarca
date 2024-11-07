@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/header.php';
@@ -16,23 +16,23 @@ if(isset($_SESSION['usuario_sesion'])){
                                         <div class="page-title-subheading">Sistema de Acompañamiento Materno Infantíl
                                         </div>
                                     </div>
-                                </div> 
-                                   
+                                </div>
+
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-6 offset-md-3">
                                 <div class="main-card mb-3 card">
-                                    
+
                                     <div class="tab-content">
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="row">
-                                        <div class="main-card col-md-12 card">                                         
+                                        <div class="main-card col-md-12 card">
                                         <h5 class="card-title"></h5>
                                         <div class="card-header">Cambiar Clave
                                     </div>
                                             <div class="card-body">
-                                            
+
                                     <div class="alert alert-success fade show saveSuccess" role="alert">Contraseña actualizada correctamente.</div>
                                     <div class="alert alert-warning fade show saveError" role="alert"></div>
                                                 <form id="cambioClaveform">
@@ -49,17 +49,17 @@ if(isset($_SESSION['usuario_sesion'])){
                                                         <label for="nuevaClave2" class="">Repita Nueva Clave:</label>
                                                         <input name="nuevaClave2" id="nuevaClave2" placeholder="" type="password" class="form-control">
                                                     </div>
-                                                    <div class=" form-group col-md-4 regis">   
+                                                    <div class=" form-group col-md-4 regis">
                                                         <button type="submit" id="cambiarClavebtn" class="mt-2 btn btn-primary">Cambiar Clave</button>
-                                                    </div>      
+                                                    </div>
                                                     </div>
 
                                         </div>
-                                    </form>   
+                                    </form>
                                     </div>
                                 </div>
                             </div>
-                        </div>   
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,10 +67,10 @@ if(isset($_SESSION['usuario_sesion'])){
  <script>
      $(document).ready(function(){
 
-        $("#cambioClaveform").submit(function(e){ 
+        $("#cambioClaveform").submit(function(e){
 
             $(".saveError").hide();
-            e.preventDefault();  
+            e.preventDefault();
             var claveActual = $("#claveActual").val();
             var nuevaClave = $("#nuevaClave").val();
             var nuevaClave2 = $("#nuevaClave2").val();
@@ -100,7 +100,7 @@ if(isset($_SESSION['usuario_sesion'])){
                     },
                     success: function(rta){
                         if(rta.type =="info")
-                        {                            
+                        {
                             $(".saveSuccess").show();
                             $('html, body').animate({scrollTop: '0px'}, 0);
                             $('#cambioClaveform')[0].reset();
@@ -114,19 +114,15 @@ if(isset($_SESSION['usuario_sesion'])){
                     },
                     error: function(objAjax, textStatus, strErrorThrown ){
                     }
-                });  
+                });
 
-            }   
+            }
             return false;
-
-             
-         
         });
-
 });
 
- </script>           
-<?php 
+ </script>
+<?php
 	require '../php/footer.php';
 }else{
 	header('Location: http://samicundinamarca.com/');

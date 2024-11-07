@@ -1,7 +1,7 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
-	@require '../php/cabecera.php';
+	@require '../php/header.php';
 	?>
                 <div class="app-main__outer">
                     <div class="app-main__inner">
@@ -17,24 +17,24 @@ if(isset($_SESSION['usuario_sesion'])){
                                         </div>
                                     </div>
                                     </div>
-                                    
+
                                 <div class="page-title-actions">
                                     <div class="d-inline-block dropdown">
                                         <a href="registroDonantesBLH.php"><button type="button" class=" btn btn-info"><span class="btn-icon-wrapper pr-2 opacity-7"><i class="fa fa-business-time fa-w-20"></i></span>Registrar Donante</button></a>
                                     </div>
-                                </div>                                     
+                                </div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="main-card mb-3 card">
                                     <div class="card-header">Lista Curvas
-                                    
+
                                    <!-- <button title="Descargar Lista Donantes" class="btn btn-success btn" onclick="dwd();" style="margin-left: 20px;"><i class="fa fa-download fa-5"></i></button>-->
 
-                                    </div>                                    
+                                    </div>
                                     <div class="table-responsive" style="padding: 10px;">
-                                                   
+
                                     <table id="listCurvas" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
@@ -45,7 +45,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                 <th>Ciclos</th>
                                             </tr>
                                         </thead>
-                                        <tbody> 
+                                        <tbody>
                                             <tr class="firtLine" style="display: none;" >
                                                 <td></td>
                                                 <td></td>
@@ -64,16 +64,16 @@ if(isset($_SESSION['usuario_sesion'])){
                                             {
                                                 $consulta="SELECT * FROM `core__registro_curva` cr
                                                 INNER JOIN gestion__usuarios ge ON cr.creado_por = ge.id__usuarios
-                                                where ge.fk_aux__hospitales=".$hospital;                                               
+                                                where ge.fk_aux__hospitales=".$hospital;
                                             }
                                                 $resultado=mysqli_query($conexion,$consulta);
                                                 if(mysqli_num_rows($resultado)){
-                                                    while($usuario=mysqli_fetch_assoc($resultado)){ 
+                                                    while($usuario=mysqli_fetch_assoc($resultado)){
                                                         $id = $usuario["fecha_elaboracion"]."/".$usuario["tipoFrasco"]."/".$usuario["cantidadFrascos"]."/".$usuario["volumenFrasco"];
-                                                        echo "<tr>";  
+                                                        echo "<tr>";
                                                         echo "<td>$id</td>";
-                                                        echo "<td>$usuario[tPrecalentamiento]</td>";  
-                                                        echo "<td>$usuario[tEnfriamiento]</td>"; 
+                                                        echo "<td>$usuario[tPrecalentamiento]</td>";
+                                                        echo "<td>$usuario[tEnfriamiento]</td>";
                                                         if ($usuario['fk_atributos__estados']==2)
                                                         {
                                                             $label="badge-success";
@@ -89,7 +89,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                         echo "</tr>";
                                                     }
                                                 }
-                                                mysqli_free_result($resultado);         
+                                                mysqli_free_result($resultado);
                                             ?>
                                         </tbody>
                                         <tfoot>
@@ -102,7 +102,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    </div> 
+                                    </div>
                                     <div class="d-block text-center card-footer">
                                     </div>
                                 </div>
@@ -112,21 +112,21 @@ if(isset($_SESSION['usuario_sesion'])){
 
     <script>
         $(document).ready(function() {
-            
+
             $('.mm-active').removeClass('mm-active');
-            $("#menuListaCurvas").addClass("mm-active");                   
+            $("#menuListaCurvas").addClass("mm-active");
             $("#regCurva").addClass("mm-show");
             $('#listCurvas').DataTable({
 
                 "order": [[ 4, "desc" ]]
-            });	
+            });
         });
 
         function dwd(){
             window.open("excel/data_DonantesSala.php?",'_blank');
             }
     </script>
-<?php 
+<?php
 	require '../php/footer.php';
 }else{
 	header('Location: http://samicundinamarca.com/');

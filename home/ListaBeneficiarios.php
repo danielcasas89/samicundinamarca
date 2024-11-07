@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/cabecera.php';
@@ -17,22 +17,23 @@ if(isset($_SESSION['usuario_sesion'])){
                                         </div>
                                     </div>
                                     </div>
-                                    
+
                                 <div class="page-title-actions">
-                                </div>                                     
+                                </div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="main-card mb-3 card">
                                     <div class="card-header">Lista Beneficiarios BLH
-                                    </div>                                    
+                                    </div>
                                     <div class="table-responsive" style="padding: 10px;">
-                                                   
+
                                     <table id="listDonantes" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Fecha de registro</th>
                                                 <th>Receptor</th>
                                                 <th>Documento Beneficiario</th>
                                                 <th>Nombre Madre</th>
@@ -42,8 +43,9 @@ if(isset($_SESSION['usuario_sesion'])){
                                                 <th>Acción</th>
                                             </tr>
                                         </thead>
-                                        <tbody> 
+                                        <tbody>
                                             <tr class="firtLine" style="display: none;" >
+                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -58,29 +60,30 @@ if(isset($_SESSION['usuario_sesion'])){
                                             $hospital = $_SESSION['fk_aux__hospitales'];
                                             if ($perfil == "Administrador Sistema")
                                             {
-                                            $consulta="SELECT r.*,a.nombre as nombre_estado 
-                                            FROM core__registro_beneficiario r 
-                                            INNER JOIN atributos__estados a ON r.fk_atributos__estados = a.id__estados 
-                                            ORDER BY `r`.`fk_atributos__estados` ASC";
+                                            $consulta="SELECT r.*,a.nombre as nombre_estado
+                                            FROM core__registro_beneficiario r
+                                            INNER JOIN atributos__estados a ON r.fk_atributos__estados = a.id__estados
+                                            ORDER BY `r`.`fecha_creacion` DESC";
                                             }
                                             else
                                             {
-                                                $consulta="SELECT r.*,a.nombre as nombre_estado 
-                                                FROM core__registro_beneficiario r 
-                                                INNER JOIN atributos__estados a ON r.fk_atributos__estados = a.id__estados 
+                                                $consulta="SELECT r.*,a.nombre as nombre_estado
+                                                FROM core__registro_beneficiario r
+                                                INNER JOIN atributos__estados a ON r.fk_atributos__estados = a.id__estados
                                                 INNER JOIN gestion__usuarios gu ON r.creado_por = gu.id__usuarios
-                                                WHERE gu.fk_aux__hospitales =".$hospital; 
+                                                WHERE gu.fk_aux__hospitales =".$hospital;
                                             }
-                                            
+
                                             $resultado=mysqli_query($conexion,$consulta);
                                                 if(mysqli_num_rows($resultado)){
-                                                    while($usuario=mysqli_fetch_assoc($resultado)){ 
-                                                        echo "<tr>";  
-                                                        echo "<td>$usuario[id_core__registro_beneficiario]</td>"; 
-                                                        echo "<td>$usuario[receptor]</td>"; 
-                                                        echo "<td>$usuario[registro_civil]</td>";  
-                                                        echo "<td>$usuario[nombre_madre]</td>"; 
-                                                        echo "<td>$usuario[nombre_bebe]</td>"; 
+                                                    while($usuario=mysqli_fetch_assoc($resultado)){
+                                                        echo "<tr>";
+                                                        echo "<td>$usuario[id_core__registro_beneficiario]</td>";
+                                                        echo "<td>$usuario[fecha_creacion]</td>";
+                                                        echo "<td>$usuario[receptor]</td>";
+                                                        echo "<td>$usuario[registro_civil]</td>";
+                                                        echo "<td>$usuario[nombre_madre]</td>";
+                                                        echo "<td>$usuario[nombre_bebe]</td>";
                                                         echo "<td>$usuario[fecha_parto]</td>";
                                                         ($usuario['fk_atributos__estados']==2)?$label="badge-success":$label="badge-danger";
                                                         echo "<td id='estado_$usuario[id_core__registro_beneficiario]'><div class='mb-2 mr-2 badge $label'>$usuario[nombre_estado]</div></td>";
@@ -98,16 +101,17 @@ if(isset($_SESSION['usuario_sesion'])){
                                                                         <i class='fa fa-check'></i>
                                                                     </button>
                                                                 </td>";
-                                                        }  
+                                                        }
                                                         echo "</tr>";
                                                     }
                                                 }
-                                                mysqli_free_result($resultado);         
+                                                mysqli_free_result($resultado);
                                             ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Fecha de registro</th>
                                                 <th>Receptor</th>
                                                 <th>Documento Beneficiario</th>
                                                 <th>Nombre Madre</th>
@@ -118,7 +122,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    </div> 
+                                    </div>
 
 
                                     <div class="d-block text-center card-footer">
@@ -130,10 +134,15 @@ if(isset($_SESSION['usuario_sesion'])){
 
     <script>
         $(document).ready(function() {
-            
+
             $('.mm-active').removeClass('mm-active');
             $("#menuListaBeneficiarios").addClass("mm-active");
-            $('#listDonantes').DataTable();	
+
+
+            $('#listDonantes').DataTable({
+
+                "order": [[ 1, "desc" ]]
+            });
             $("#regBenef").addClass("mm-show");
 
             $('.passigID').click(function()
@@ -152,7 +161,7 @@ if(isset($_SESSION['usuario_sesion'])){
                         console.warn(rta);
                         $('#beneficiario').val(rta.data[0].beneficiario);
                         $('#fk_atributos__estados').val(rta.data[0].fk_atributos__estados);
-                        $('#id_core__pool_blh').val(rta.data[0].id_core__pool_blh);                        
+                        $('#id_core__pool_blh').val(rta.data[0].id_core__pool_blh);
                     },
                     error: function(objAjax, textStatus, strErrorThrown ){
                         //console.debug(textStatus);
@@ -161,16 +170,16 @@ if(isset($_SESSION['usuario_sesion'])){
                         }else{
                             alert('Error en la conexion con el servidor: '+ textStatus);
                         }
-                    } 
+                    }
                 });
-            
+
             });
             $('#actualizarStock').click(function()
             {
                 var ids = $('#id_core__pool_blh').val();
                 var fk_atributos__estados = $('#fk_atributos__estados').val();
-                var beneficiario = $('#beneficiario').val();                
-                
+                var beneficiario = $('#beneficiario').val();
+
                 $.ajax({
                     url: '../php/services/Front.php',
                     type: 'POST',
@@ -182,7 +191,7 @@ if(isset($_SESSION['usuario_sesion'])){
                         fk_atributos__estados:fk_atributos__estados,
                         beneficiario:beneficiario
                     },
-                    success: function(rta){                      
+                    success: function(rta){
                         //$('#exampleModal').modal('toggle');
                         location.reload();
 
@@ -194,11 +203,11 @@ if(isset($_SESSION['usuario_sesion'])){
                         }else{
                             alert('Error en la conexion con el servidor: '+ textStatus);
                         }
-                    } 
+                    }
                 });
-            
+
             });
-            
+
         });
     </script>
 
@@ -238,7 +247,7 @@ if(isset($_SESSION['usuario_sesion'])){
 </div>
 </div>
 
-<?php 
+<?php
 	require '../php/footer.php';
 }else{
 	header('Location: http://samicundinamarca.com/');

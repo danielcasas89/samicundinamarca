@@ -37,9 +37,7 @@ class Sami{
 
 	public function obtenerUsuarios()
  	{
-
  		$query = "SELECT * FROM `gestion__usuarios` a INNER JOIN `gestion__perfiles` b ON ( a.fk_gestion__perfiles = b.id__perfiles) WHERE a.fk_atributos__estados =2; ";
-
  		$rta = new StdClass();
 		$rta->msg = '';
 		try{
@@ -52,24 +50,6 @@ class Sami{
 		return $rta;
 
  	}
-
- 	public function ActualizarFormatos($tabla,$campos)
- 	{
-
-
- 		$rta = new StdClass();
-		$rta->msg = '';
-		try{
-			$rta->data = Database::ejecutarInsertJson($tabla,$campos);
-			$rta->type = 'info';
-		}catch(Exception $ex){
-			$rta->type = 'error';
-			$rta->msg = $ex->getMessage().'('.$ex->getCode().')';
-		}
-		return $rta;
-
- 	}
-
 
 	public function listarProgresoIami($hospital,$trimestre,$paso,$year)
 	 {
@@ -89,25 +69,6 @@ class Sami{
 		}
 		return $rta;
 	}
-
-	public function listarRegistroPasteurizacion($curva)
-	{
-	   $date = date('Y-m-d H:i:s');
-	   $totalp1 = 12;
-	   $totalEmpty = 0;
-	   $query = "SELECT * FROM `core__pasteurizacion_blh` WHERE `curva` = '".$curva."'";
-	   $rta = new StdClass();
-	   $rta->msg = '';
-	   try{
-		   $rta->data = Database::ejecutarQuerySelect($query);
-		   $rta->type = 'info';
-		   $rta->query = $query;
-	   }catch(Exception $ex){
-		   $rta->type = 'error';
-		   $rta->msg = $ex->getMessage().'('.$ex->getCode().')';
-	   }
-	   return $rta;
-   }
 
 	public function listarPerfiles()
 	{
@@ -363,7 +324,6 @@ class Sami{
 		else
 		{
 			$query = $this->insert_data($tabla,$campos);
-
 		}
 		//echo $query;
 		//exit();
@@ -394,7 +354,6 @@ class Sami{
 		else
 		{
 			$query = $this->insert_data($tabla,$campos);
-
 		}
 		$rta = new StdClass();
 		$rta->msg = '';
@@ -423,7 +382,6 @@ class Sami{
 		else
 		{
 			$query = $this->insert_data($tabla,$campos);
-
 		}
 		$rta = new StdClass();
 		$rta->msg = '';
@@ -493,7 +451,6 @@ class Sami{
 		unset($campos['myMulti']);
 		unset($campos['frascos']);
 
-
 		$queryCiclos = "SELECT ciclos FROM `core__registro_curva` WHERE `id_core__registro_curva` = ".$idCurva;
 		$ejecutarSelectCiclo = Database::ejecutarQuerySelect($queryCiclos);
 		$numCiclos = (int)$ejecutarSelectCiclo[0]->ciclos; //Numero de Ciclos actual
@@ -512,8 +469,6 @@ class Sami{
 			$updateCorePool = "UPDATE `core__pool_blh` SET `id_core__pasteurizacion_blh`=".$insertPasteurizacion." WHERE `id_core__pool_blh`=".$frascos[$i];
 			$ejecutarUpd = Database::ejecutarQueryInsert($updateCorePool);
 		}
-
-
 		$rta->msg = '';
 		try{
 			$rta->data = 'ok';
@@ -554,8 +509,6 @@ class Sami{
 	   }
 	   return $rta;
 	}
-
-
 
 	public function registrarDatosGenerales($tabla,$campos)
 	{
@@ -829,6 +782,40 @@ class Sami{
 		INNER JOIN aux__hospitales hosp ON hosp.id_hospital = gu.fk_aux__hospitales
 		WHERE hosp.short_name_hospital!='PRACTICA HOSPITAL'
 		GROUP BY gu.fk_aux__hospitales ORDER BY total DESC; ";
+		//echo $query;exit();
+ 		$rta = new StdClass();
+		$rta->msg = '';
+		try{
+			$rta->data = Database::ejecutarQuerySelect($query);
+			$rta->type = 'info';
+		}catch(Exception $ex){
+			$rta->type = 'error';
+			$rta->msg = $ex->getMessage().'('.$ex->getCode().')';
+		}
+		return $rta;
+
+	}
+
+	public function listaDonantesPorGrupoEdad()
+ 	{
+		$query = "SELECT
+    CASE
+        WHEN TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 0 AND 9 THEN '0-9 AÑOS'
+        WHEN TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 10 AND 19 THEN '10-19 AÑOS'
+        WHEN TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 20 AND 29 THEN '20-29 AÑOS'
+        WHEN TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 30 AND 39 THEN '30-39 AÑOS'
+        WHEN TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 40 AND 49 THEN '40-49 AÑOS'
+        WHEN TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 50 AND 59 THEN '50-59 AÑOS'
+        WHEN TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 60 AND 69 THEN '60-69 AÑOS'
+        ELSE '70+'
+    END AS age_group,
+    COUNT(*) AS count_people
+FROM
+    core__registro_donantes
+GROUP BY
+    age_group
+ORDER BY
+    MIN(TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE())); ";
 		//echo $query;exit();
  		$rta = new StdClass();
 		$rta->msg = '';
@@ -1187,13 +1174,11 @@ class Sami{
 
 	}
 
-
 	public function listarDonantesBLH()
  	{
 
 		$date = date('Y-m-d H:i:s');
 		$query = "SELECT * FROM `core__registro_blh` WHERE fk_atributos__estados = 2";
-
 
  		$rta = new StdClass();
 		$rta->msg = '';
@@ -1999,22 +1984,4 @@ INNER JOIN aux__hospitales hosp ON iami.hospital= hosp.id_hospital WHERE trimest
 		return $rta;
 	}
 
-
-	private function adicionarPorcentaje(&$arrEncuestas){
-		$arrCuentan = array("salon","grado","subregion","departamento","institucion","municipio","p1","p2","p3","p4","p5","p6","p7","p8","p9","p10","p11","p12","p13","p14","p15","p16","p17","p18","p19","p20","p21","p22","p23","p24","p25","p26","p27","p28","p30","p31","p32","p33","p34","p35","p36","p37","p38","p39","p40","p41","p42","p43","p44","p45","p46","p47","p48","p49","p50","p51","p52","p53","p54","p55","p56","p57","p58","p59","p60","p61","p62","p63");
-		$totalCampos = count($arrCuentan);
-		foreach ($arrEncuestas as $numReg=>$registro) {
-			$respondidas = 0;
-			foreach ($registro as $key=>$valCampo){
-				if(in_array($key,$arrCuentan))
-					if(!is_null($valCampo) && ($valCampo != "" || $valCampo !=null)){
-						$respondidas++;
-					}
-			}
-
-			$arrEncuestas[$numReg]->{'id'} = $arrEncuestas[$numReg]->{'id__encuestas'};
-			unset($arrEncuestas[$numReg]->{'id__encuestas'});
-			$arrEncuestas[$numReg]->{'porcentaje'} = number_format($respondidas*100/$totalCampos, 0);
-		}
-	}
 }

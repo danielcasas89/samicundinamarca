@@ -55,6 +55,10 @@ switch ($_REQUEST['command']) {
 		unset($_REQUEST['command']);
 		$rta = $sami->listarTotalDonantesBLHHospital();
 		break;
+	case 'listaDonantesPorGrupoEdad':
+		unset($_REQUEST['command']);
+		$rta = $sami->listaDonantesPorGrupoEdad();
+		break;
 	case 'listarDepartamentosPorSubregion2017':
 		unset($_REQUEST['command']);
 		$rta = $sami->listarDepartamentosPorSubregion2017($_REQUEST['idSubregion']);

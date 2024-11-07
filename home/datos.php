@@ -34,7 +34,7 @@ if(isset($_SESSION['usuario_sesion'])){
                         <form id="registro_datos_usuario">
                         <div class="form-row">
                            <div class=" form-group col-md-6 regis">
-                              <label for="login" class="">Login:</label>
+                              <label for="login" class="">Usuario:</label>
                               <input name="login" id="login" readonly type="text" class="form-control">
                            </div>
                            <div class=" form-group col-md-6 regis">
