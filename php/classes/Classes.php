@@ -325,8 +325,6 @@ class Sami{
 		{
 			$query = $this->insert_data($tabla,$campos);
 		}
-		//echo $query;
-		//exit();
 		$rta = new StdClass();
 		$rta->msg = '';
 		try{
@@ -402,6 +400,7 @@ class Sami{
 	public function registrarUsuariaSala($tabla,$campos)
 	{
 	   $query = $this->insert_data($tabla,$campos);
+	   $rta = new StdClass();
 	   $rta->msg = '';
 	   try{
 		   $rta->data = Database::ejecutarQueryInsert($query);
@@ -469,6 +468,7 @@ class Sami{
 			$updateCorePool = "UPDATE `core__pool_blh` SET `id_core__pasteurizacion_blh`=".$insertPasteurizacion." WHERE `id_core__pool_blh`=".$frascos[$i];
 			$ejecutarUpd = Database::ejecutarQueryInsert($updateCorePool);
 		}
+		$rta = new StdClass();
 		$rta->msg = '';
 		try{
 			$rta->data = 'ok';
@@ -485,6 +485,7 @@ class Sami{
 	public function registrarCurva($tabla,$campos)
 	{
 	   $query = $this->insert_data($tabla,$campos);
+	   $rta = new StdClass();
 	   $rta->msg = '';
 	   try{
 		   $rta->data = Database::ejecutarQueryInsert($query);
@@ -499,6 +500,7 @@ class Sami{
 	public function registrarEquipos($tabla,$campos)
 	{
 	   $query = $this->insert_data($tabla,$campos);
+	   $rta = new StdClass();
 	   $rta->msg = '';
 	   try{
 		   $rta->data = Database::ejecutarQueryInsert($query);
@@ -523,6 +525,7 @@ class Sami{
 			$query = $this->insert_data($tabla,$campos);
 		}
 
+		$rta = new StdClass();
 	   $rta->msg = '';
 	   try{
 		   $rta->data = Database::ejecutarQueryInsert($query);
@@ -539,6 +542,7 @@ class Sami{
 	public function registrarBeneficiario($tabla,$campos)
 	{
 	   $query = $this->insert_data($tabla,$campos);
+	   $rta = new StdClass();
 	   $rta->msg = '';
 	   try{
 		   $rta->data = Database::ejecutarQueryInsert($query);
@@ -562,7 +566,7 @@ class Sami{
 
 		$query = "INSERT INTO `core__temperaturas`(`creado_por`, `fecha_creacion`, `fk_atributos__estados`, `fk_equipos`, `fecha`, `hora`, `temp_actual`, `temp_minima`, `temp_maxima`, `observaciones`)
 		VALUES ('".$_SESSION['usuario_sesion']."','".$today_formatted."',2,'".$campos['equipo']."','".$campos['fecha']."','".$campos['hora']."','".$campos['temp_actual']."','".$campos['temp_minima']."','".$campos['temp_maxima']."','".$campos['observaciones']."')";
-
+		$rta = new StdClass();
 		$rta->msg = '';
 		try{
 			$rta->data = Database::ejecutarQueryInsert($query);
@@ -674,7 +678,7 @@ class Sami{
 		$query = "INSERT INTO `gestion__usuarios`(`login`, `password`, `nombre`,`mail`, `telefono_contacto`,`fk_gestion__perfiles`, `fk_aux__hospitales`, `fk_gestion__usuarios`,`fk_atributos__estados`,`profesion`, `curso_iami`, `fecha_curso_iami`, `duracion_iami`, `curso_consejeria`, `fecha_curso_consejeria`, `duracion_consejeria`, `curso_leche`, `fecha_curso_leche`, `duracion_leche`, `creado_por`, `fecha_creacion`)
 		VALUES ('".$campos['login']."',MD5('".$campos['password']."'),'".$campos['nombre']."','".$campos['mail']."','".$campos['telefono_contacto']."','".$campos['fk_gestion__perfiles']."','".$campos['hospital']."',1,2,'".$campos['profesion']."','".$campos['curso_iami']."','".$campos['fecha_curso_iami']."','".$campos['duracion_iami']."','".$campos['curso_consejeria']."','".$campos['fecha_curso_consejeria']."','".$campos['duracion_consejeria']."','".$campos['curso_leche']."','".$campos['fecha_curso_leche']."','".$campos['duracion_leche']."','".$_SESSION['usuario_sesion']."','".$today_formatted."')";
 
-
+		$rta = new StdClass();
 		$rta->msg = '';
 		try{
 			$rta->data = Database::ejecutarQueryInsert($query);
@@ -696,7 +700,7 @@ class Sami{
 
 		$query = "INSERT INTO `core__atencion_sala`(`creado_por`, `fecha_creacion`, `fk_atributos__estados`, `id_core__registro_sala`, `fecha_atencion`, `hora_llegada`, `hora_salida`, `atencion_prestada`, `tipo_extraccion`, `tipoLeche`, `num_frascos`, `cantidad`, `total`, `destino_leche`, `observaciones`)
 		VALUES ('".$_SESSION['usuario_sesion']."','".$today_formatted."',2,'".$campos['id_core__registro_sala']."','".$campos['fecha_atencion']."','".$campos['hora_llegada']."','".$campos['hora_salida']."','".$campos['atencion_prestada']."','".$campos['tipo_extraccion']."','".$campos['tipoLeche']."','".$campos['num_frascos']."','".$campos['cantidad']."','".$campos['total']."','".$campos['destino_leche']."','".$campos['observaciones']."')";
-
+		$rta = new StdClass();
 		$rta->msg = '';
 		try{
 			$rta->data = Database::ejecutarQueryInsert($query);
