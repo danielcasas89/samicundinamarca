@@ -29,7 +29,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="row">
                                     <div class="col-md-12">
-                                    <iframe title="SAMI_PMC - IND_PMC" width="1100" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiNjhiNzJlZmEtZGJhNC00NTgxLTg4NjktZTZhODU0YjFlOTkwIiwidCI6IjkwMjliMTUwLTg4NjQtNDBiNS1iYTM1LTQ1MGFmYTE5ZWJkZCJ9" frameborder="0" allowFullScreen="true"></iframe>
+                                    <iframe title="SAMI_PMC" width="1200" height="400" src="https://app.powerbi.com/view?r=eyJrIjoiMzM0YzQzZmEtYTczMi00MWEzLWI1MmItNjJlMjEzNTRiMWNiIiwidCI6IjlkMzQ5ZjhiLTdmNzAtNGRmMC1hYjBmLTY0ZTA2YTFlNWM5MyIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
 
                                     </div>
                                 </div>
