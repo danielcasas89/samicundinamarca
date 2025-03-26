@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/header.php';
@@ -17,9 +17,9 @@ if(isset($_SESSION['usuario_sesion'])){
                                         <div class="page-title-subheading">Sistema de Acompañamiento Materno Infantíl
                                         </div>
                                     </div>
-                                </div>    
+                                </div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="main-card mb-3 card">
@@ -29,21 +29,21 @@ if(isset($_SESSION['usuario_sesion'])){
                                     <div class="alert alert-success fade show saveSuccess" role="alert">Registro creado exitosamente.</div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="row">
-                                    <div class="col-md-12">                                       
+                                    <div class="col-md-12">
                                         <h5 class="card-title"></h5>
                                             <div class="card-body">
                                                 <form id="registro_fases_canguro">
                                                 <div class="form-row">
                                                     <div class=" form-group col-md-6 regis">
-                                                        <label for="hospital" class="">Seleccione Hospital:</label>                                                       
+                                                        <label for="hospital" class="">Seleccione Hospital:</label>
                                                         <select id='hospital' required name='hospital' class='form-control' >
                                                         </select>
-                                                    </div>   
+                                                    </div>
 
-                                                    <div class=" form-group col-md-6 regis" id="selectMultipleFases"> 
+                                                    <div class=" form-group col-md-6 regis" id="selectMultipleFases">
                                                         <h5 class="card-title">Seleccione Fases</h5>
                                                         <select multiple="multiple" class="multiselect-dropdown form-control" id="myMulti" name="myMulti">
-                                                        <option value=''>--</option> 
+                                                        <option value=''>--</option>
                                                         <option value='FASEIA'>FASE I A - INTRAHOSPITALARIA: ADAPTACIÓN</option>
                                                         <option value='FASEIB'>FASE I B - AMBULATORIO:  ENTRADA HASTA 40 SEMANAS EG</option>
                                                         <option value='FASEII'>FASE II - AMBULATORIO HASTA UN AÑO ECG</option>
@@ -51,24 +51,24 @@ if(isset($_SESSION['usuario_sesion'])){
                                                         </select>
                                                     </div>
                                                     <div class=" form-group col-md-6 regis" id="selectMultipleFasesAsignadas">
-                                                    
+
                                                     </div>
 
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>                             
-                            <div class=" form-group col-md-4 regis">   
+                                    </div>
+                            <div class=" form-group col-md-4 regis">
                             <button type="submit" class="mt-2 btn btn-primary">Registras fases</button>
-                            </div>                                      
                             </div>
                             </div>
-                            </form>                                       
+                            </div>
+                            </form>
                             </div>
 
                             </div>
                             </div>
-                            </div>                                   
+                            </div>
 
  <script>
      $(document).ready(function(){
@@ -86,12 +86,12 @@ if(isset($_SESSION['usuario_sesion'])){
                 },
                 success: function(rta){
                     if (rta.perfil == "Canguro")
-                    {                          
+                    {
                         $("#hospital").append("<option value='"+rta.data[0].id_hospital+"'>"+rta.data[0].nombre_hospital+"</option>");
                         $('#hospital').prop('disabled',true);
                     }
                     else
-                    {                        
+                    {
                         $("#hospital").append("<option value=''>--</option>");
                         for(var i=0;i<rta.data.length;i++){
                             $("#hospital").append("<option value='"+rta.data[i].id_hospital+"'>"+rta.data[i].nombre_hospital+"</option>");
@@ -109,10 +109,10 @@ if(isset($_SESSION['usuario_sesion'])){
                 }
             });
         }
-        
+
         $('#hospital').change(function()
         {
-                      
+
             var hospital = $('#hospital').val();
             $("#selectMultipleFasesAsignadas").html('');
             $("#selectMultipleFasesAsignadas").hide();
@@ -132,7 +132,7 @@ if(isset($_SESSION['usuario_sesion'])){
                         hospital:hospital
                     },
                     success: function(rta){
-                        
+
                         if(rta.data.length > 0)
                         {
                             $("#selectMultipleFases").hide();
@@ -145,7 +145,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                 $("#selectMultipleFasesAsignadas").append("<span class='badge badge-primary' style='padding: 12px;margin-right: 5px;font-size: 15px;'>"+rta.data[i].fase+'</span></div>');
                             }
 
-                            
+
                         }
 
 
@@ -161,18 +161,18 @@ if(isset($_SESSION['usuario_sesion'])){
             }
             return false;
 
-        }); 
+        });
 
 
         listarHospitales();
 });
 
- </script>  
+ </script>
      <script type="text/javascript" src="https://demo.dashboardpack.com/architectui-html-pro/assets/scripts/main.d810cf0ae7f39f28f336.js"></script></body>
-         
-<?php 
+
+<?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
 }
 ?>

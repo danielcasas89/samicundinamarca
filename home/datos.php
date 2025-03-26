@@ -119,6 +119,6 @@ if(isset($_SESSION['usuario_sesion'])){
 <?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
 }
 ?>

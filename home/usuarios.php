@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/cabecera.php';
@@ -20,12 +20,12 @@ if(isset($_SESSION['usuario_sesion'])){
                                 <div class="page-title-actions">
                                     <a href="crearUsuario.php"><button type="button" class=" btn btn-info"><span class="btn-icon-wrapper pr-2 opacity-7"><i class="fas fa-user-plus fa-w-20"></i></span>Crear Usuario</button></a>
                                 </div>    </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="main-card mb-3 card">
                                     <div class="card-header">Usuarios Activos
-                                    </div>                                    
+                                    </div>
                                     <div class="table-responsive" style="padding: 15px;">
                                         <table id="userTables" class="align-middle mb-0 table table-bordered table-striped table-hover">
                                             <thead>
@@ -39,9 +39,9 @@ if(isset($_SESSION['usuario_sesion'])){
                                                 <th class="text-center">Estado</th>
                                                 <th class="text-center">Clave</th>
                                                 <th class="text-center">Activar /   Desactivar</th>
-                                            </tr>   
-                                            </thead>  
-                                        <tbody> 
+                                            </tr>
+                                            </thead>
+                                        <tbody>
                                             <tr class="firtLine" style="display: none;" >
                                                 <td></td>
                                                 <td></td>
@@ -52,22 +52,22 @@ if(isset($_SESSION['usuario_sesion'])){
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
-                                            </tr>   
+                                            </tr>
                                             <?php
                                             $consulta="SELECT usuario.id__usuarios,nombre_perfiles,superior.nombre AS ns,usuario.nombre AS nu,usuario.mail,usuario.dependencia,usuario.telefono_contacto,nombre_hospital,
                                             usuario.login,usuario.ultimo_acceso,atributos__estados.nombre AS ne,id__estados
                                             FROM ((gestion__usuarios AS usuario INNER JOIN gestion__usuarios AS superior ON usuario.fk_gestion__usuarios=superior.id__usuarios)
                                             INNER JOIN atributos__estados ON usuario.fk_atributos__estados=id__estados)
-                                            INNER JOIN gestion__perfiles ON usuario.fk_gestion__perfiles=id__perfiles 
+                                            INNER JOIN gestion__perfiles ON usuario.fk_gestion__perfiles=id__perfiles
                                             INNER JOIN aux__hospitales ON usuario.fk_aux__hospitales = aux__hospitales.id_hospital
                                             ORDER BY  `usuario`.`id__usuarios` asc;";
                                             $resultado=mysqli_query($conexion,$consulta);
 
-                                            
+
             if(mysqli_num_rows($resultado)){
-                while($usuario=mysqli_fetch_assoc($resultado)){  
-                    echo "<td>$usuario[id__usuarios]</td>";  
-                    echo "<td>$usuario[login]</td>"; 
+                while($usuario=mysqli_fetch_assoc($resultado)){
+                    echo "<td>$usuario[id__usuarios]</td>";
+                    echo "<td>$usuario[login]</td>";
                     echo "<td>$usuario[nombre_perfiles]</td>";
                     echo "<td>$usuario[nombre_hospital]</td>";
                     echo "<td>$usuario[mail]</td>";
@@ -83,7 +83,7 @@ if(isset($_SESSION['usuario_sesion'])){
                         echo "<td class='text-center'>
                                     <button class='btn btn-primary btn-sm passigID' onclick='passID($usuario[id__usuarios])' data-toggle='modal' data-backdrop='false' data-id='$usuario[id__usuarios]' data-target='#cambioClaveModal'>Cambiar Clave</button>
                                 </td>";
-                        
+
                         if($usuario['id__estados']==2){
                             echo "<td class='text-center' id='ar_$usuario[id__usuarios]'>
                                     <button class='btn btn-default btn-xs' onClick=\"if(confirm('Confirma que desea cancelar el acceso a $usuario[login]')){
@@ -98,7 +98,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                         <i class='fa fa-check'></i>
                                     </button>
                                 </td>";
-                        }    
+                        }
                     }else{
                         echo "<td></td>";
                     }
@@ -106,7 +106,7 @@ if(isset($_SESSION['usuario_sesion'])){
                     echo "</tr>";
                 }
             }
-            mysqli_free_result($resultado);         
+            mysqli_free_result($resultado);
             ?>
             </tbody>
                                         <tfoot>
@@ -130,42 +130,42 @@ if(isset($_SESSION['usuario_sesion'])){
                                 </div>
                             </div>
                         </div>
-                    </div>    
-<?php 
+                    </div>
+<?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
 }
 ?>
                     <script>
         $(document).ready(function() {
-            
+
             $('.mm-active').removeClass('mm-active');
             $("#gestionarUsuarios").addClass("mm-active");
 
-            
-            
+
+
             $('#userTables').DataTable({
                 "order": [[ 5, "desc" ]]
                 });
 
             $('.passigID').click(function()
             {
-                var id = $(this).attr('data-id');    
+                var id = $(this).attr('data-id');
                 console.warn(id);
-                $("#id__usuario").val(id); 
-                    
+                $("#id__usuario").val(id);
+
             });
 
-            
+
 
             $('#actualizarClave').click(function()
             {
                 $(".passNotMatch").hide();
-                var idNew = $(this).attr('data-id');  
-                var id = $('#id__usuario').val();   
-                var clave1 =  $('#clave1').val();  
-                var clave2 =  $('#clave2').val(); 
+                var idNew = $(this).attr('data-id');
+                var id = $('#id__usuario').val();
+                var clave1 =  $('#clave1').val();
+                var clave2 =  $('#clave2').val();
                 if (clave1 != clave2)
                 {
                     $(".passNotMatch").show();
@@ -184,7 +184,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             clave: clave1
 
                         },
-                        success: function(rta){  
+                        success: function(rta){
                             location.reload();
 
                         },
@@ -195,7 +195,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             }else{
                                 alert('Error en la conexion con el servidor: '+ textStatus);
                                 }
-                            } 
+                            }
                         });
                 }
             });
@@ -203,9 +203,9 @@ if(isset($_SESSION['usuario_sesion'])){
         });
 
         function passID(id)
-            {  
+            {
                 console.warn(id);
-                $("#id__usuario").val(id); 
+                $("#id__usuario").val(id);
 
             }
     </script>
@@ -220,7 +220,7 @@ if(isset($_SESSION['usuario_sesion'])){
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-warning fade show passNotMatch" role="alert">Contraseñas no coinciden.</div>
-                    <div class="form-group ">  
+                    <div class="form-group ">
                         <div class=" form-group col-md-12">
                             <label for="clave1" class="">Nueva Contraseña:</label>
                             <input name="clave1" id="clave1" placeholder="" type="password" class="form-control">

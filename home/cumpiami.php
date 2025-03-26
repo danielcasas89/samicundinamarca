@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/cabecera.php';
@@ -24,9 +24,9 @@ if(isset($_SESSION['usuario_sesion'])){
                                     <div class="d-inline-block dropdown">
                                         <a href="indiami.php"><button type="button" class=" btn btn-info">Regresar a indicadores</button></a>
                                     </div>
-                                </div>     
+                                </div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="main-card mb-3 card">
@@ -36,21 +36,21 @@ if(isset($_SESSION['usuario_sesion'])){
                                     <div class="alert alert-success fade show saveSuccess" role="alert">Registro creado exitosamente.</div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="row">
-                                
+
                                     <div class="col-md-12">
-                                        <div class="">                                         
+                                        <div class="">
                                         <h5 class="card-title"></h5>
                                             <div class="card-body">
                                                 <form id="registro_paso">
                                                 <div class="form-row">
                                                     <div class=" form-group col-md-6 regis">
-                                                        <label for="hospitalIami" class="">Seleccione un Hospital:</label>                                                       
+                                                        <label for="hospitalIami" class="">Seleccione un Hospital:</label>
                                                          <select id='hospitalIami' required name='hospitalIami' class='form-control' >
-                                                            
+
                                                         </select>
-                                                    </div> 
+                                                    </div>
                                                     <div class=" form-group col-md-6 regis">
-                                                        <label for="year" class="">Año:</label>                                                       
+                                                        <label for="year" class="">Año:</label>
                                                          <select id='year' required name='year' class='form-control' >
                                                          <option value=''>--</option>
                                                                 <option value='2021'>2021</option>
@@ -58,16 +58,16 @@ if(isset($_SESSION['usuario_sesion'])){
                                                                 <option value='2023'>2023</option>
                                                                 <option value='2024'>2024</option>
                                                         </select>
-                                                    </div>   
+                                                    </div>
 
                                                     </div>
                                                     </div>
-                                    
+
                                     <div class="col-md-12">
-                                        <div class="main-card mb-3 card">                      
-                                            <div class="card-body">                   
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
                                         <h5 class="card-title">TRAZABILIDAD POR PASOS</h5>
-                                                <div class="form-row">                                                                                     
+                                                <div class="form-row">
                                                     <div class="form-group col-md-12">
                                                     <table class="mb-0 table table-bordered table-hover" id="tableIndicadores">
                                                 <thead>
@@ -146,21 +146,21 @@ if(isset($_SESSION['usuario_sesion'])){
                                                 </tbody>
                                             </table>
 
-                                                    
-                                                
+
+
                                                 </div>
 
 
                                                     </div>
                                                 </div>
-                                            </div>                                                                                         
                                             </div>
-                                        </form>                                       
+                                            </div>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>                                   
+                        </div>
 
                     </div>
                 </div>
@@ -182,12 +182,12 @@ if(isset($_SESSION['usuario_sesion'])){
                 },
                 success: function(rta){
                     if (rta.perfil == "IAMII")
-                    {                          
+                    {
                         $("#hospitalIami").append("<option value='"+rta.data[0].id_hospital+"'>"+rta.data[0].nombre_hospital+"</option>");
                         $('#hospitalIami').prop('disabled',true);
                     }
                     else
-                    {                        
+                    {
                         $("#hospihospitalIamital").append("<option value=''>--</option>");
                         for(var i=0;i<rta.data.length;i++){
                             $("#hospitalIami").append("<option value='"+rta.data[i].id_hospital+"'>"+rta.data[i].nombre_hospital+"</option>");
@@ -216,13 +216,13 @@ if(isset($_SESSION['usuario_sesion'])){
                 $(this).children('td').each(function(){
                     $(this).html('');
                     $(this).css("background-color", "white");
-                    
+
                 })
 
                 });
             if (hospital!='' && year!='')
-            { 
-            $.ajax({ 
+            {
+            $.ajax({
                 url: '../php/services/Front.php',
                 type: 'POST',
                 async: true,
@@ -241,7 +241,7 @@ if(isset($_SESSION['usuario_sesion'])){
                     $("#dilig3").html((rta.dataDiligTrimestre3.diligenciamiento).toFixed(1)+"%");
                     $("#dilig4").html((rta.dataDiligTrimestre4.diligenciamiento).toFixed(1)+"%");
                     $("#paso1tr1").html((rta.dataPaso1Trimestre1.cumplimiento).toFixed(1)+"%");
-                    $("#paso1tr2").html((rta.dataPaso1Trimestre2.cumplimiento).toFixed(1)+"%");                    
+                    $("#paso1tr2").html((rta.dataPaso1Trimestre2.cumplimiento).toFixed(1)+"%");
                     $("#paso1tr3").html((rta.dataPaso1Trimestre3.cumplimiento).toFixed(1)+"%");
                     $("#paso1tr4").html((rta.dataPaso1Trimestre4.cumplimiento).toFixed(1)+"%");
                     $("#paso2tr1").html((rta.dataPaso2Trimestre1.cumplimiento).toFixed(1)+"%");
@@ -290,7 +290,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             {
                                 $(this).css("background-color", "white");
                                 $(this).css("color", "black");
-                            }                         
+                            }
                             if (res > 0 && res <= 59)
                             {
                                 $(this).css("background-color", "rgb(241 87 87)");
@@ -313,7 +313,7 @@ if(isset($_SESSION['usuario_sesion'])){
 
                 },
                 error: function(rta ){
-                    
+
                     console.warn(" error cumpiiami");
                     console.warn(rta);
                     if(typeof callbackError != 'undefined'){
@@ -324,19 +324,20 @@ if(isset($_SESSION['usuario_sesion'])){
                 }
             });
         }
-           
+
             return false;
 
-        }); 
+        });
 
         listarHospitales();
 
 });
 
- </script>           
-<?php 
+ </script>
+<?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
+
 }
 ?>

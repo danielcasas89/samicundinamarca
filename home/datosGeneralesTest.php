@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/cabecera.php';
@@ -16,10 +16,10 @@ if(isset($_SESSION['usuario_sesion'])){
                                         <div class="page-title-subheading">Se debe diligenciar cada trimestre calendario
                                         </div>
                                     </div>
-                                </div> 
-                                   
+                                </div>
+
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="main-card mb-3 card">
@@ -29,24 +29,24 @@ if(isset($_SESSION['usuario_sesion'])){
                                     <div class="alert alert-success fade show saveSuccess" role="alert">Registro creado exitosamente.</div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="row">
-                                    <div class="col-md-12">                                        
+                                    <div class="col-md-12">
                                         <h5 class="card-title"></h5>
                                             <div class="card-body">
                                                 <form id="registro_datos_generales">
                                                 <div class="form-row">
 
                                                     <div class=" form-group col-md-5 regis">
-                                                        <label for="hospital" class="">Institución:</label>                                                       
+                                                        <label for="hospital" class="">Institución:</label>
                                                         <select id='hospital' required name='hospital' class='form-control' >
                                                         </select>
-                                                    </div> 
+                                                    </div>
                                                     <div class=" form-group col-md-3 regis">
                                                         <label for="direccion" class="">Dirección:</label>
                                                         <input name="direccion" id="direccion" placeholder="" type="text" class="form-control">
                                                     </div>
 
                                                     <div class=" form-group col-md-4 regis">
-                                                        <label for="departamento" class="">Departamento:</label>                                                       
+                                                        <label for="departamento" class="">Departamento:</label>
                                                         <select id='departamento' required name='departamento' class='form-control' >
                                                             <option value=''>--</option>
                                                         </select>
@@ -73,19 +73,19 @@ if(isset($_SESSION['usuario_sesion'])){
                                                         <label for="tel_gerente" class="">Teléfono Gerente</label>
                                                         <input name="tel_gerente" id="tel_gerente" placeholder="" type="number" class="form-control">
                                                     </div>
-                                                    
+
                                                     <div class=" form-group col-md-6 regis">
                                                         <label for="referente_iami" class="">Referente IAMII:</label>
                                                         <input name="referente_iami" id="referente_iami" placeholder="" type="text" class="form-control">
-                                                    </div>                                                    
+                                                    </div>
                                                     <div class=" form-group col-md-6 regis">
                                                         <label for="profesion" class="">Profesion:</label>
                                                         <input name="profesion" id="profesion" placeholder="" type="text" class="form-control">
-                                                    </div>                                                    
+                                                    </div>
                                                     <div class=" form-group col-md-6 regis">
                                                         <label for="telefono_referente" class="">Teléfono referente:</label>
                                                         <input name="telefono_referente" id="telefono_referente" placeholder="" type="number" class="form-control">
-                                                    </div>                                                   
+                                                    </div>
                                                     <div class=" form-group col-md-6 regis">
                                                         <label for="correo_referente" class="">Correo referente:</label>
                                                         <input name="correo_referente" id="correo_referente" placeholder="" type="text" class="form-control">
@@ -171,11 +171,11 @@ if(isset($_SESSION['usuario_sesion'])){
                                                         <option value=''>--</option>
                                                         <option value='SI'>SI</option>
                                                         <option value='NO'>NO</option>
-                                                    </select></div>                                                    
+                                                    </select></div>
 
-                                                    <div class=" form-group col-md-4 regis">   
+                                                    <div class=" form-group col-md-4 regis">
                                             <button type="submit" class="mt-2 btn btn-primary">Actualizar</button>
-                                            </div> 
+                                            </div>
                         </div>
 
                         </div>
@@ -189,16 +189,16 @@ if(isset($_SESSION['usuario_sesion'])){
 
 </div>
 
-                                                
-                        </div>
-                                        
-                        </div>
-                        </div>                                
 
-            
+                        </div>
+
+                        </div>
+                        </div>
+
+
  <script>
      $(document).ready(function(){
-        
+
         $('.mm-active').removeClass('mm-active');
         $("#menuDatos").addClass("mm-active");
 
@@ -212,7 +212,7 @@ if(isset($_SESSION['usuario_sesion'])){
             if (xhr.status == 200) {
                 // Procesar la respuesta aquí
                 console.warn("Listar hispitales");
-                var jsonResponse = JSON.parse(xhr.responseText);            
+                var jsonResponse = JSON.parse(xhr.responseText);
                 // Procesar la respuesta aquí
                 console.warn(jsonResponse);
             }
@@ -311,33 +311,33 @@ if(isset($_SESSION['usuario_sesion'])){
                         }else{
                             alert('Error en la conexion con el servidor: '+ textStatus);
                         }
-                    } 
+                    }
                 });
         });
         $("#hospital").change(function()
         {
-            
+
             cargarDatosGenerales($(this).val());
         });
-            
+
         $('#fecha_nacimiento').on('input',function(e)
         {
             var fechaNacimiento = $(this).val();
-            var dob = new Date(fechaNacimiento);  
-            //calculate month difference from current date in time  
-            var month_diff = Date.now() - dob.getTime();  
-            //convert the calculated difference in date format  
-            var age_dt = new Date(month_diff);   
-            //extract year from date      
-            var year = age_dt.getUTCFullYear();  
-            //now calculate the age of the user  
-            var age = Math.abs(year - 1970);  
-            //display the calculated age  
+            var dob = new Date(fechaNacimiento);
+            //calculate month difference from current date in time
+            var month_diff = Date.now() - dob.getTime();
+            //convert the calculated difference in date format
+            var age_dt = new Date(month_diff);
+            //extract year from date
+            var year = age_dt.getUTCFullYear();
+            //now calculate the age of the user
+            var age = Math.abs(year - 1970);
+            //display the calculated age
             if (age > 1 && age <90)
             {
-                $('#edad').val(age);                
+                $('#edad').val(age);
             }
-        }); 
+        });
 
         function cargarDatosGenerales(idHospital)
         {
@@ -351,44 +351,44 @@ if(isset($_SESSION['usuario_sesion'])){
                     command: 'cargarDatosGenerales',
                     idHospital:idHospital
                 },
-                success: function(rta2){    
-                    console.warn("rta2");   
-                    console.warn(rta2);        
+                success: function(rta2){
+                    console.warn("rta2");
+                    console.warn(rta2);
                     if (rta2.type != "error" && rta2.data.length > 0)
-                    {                                    
-                       // $('#hospital').val(rta2.data[0].hospital); 
-                        $('#direccion').val(rta2.data[0].direccion); 
-                        $('#departamento').val(rta2.data[0].departamento);     
+                    {
+                       // $('#hospital').val(rta2.data[0].hospital);
+                        $('#direccion').val(rta2.data[0].direccion);
+                        $('#departamento').val(rta2.data[0].departamento);
                         $("#municipio").append("<option value='"+rta2.data[0].id_municipio+"'>"+rta2.data[0].nombre_municipio+"</option>");
                         $("#municipio").val(rta2.data[0].id_municipio);
-                        $('#telefono').val(rta2.data[0].telefono); 
-                        $('#correo').val(rta2.data[0].correo); 
-                        $('#gerente').val(rta2.data[0].gerente); 
-                        $('#tel_gerente').val(rta2.data[0].tel_gerente); 
-                        $('#referente_iami').val(rta2.data[0].referente_iami); 
-                        $('#profesion').val(rta2.data[0].profesion); 
-                        $('#telefono_referente').val(rta2.data[0].telefono_referente); 
-                        $('#correo_referente').val(rta2.data[0].correo_referente); 
-                        $('#cuidadoPreconcepcional').val(rta2.data[0].cuidadoPreconcepcional);                         
+                        $('#telefono').val(rta2.data[0].telefono);
+                        $('#correo').val(rta2.data[0].correo);
+                        $('#gerente').val(rta2.data[0].gerente);
+                        $('#tel_gerente').val(rta2.data[0].tel_gerente);
+                        $('#referente_iami').val(rta2.data[0].referente_iami);
+                        $('#profesion').val(rta2.data[0].profesion);
+                        $('#telefono_referente').val(rta2.data[0].telefono_referente);
+                        $('#correo_referente').val(rta2.data[0].correo_referente);
+                        $('#cuidadoPreconcepcional').val(rta2.data[0].cuidadoPreconcepcional);
 
-                        $('#coordIami').val(rta2.data[0].coordIami); 
-                        $('#tel_coordIami').val(rta2.data[0].tel_coordIami); 
-                        $('#subgerenteCient').val(rta2.data[0].subgerenteCient); 
-                        $('#tel_subgerenteCient').val(rta2.data[0].tel_subgerenteCient); 
-                        $('#subGerAdmin').val(rta2.data[0].subGerAdmin); 
-                        $('#tel_subGerAdmin').val(rta2.data[0].tel_subGerAdmin); 
-                        $('#subGerComu').val(rta2.data[0].subGerComu); 
-                        $('#tel_subGerComu').val(rta2.data[0].tel_subGerComu); 
-                        $('#repCalidad').val(rta2.data[0].repCalidad); 
-                        $('#tel_repCalidad').val(rta2.data[0].tel_repCalidad); 
-                        $('#tipoInstitucion').val(rta2.data[0].tipoInstitucion); 
-                        $('#nivel_complejidad').val(rta2.data[0].nivel_complejidad); 
-                        $('#consultaPrenatal').val(rta2.data[0].consultaPrenatal); 
-                        $('#partos').val(rta2.data[0].partos); 
-                        $('#controlNinoSanoEnf').val(rta2.data[0].controlNinoSanoEnf); 
-                    }                    
-                    $('#hospital').val(idHospital);  
-                    
+                        $('#coordIami').val(rta2.data[0].coordIami);
+                        $('#tel_coordIami').val(rta2.data[0].tel_coordIami);
+                        $('#subgerenteCient').val(rta2.data[0].subgerenteCient);
+                        $('#tel_subgerenteCient').val(rta2.data[0].tel_subgerenteCient);
+                        $('#subGerAdmin').val(rta2.data[0].subGerAdmin);
+                        $('#tel_subGerAdmin').val(rta2.data[0].tel_subGerAdmin);
+                        $('#subGerComu').val(rta2.data[0].subGerComu);
+                        $('#tel_subGerComu').val(rta2.data[0].tel_subGerComu);
+                        $('#repCalidad').val(rta2.data[0].repCalidad);
+                        $('#tel_repCalidad').val(rta2.data[0].tel_repCalidad);
+                        $('#tipoInstitucion').val(rta2.data[0].tipoInstitucion);
+                        $('#nivel_complejidad').val(rta2.data[0].nivel_complejidad);
+                        $('#consultaPrenatal').val(rta2.data[0].consultaPrenatal);
+                        $('#partos').val(rta2.data[0].partos);
+                        $('#controlNinoSanoEnf').val(rta2.data[0].controlNinoSanoEnf);
+                    }
+                    $('#hospital').val(idHospital);
+
                 },
                 error: function(objAjax, textStatus, strErrorThrown ){
                     //console.debug(textStatus);
@@ -397,11 +397,11 @@ if(isset($_SESSION['usuario_sesion'])){
                     }else{
                         alert('Error en la conexion con el servidor: '+ textStatus);
                     }
-                } 
+                }
             });
         }
 
-        function listarHospitales(){            
+        function listarHospitales(){
             $.ajax({
                 url: '../php/services/Front.php',
                 type: 'POST',
@@ -412,19 +412,19 @@ if(isset($_SESSION['usuario_sesion'])){
                 },
                 success: function(rta){
                     if (rta.perfil == "IAMII")
-                    {                         
+                    {
                         $("#hospital").append("<option value='"+rta.data[0].id_hospital+"'>"+rta.data[0].nombre_hospital+"</option>");
                         $('#hospital').prop('disabled',true);
-                    } 
+                    }
                     else if(rta.perfil == "Administrador Sistema" || rta.perfil == "Administrador IAMII" )
-                    {                       
+                    {
                         $("#hospital").append("<option value=''>--</option>");
                         for(var i=0;i<rta.data.length;i++){
                             $("#hospital").append("<option value='"+rta.data[i].id_hospital+"'>"+rta.data[i].nombre_hospital+"</option>");
                         }
                     }
                     else
-                    {                      
+                    {
                         $("#hospital").append("<option value=''>--</option>");
                         for(var i=0;i<rta.data.length;i++){
                             $("#hospital").append("<option value='"+rta.data[i].id_hospital+"'>"+rta.data[i].nombre_hospital+"</option>");
@@ -432,10 +432,10 @@ if(isset($_SESSION['usuario_sesion'])){
                         $('#hospital').prop('disabled',true);
                     }
                     if (rta.idHospital != null)
-                    { 
+                    {
                         cargarDatosGenerales(rta.idHospital);
                     }
-                                        
+
                 },
                 error: function(objAjax, textStatus, strErrorThrown ){
                     //console.debug(textStatus);
@@ -452,10 +452,10 @@ if(isset($_SESSION['usuario_sesion'])){
         */
 });
 
- </script>           
-<?php 
+ </script>
+<?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
 }
 ?>

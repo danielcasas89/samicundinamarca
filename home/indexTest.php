@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
@@ -18,7 +18,7 @@ $resultadoIami = $estadisticaIami->calcularDiligenciamientoAll();
 $serie = "";
 
 $totalAplicado =0;
-for ($i=0;$i<count($resultado->data);$i++) {  
+for ($i=0;$i<count($resultado->data);$i++) {
 	$totalAplicado += $resultado->data[$i]->total;
 	$serie .= "{name:'".$resultado->data[$i]->nombre."',data: [";
 
@@ -31,9 +31,9 @@ $serie = rtrim($serie, ",");
 
 $serieDonantes = "{ data: [";
 $totalAplicado =0;
-for ($i=0;$i<count($resultadoDonantes->data);$i++) {   
+for ($i=0;$i<count($resultadoDonantes->data);$i++) {
 
-	$totalAplicado += $resultadoDonantes->data[$i]->total;    
+	$totalAplicado += $resultadoDonantes->data[$i]->total;
 	$serieDonantes .= "{name:'".$resultadoDonantes->data[$i]->nombre."',y: ";
 	$cantidad = $resultadoDonantes->data[$i]->total;
 	$serieDonantes .= "$cantidad},";
@@ -43,12 +43,12 @@ for ($i=0;$i<count($resultadoDonantes->data);$i++) {
 $serieDonantes = rtrim($serieDonantes, ",");
 $serieDonantes .= "]}";
 
- 
+
 // Cumplimieneto IAMII
 $serieIami = "[{";
 $totalAplicado =0;
-for ($i=0;$i<count($resultadoIami);$i++) {    
-   
+for ($i=0;$i<count($resultadoIami);$i++) {
+
     $serieIami .= "name:'".$resultadoIami[$i]->hospital."',data: [";
     $cumIami = round($resultadoIami[$i]->cumplimiento,2);
     $serieIami .= "$cumIami]},{";
@@ -57,7 +57,7 @@ for ($i=0;$i<count($resultadoIami);$i++) {
 $serieIami = rtrim($serieIami, ",{}");
 $serieIami .= "}]";
 //echo $serieIami;exit();
-?>       
+?>
 <div class="app-main__outer">
     <div class="app-main__inner">
         <div class="app-page-title">
@@ -91,12 +91,12 @@ $serieIami .= "}]";
                             </ul>
                         </div>
                     </div>
-                </div>    
+                </div>
             </div>
-        </div>      
-        <?php                            
+        </div>
+        <?php
             if($_SESSION['perfil'] == 'Administrador Sistema' || $_SESSION['perfil'] == 'Banco de leche' || $_SESSION['perfil'] == 'Sala de Extraccion'){
-        ?>      
+        ?>
         <div class="row">
             <div class="col-md-6 col-xl-4">
                 <div class="card mb-3 widget-content bg-midnight-bloom">
@@ -109,10 +109,10 @@ $serieIami .= "}]";
                             <div class="widget-numbers text-white">
                             <?php
                             if ($_SESSION['perfil'] == 'Banco de leche'){
-                                
+
                                 $hospital = $_SESSION['fk_aux__hospitales'];
                                 $consulta = "SELECT COUNT(*)  as total
-                                FROM core__registro_donantes r 
+                                FROM core__registro_donantes r
                                 INNER JOIN gestion__usuarios ge ON r.creado_por = ge.id__usuarios
                                 WHERE ge.fk_aux__hospitales =".$hospital;
                             }else{
@@ -121,12 +121,12 @@ $serieIami .= "}]";
 
                             $resultado=mysqli_query($conexion,$consulta);
                                 if(mysqli_num_rows($resultado)){
-                                    while($usuario=mysqli_fetch_assoc($resultado)){ 
-                                        echo "<span>$usuario[total]</span>";  
+                                    while($usuario=mysqli_fetch_assoc($resultado)){
+                                        echo "<span>$usuario[total]</span>";
                                     }
                                 }
-                                mysqli_free_result($resultado);        
-                            ?>                                        
+                                mysqli_free_result($resultado);
+                            ?>
                         </div>
                         </div>
                     </div>
@@ -142,30 +142,30 @@ $serieIami .= "}]";
                         <div class="widget-content-right">
                             <div class="widget-numbers text-white">
                             <?php
-                            
+
                             if ($_SESSION['perfil'] == 'Banco de leche'){
-                                
+
                                 $hospital = $_SESSION['fk_aux__hospitales'];
                                 $consulta = "SELECT COUNT(*) as total
-                                FROM `core__donacion_blh_sala` cd 
+                                FROM `core__donacion_blh_sala` cd
                                 LEFT JOIN core__registro_donantes cr ON cd.id_registro_blh = cr.id_registro_blh
                                 INNER JOIN gestion__usuarios gu ON cd.creado_por = gu.id__usuarios
                                 WHERE gu.fk_aux__hospitales = ".$hospital;
                             }else{
                                 $consulta="SELECT COUNT(*) as total
-                                FROM `core__donacion_blh_sala` cd 
+                                FROM `core__donacion_blh_sala` cd
                                 LEFT JOIN core__registro_donantes cr ON cd.id_registro_blh = cr.id_registro_blh
                                 INNER JOIN gestion__usuarios gu ON cd.creado_por = gu.id__usuarios";
                             }
                             $resultado=mysqli_query($conexion,$consulta);
-                           
+
                                 if(mysqli_num_rows($resultado)){
-                                    while($usuario=mysqli_fetch_assoc($resultado)){ 
-                                     
-                                        echo "<span>$usuario[total]</span>";  
+                                    while($usuario=mysqli_fetch_assoc($resultado)){
+
+                                        echo "<span>$usuario[total]</span>";
                                     }
                                 }
-                                mysqli_free_result($resultado);         
+                                mysqli_free_result($resultado);
                             ?>
                             </div>
                         </div>
@@ -180,28 +180,28 @@ $serieIami .= "}]";
                             <div class="widget-subheading">Total usuarias sala de extracción</div>
                         </div>
                         <div class="widget-content-right">
-                            <div class="widget-numbers text-white">                                            
-                            <?php 
+                            <div class="widget-numbers text-white">
+                            <?php
                             if ($_SESSION['perfil'] == 'Banco de leche' || $_SESSION['perfil'] == 'Sala de Extraccion' ){
-                                
+
                                 $hospital = $_SESSION['fk_aux__hospitales'];
                                 $consultaUsuarias = "SELECT COUNT(*) as total
                                 FROM core__registro_sala r
                                 INNER JOIN gestion__usuarios gu ON r.creado_por = gu.id__usuarios
                                  WHERE gu.fk_aux__hospitales = ".$hospital;
-                                 
-                                
+
+
                             }else{
                                 $consultaUsuarias="SELECT COUNT(DISTINCT(documento)) as total FROM `core__registro_sala`;";
-                            }                          
+                            }
                             $resultado=mysqli_query($conexion,$consultaUsuarias);
                                 if(mysqli_num_rows($resultado)){
-                                    while($usuario=mysqli_fetch_assoc($resultado)){ 
-                                        echo "<span>$usuario[total]</span>";  
+                                    while($usuario=mysqli_fetch_assoc($resultado)){
+                                        echo "<span>$usuario[total]</span>";
                                     }
                                 }
-                                mysqli_free_result($resultado);         
-                            ?>  
+                                mysqli_free_result($resultado);
+                            ?>
                             </div>
                         </div>
                     </div>
@@ -230,16 +230,16 @@ $serieIami .= "}]";
                     </div>
                 </div>
             </div>
-            
+
             <!--<div class="col-md-12 col-lg-6">
             <iframe title="SAMI - IAMII_Dil" width="1100" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiOGU4NzQ0ZDItM2EzNC00OTFlLWJlMzgtMjg1OWY3ZWMxODY0IiwidCI6IjkwMjliMTUwLTg4NjQtNDBiNS1iYTM1LTQ1MGFmYTE5ZWJkZCJ9" frameborder="0" allowFullScreen="true"></iframe>
             </div>-->
-            
+
             <?php
                 }
                 if($_SESSION['perfil'] == 'IAMII'){
             ?>
-            
+
             <div class="col-md-12 col-lg-12">
                 <div class="mb-3 card">
                     <div class="card-header-tab card-header-tab-animation card-header">
@@ -253,7 +253,7 @@ $serieIami .= "}]";
                             <div class="tab-pane fade show active" id="tabs-eg-77">
                                 <div class="">
                                 Bienvenido al aplicativo SAMI, Sistema de Acompañamiento a las estrategias Materno Infantiles de Cundinamarca, lideradas desde la Dirección de Salud Pública por la Dimensión de Seguridad Alimentaria.
-Esta es una herramienta diseñada para el fortalecimiento de las estrategias IAMII Instituciones Amigas de la Mujer y de la Infancia con enfoque Integral, BLH Bancos de Leche Humana, PMC Programa Madre Canguro y SAFL Salas Amigas de la Familia Lactante, por medio de la gestión efectiva de la información. 
+Esta es una herramienta diseñada para el fortalecimiento de las estrategias IAMII Instituciones Amigas de la Mujer y de la Infancia con enfoque Integral, BLH Bancos de Leche Humana, PMC Programa Madre Canguro y SAFL Salas Amigas de la Familia Lactante, por medio de la gestión efectiva de la información.
                                 </div>
                             </div>
                         </div>
@@ -268,21 +268,21 @@ Esta es una herramienta diseñada para el fortalecimiento de las estrategias IAM
                     <div class="alert alert-success fade show saveSuccess" role="alert">Registro creado exitosamente.</div>
             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                 <div class="row">
-                
-                    <div class="col-md-12">         
+
+                    <div class="col-md-12">
                                 <form id="registro_paso">
                                 <div class="form-row">
-                                    <div class=" form-group col-md-6 regis">                                              
+                                    <div class=" form-group col-md-6 regis">
                                             <select id='hospital' required name='hospital' class='form-control' style="display:none;">
                                         </select>
                                     </div>
                                 </div>
-                    
+
                     <div class="col-md-12">
-                        <div class="main-card mb-3 card">                      
-                            <div class="card-body">                   
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
                         <h5 class="card-title">TRAZABILIDAD POR PASOS</h5>
-                                <div class="form-row">                                                                                     
+                                <div class="form-row">
                                     <div class="form-group col-md-12">
                                     <table class="mb-0 table table-bordered table-hover" id="tableIndicadores">
                                 <thead>
@@ -359,13 +359,13 @@ Esta es una herramienta diseñada para el fortalecimiento de las estrategias IAM
                                     <td class="tableiami" id="dilig4"></td>
                                 </tr>
                                 </tbody>
-                            </table>  
+                            </table>
                                 </div>
                                     </div>
                                 </div>
-                            </div>                                                                                         
                             </div>
-                        </form>                                       
+                            </div>
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -373,7 +373,7 @@ Esta es una herramienta diseñada para el fortalecimiento de las estrategias IAM
             <?php
             }
             if($_SESSION['perfil'] == 'Sala de Extraccion'  || $_SESSION['perfil'] == 'Canguro' ){
-            ?> 
+            ?>
                 <div class="mb-3 card">
                     <div class="card-header-tab card-header-tab-animation card-header">
                         <div class="card-header-title">
@@ -388,7 +388,7 @@ Esta es una herramienta diseñada para el fortalecimiento de las estrategias IAM
                                 Bienvenido al aplicativo SAMI, Sistema de Acompañamiento a las estrategias Materno Infantiles de Cundinamarca, lideradas desde la Dirección de Salud Pública por la Dimensión de Seguridad Alimentaria.<br>Esta es una herramienta diseñada para el fortalecimiento de las estrategias Instituciones Amigas de la Mujer y de la Infancia con enfoque Integral IAMII, Red Departamental de Bancos de Leche Humana de Cundinamarca rBLHCun, Programa Madre Canguro PMC y Salas Amigas de la Familia Lactante SAFL, por medio de la gestión efectiva de la información.<br>
 Usted se encuentra en el módulo para la gestión de la información de las salas de extracción, por medio del cual se articula y consolidad la Red Departamental de Bancos de Leche Humana de Cundinamarca rBLHCun.<br>
 En el componente “Registros y atenciones” están las herramientas para la gestión y seguimiento de las usuarias de la sala de extracción y las atenciones que a ellas se les brindan.<br>
-En el componente “Donación de leche” están las herramientas para la gestión y seguimiento de las donantes de leche humana identificadas por su institución, desde este componente la Red Departamental de Bancos de Leche Humana de Cundinamarca rBLHCun realiza el seguimiento y trazabilidad de las donantes y sus donaciones.<br> 
+En el componente “Donación de leche” están las herramientas para la gestión y seguimiento de las donantes de leche humana identificadas por su institución, desde este componente la Red Departamental de Bancos de Leche Humana de Cundinamarca rBLHCun realiza el seguimiento y trazabilidad de las donantes y sus donaciones.<br>
 En el componente “Equipos y temperaturas” están las herramientas para realizar el seguimiento y monitoreo de las condiciones en las que se almacena la leche humana de las usuarias de la sala y la leche humana donada, garantizando la cadena de frio requerida para conservar las características físicas, químicas, organolépticas e inmunológicas de la leche humana.</div>
                             </div>
                         </div>
@@ -397,7 +397,7 @@ En el componente “Equipos y temperaturas” están las herramientas para reali
             <?php
             }
             if($_SESSION['perfil'] == 'Banco de leche' ){
-            ?> 
+            ?>
                 <div class="mb-3 card">
                     <div class="card-header-tab card-header-tab-animation card-header">
                         <div class="card-header-title">
@@ -412,7 +412,7 @@ En el componente “Equipos y temperaturas” están las herramientas para reali
                                 Bienvenido al aplicativo SAMI, Sistema de Acompañamiento a las estrategias Materno Infantiles de Cundinamarca, lideradas desde la Dirección de Salud Pública por la Dimensión de Seguridad Alimentaria.<br>Esta es una herramienta diseñada para el fortalecimiento de las estrategias Instituciones Amigas de la Mujer y de la Infancia con enfoque Integral IAMII, Red Departamental de Bancos de Leche Humana de Cundinamarca rBLHCun, Programa Madre Canguro PMC y Salas Amigas de la Familia Lactante SAFL, por medio de la gestión efectiva de la información.<br>
 Usted se encuentra en el módulo para la gestión de la información de las salas de extracción, por medio del cual se articula y consolidad la Red Departamental de Bancos de Leche Humana de Cundinamarca rBLHCun.<br>
 En el componente “Registros y atenciones” están las herramientas para la gestión y seguimiento de las usuarias de la sala de extracción y las atenciones que a ellas se les brindan.<br>
-En el componente “Donación de leche” están las herramientas para la gestión y seguimiento de las donantes de leche humana identificadas por su institución, desde este componente la Red Departamental de Bancos de Leche Humana de Cundinamarca rBLHCun realiza el seguimiento y trazabilidad de las donantes y sus donaciones.<br> 
+En el componente “Donación de leche” están las herramientas para la gestión y seguimiento de las donantes de leche humana identificadas por su institución, desde este componente la Red Departamental de Bancos de Leche Humana de Cundinamarca rBLHCun realiza el seguimiento y trazabilidad de las donantes y sus donaciones.<br>
 En el componente “Equipos y temperaturas” están las herramientas para realizar el seguimiento y monitoreo de las condiciones en las que se almacena la leche humana de las usuarias de la sala y la leche humana donada, garantizando la cadena de frio requerida para conservar las características físicas, químicas, organolépticas e inmunológicas de la leche humana.
                                 </div>
                             </div>
@@ -422,26 +422,26 @@ En el componente “Equipos y temperaturas” están las herramientas para reali
             <?php
             }
             if($_SESSION['perfil'] == 'Administrador Sistema'){
-            ?> 
+            ?>
             <div class="container">
                 <div class="row">
                     <div id="graphDonantesByHosp"  class="col-md-6 col-lg-6"></div>
                     <div id="graphDonationsByHosp"  class="col-md-6 col-lg-6"></div>
                 </div>
-                <div class="row iamiGraph"> 
+                <div class="row iamiGraph">
                    <div id="graphCumplIami"  class="col-md-12 col-lg-12"></div>
                 </div>
             </div>
             <?php
             }
-            ?> 
+            ?>
 
         </div>
     </div>
 
 <script>
 $(document).ready(function(){
-                                
+
         $('.mm-active').removeClass('mm-active');
         $("#menuHome").addClass("mm-active");
     //    listarHospitales();
@@ -455,7 +455,7 @@ $(document).ready(function(){
             },
             subtitle: {
                 text:
-                    'Fuente: samicundinamarca.com',
+                    'Fuente: sami.cundinamarca.gov.co',
                 align: 'center'
             },
 	        xAxis: {
@@ -473,7 +473,7 @@ $(document).ready(function(){
                     	enabled: true
                 	}
             	}
-        	}, 
+        	},
 	        series: [<?=$serie?>]
 	    });
 
@@ -490,7 +490,7 @@ $(document).ready(function(){
             },
             subtitle: {
                 text:
-                    'Fuente: samicundinamarca.com',
+                    'Fuente: sami.cundinamarca.gov.co',
                 align: 'center'
             },
             plotOptions: {
@@ -521,7 +521,7 @@ $(document).ready(function(){
 	        series: [<?=$serieDonantes?>]
 	    });
 
-  
+
 
 Highcharts.chart('graphCumplIami', {
     chart: {
@@ -533,7 +533,7 @@ Highcharts.chart('graphCumplIami', {
     },
     subtitle: {
         text:
-            'Fuente: samicundinamarca.com',
+            'Fuente: sami.cundinamarca.gov.co',
         align: 'center'
     },
     xAxis: {
@@ -558,7 +558,7 @@ Highcharts.chart('graphCumplIami', {
     tooltip: {
         valueSuffix: '%'
     },
-    plotOptions: { 
+    plotOptions: {
     column: {
         zones: [{
             value: 50, // Values up to 10 (not including) ...
@@ -578,12 +578,12 @@ Highcharts.chart('graphCumplIami', {
 	series: <?=$serieIami?>
 	    });
 
-        
+
     });
 </script>
-<?php 
+<?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
 }
 ?>

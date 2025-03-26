@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_SESSION['usuario_sesion'])):
-	header ("Location: http://samicundinamarca.com/home");
+	header ("Location: https://sami.cundinamarca.gov.co/home");
     exit();
 endif;
 ?>
@@ -17,12 +17,12 @@ endif;
         <link rel="stylesheet" href="css/estilos.css">
         <script src="librerias/jquery/jquery-1.11.2.min.js"></script>
 		<script src="https://www.google.com/recaptcha/api.js"></script>
-		<script>function onSubmit(token){let formData=$("#formulario").serialize();$.ajax({url:"start_session.php",type:"POST",async:true,dataType:"json",data:formData,success:function(rta){if(rta.type=="info"){window.location="home"}else{$(".alertLogin").html(rta.msg);$(".alertLogin").show()}},error:function(rta){$(".alertLogin").html(rta.msg);$(".alertLogin").show()},})}</script>	
+		<script>function onSubmit(token){let formData=$("#formulario").serialize();$.ajax({url:"start_session.php",type:"POST",async:true,dataType:"json",data:formData,success:function(rta){if(rta.type=="info"){window.location="home"}else{$(".alertLogin").html(rta.msg);$(".alertLogin").show()}},error:function(rta){$(".alertLogin").html(rta.msg);$(".alertLogin").show()},})}</script>
     </head>
-	<body class="text-center">  
-		
+	<body class="text-center">
+
 	<div class="container">
-		<div class="row justify-content-md-center">		
+		<div class="row justify-content-md-center">
 			<div class="col-md-auto">
 				<form id="formulario" method="post" class="form-signin">
 					<div class="form-group">
@@ -36,14 +36,14 @@ endif;
 						<div class="form-group input-group">
 							<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key fa-fw"></i></span></div>
 							<input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required />
-						</div>	
-						<!-- Submit button with reCAPTCHA trigger -->			
+						</div>
+						<!-- Submit button with reCAPTCHA trigger -->
 						<button type="submit" class="btn btn-lg btn-primary btn-block g-recaptcha" data-sitekey="6LfcN98pAAAAAOttg6DIYLTVVxX49rA3UUX0RSCr" data-callback='onSubmit' data-action='submit'>Acceder</button>
 						<img  class="img-fluid" src="images/logo-gobernacion_.png" alt="">
 						<label id="copy">Copyright &copy; <script>document.write(new Date().getFullYear())</script>, Todos los derechos reservados.</label>
-				</form>					
-			</div>				
+				</form>
+			</div>
 		</div>
-	</div>   
+	</div>
 	</body>
 </html>

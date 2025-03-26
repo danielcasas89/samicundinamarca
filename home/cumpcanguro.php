@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/header.php';
@@ -26,9 +26,9 @@ if(isset($_SESSION['usuario_sesion'])){
                                     <div class="d-inline-block dropdown">
                                         <a href="indiami.php"><button type="button" class=" btn btn-info">Regresar a indicadores</button></a>
                                     </div>
-                                </div>     
+                                </div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="main-card mb-3 card">
@@ -38,27 +38,27 @@ if(isset($_SESSION['usuario_sesion'])){
                                     <div class="alert alert-success fade show saveSuccess" role="alert">Registro creado exitosamente.</div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="row">
-                                
+
                                     <div class="col-md-12">
-                                        <div class="">                                         
+                                        <div class="">
                                         <h5 class="card-title"></h5>
                                             <div class="card-body">
                                                 <form id="registro_paso">
                                                 <div class="form-row">
                                                     <div class=" form-group col-md-6 regis">
-                                                        <label for="hospital" class="">Seleccione un Hospital:</label>                                                       
+                                                        <label for="hospital" class="">Seleccione un Hospital:</label>
                                                          <select id='hospital' required name='hospital' class='form-control' >
                                                         </select>
-                                                    </div>  
+                                                    </div>
 
                                                     </div>
                                                     </div>
-                                    
+
                                     <div class="col-md-12">
-                                        <div class="main-card mb-3 card">                      
-                                            <div class="card-body">                   
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
                                         <h5 class="card-title">Cumplimiento Canguro Mes</h5>
-                                                <div class="form-row">                                                                                     
+                                                <div class="form-row">
                                                     <div class="form-group col-md-12">
                                                     <table class="mb-0 table table-bordered table-hover" id="tableIndicadores">
                                                 <thead>
@@ -607,21 +607,21 @@ if(isset($_SESSION['usuario_sesion'])){
                                                 </tbody>
                                             </table>
 
-                                                    
-                                                
+
+
                                                 </div>
 
 
                                                     </div>
                                                 </div>
-                                            </div>                                                                                         
                                             </div>
-                                        </form>                                       
+                                            </div>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>                                   
+                        </div>
 
                     </div>
                 </div>
@@ -643,12 +643,12 @@ if(isset($_SESSION['usuario_sesion'])){
                 },
                 success: function(rta){
                     if (rta.perfil == "Canguro")
-                    {                          
+                    {
                         $("#hospital").append("<option value='"+rta.data[0].id_hospital+"'>"+rta.data[0].nombre_hospital+"</option>");
                         $('#hospital').prop('disabled',true);
                     }
                     else
-                    {                        
+                    {
                         $("#hospital").append("<option value=''>--</option>");
                         for(var i=0;i<rta.data.length;i++){
                             $("#hospital").append("<option value='"+rta.data[i].id_hospital+"'>"+rta.data[i].nombre_hospital+"</option>");
@@ -679,7 +679,7 @@ if(isset($_SESSION['usuario_sesion'])){
             $('table > tbody > tr').each(function() {
                 $(this).children('td').each(function(){
                     $(this).html('');
-                    $(this).css("background-color", "white");                    
+                    $(this).css("background-color", "white");
                 })
 
                 });
@@ -701,7 +701,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             var valor = parseFloat(rta.dataMes01[i]).toFixed(2);
                             $('#ene_ind'+i).html(valor+"%");
                         }
-                    } 
+                    }
                     for (var i in rta.dataMes02)
                     {
                         if (rta.dataMes02[i]!== null)
@@ -709,7 +709,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             var valor = parseFloat(rta.dataMes02[i]).toFixed(2);
                             $('#feb_ind'+i).html(valor+"%");
                         }
-                    } 
+                    }
                     for (var i in rta.dataMes03)
                     {
                         if (rta.dataMes03[i]!== null)
@@ -717,7 +717,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             var valor = parseFloat(rta.dataMes03[i]).toFixed(2);
                             $('#mar_ind'+i).html(valor+"%");
                         }
-                    } 
+                    }
                     for (var i in rta.dataMes04)
                     {
                         if (rta.dataMes04[i]!== null)
@@ -725,7 +725,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             var valor = parseFloat(rta.dataMes04[i]).toFixed(2);
                             $('#abr_ind'+i).html(valor+"%");
                         }
-                    } 
+                    }
                     for (var i in rta.dataMes05)
                     {
                         if (rta.dataMes05[i]!== null)
@@ -733,7 +733,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             var valor = parseFloat(rta.dataMes05[i]).toFixed(2);
                             $('#may_ind'+i).html(valor+"%");
                         }
-                    } 
+                    }
                     for (var i in rta.dataMes06)
                     {
                         if (rta.dataMes06[i]!== null)
@@ -741,7 +741,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             var valor = parseFloat(rta.dataMes06[i]).toFixed(2);
                             $('#jun_ind'+i).html(valor+"%");
                         }
-                    } 
+                    }
                     for (var i in rta.dataMes07)
                     {
                         if (rta.dataMes07[i]!== null)
@@ -749,7 +749,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             var valor = parseFloat(rta.dataMes07[i]).toFixed(2);
                             $('#jul_ind'+i).html(valor+"%");
                         }
-                    } 
+                    }
                     for (var i in rta.dataMes08)
                     {
                         if (rta.dataMes08[i]!== null)
@@ -757,7 +757,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             var valor = parseFloat(rta.dataMes08[i]).toFixed(2);
                             $('#ago_ind'+i).html(valor+"%");
                         }
-                    } 
+                    }
                     for (var i in rta.dataMes09)
                     {
                         if (rta.dataMes09[i]!== null)
@@ -765,7 +765,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             var valor = parseFloat(rta.dataMes09[i]).toFixed(2);
                             $('#sep_ind'+i).html(valor+"%");
                         }
-                    } 
+                    }
                     for (var i in rta.dataMes10)
                     {
                         if (rta.dataMes10[i]!== null)
@@ -773,7 +773,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             var valor = parseFloat(rta.dataMes10[i]).toFixed(2);
                             $('#oct_ind'+i).html(valor+"%");
                         }
-                    } 
+                    }
                     for (var i in rta.dataMes11)
                     {
                         if (rta.dataMes11[i]!== null)
@@ -781,7 +781,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             var valor = parseFloat(rta.dataMes11[i]).toFixed(2);
                             $('#nov_ind'+i).html(valor+"%");
                         }
-                    } 
+                    }
                     for (var i in rta.dataMes12)
                     {
                         if (rta.dataMes12[i]!== null)
@@ -789,25 +789,25 @@ if(isset($_SESSION['usuario_sesion'])){
                             var valor = parseFloat(rta.dataMes12[i]).toFixed(2);
                             $('#dic_ind'+i).html(valor+"%");
                         }
-                    }  
-                    
+                    }
+
                     $('table > tbody > tr').each(function() {
                         $(this).children('td').each(function(){
                             var data = $(this).html();
-                            var res = data.replace("%",""); 
+                            var res = data.replace("%","");
                             console.warn(res);
 
                             if (res == '')
                             {
                                 $(this).css("background-color", "white");
-                                $(this).css("color", "black"); 
-                                
+                                $(this).css("color", "black");
+
                             }
                             else if (res >= 0 && res <= 59)
                             {
                                 $(this).css("background-color", "red");
                                 $(this).css("color", "white");
-                                
+
                             }
                             else if (res >= 60 && res <= 79)
                             {
@@ -823,7 +823,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             else if (res == '')
                             {
                             }
-                      
+
                         })
 
                         });
@@ -839,19 +839,20 @@ if(isset($_SESSION['usuario_sesion'])){
                     }
                 }
             });
-           
+
             return false;
 
-        });  
+        });
 
         listarHospitales();
 
 });
 
- </script>           
-<?php 
+ </script>
+<?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	    header('Location: https://sami.cundinamarca.gov.co/');
+
 }
 ?>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/cabecera.php';
@@ -16,10 +16,10 @@ if(isset($_SESSION['usuario_sesion'])){
                                         <div class="page-title-subheading">Sistema de Acompañamiento Materno Infantíl
                                         </div>
                                     </div>
-                                </div> 
-                                   
+                                </div>
+
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="main-card mb-3 card">
@@ -29,11 +29,11 @@ if(isset($_SESSION['usuario_sesion'])){
                                     <div class="alert alert-success fade show saveSuccess" role="alert">Registro creado exitosamente.</div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="row">
-                                    <div class="col-md-12">  
+                                    <div class="col-md-12">
                                             <div class="card-body">
                                                 <form id="registro_equipos">
                                                 <div class="form-row">
-                                                    
+
                                                     <div class=" form-group col-md-4 regis">
                                                         <label for="equipo" class="">Equipo: </label>
                                                         <select name="equipo" id="equipo" class="form-control" required>
@@ -58,37 +58,37 @@ if(isset($_SESSION['usuario_sesion'])){
                                                     <div class=" form-group col-md-4 regis">
                                                         <label for="identificacion" class="">Identificacion interna:</label>
                                                         <input name="identificacion" id="identificacion" placeholder="" type="text" class="form-control" required>
-                                                    </div>                                       
-                                                                        
+                                                    </div>
+
                                                     <div class=" form-group col-md-4 regis"><br>
                                                         <button type="submit" class="mt-3 btn btn-primary">Registrar Equipo</button>
-                                                    </div>                                  
+                                                    </div>
                                             </div>
-                                            
 
-                                        </form>                                       
+
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>                                   
+                        </div>
 
-                 
+
             </div>
  <script>
      $(document).ready(function(){
-         
-        $("#regEquip").addClass("mm-show"); 
+
+        $("#regEquip").addClass("mm-show");
         $('.mm-active').removeClass('mm-active');
         $("#menuRegistroEquipos").addClass("mm-active");
 
-    
+
 });
 
- </script>           
-<?php 
+ </script>
+<?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
 }
 ?>

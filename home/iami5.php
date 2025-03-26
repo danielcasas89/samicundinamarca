@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/header.php';
@@ -21,9 +21,9 @@ if(isset($_SESSION['usuario_sesion'])){
                                     <div class="d-inline-block dropdown">
                                         <a href="indiami.php"><button type="button" class=" btn btn-success">Regresar a indicadores</button></a>
                                     </div>
-                                </div>     
+                                </div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="main-card mb-3 card">
@@ -33,21 +33,21 @@ if(isset($_SESSION['usuario_sesion'])){
                                     <div class="alert alert-success fade show saveSuccess" role="alert">Registro creado exitosamente.</div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="row">
-                                
+
                                     <div class="col-md-12">
-                                        <div class="">            
-                                                                     
+                                        <div class="">
+
                                         <h5 class="card-title"></h5>
                                             <div class="card-body">
                                                 <form id="registro_paso">
                                                 <div class="form-row">
                                                 <div class=" form-group col-md-5 regis">
-                                                        <label for="hospital" class="">Seleccione Hospital:</label>                 
-                                                        <input name="paso" id="paso" placeholder="" value="5" type="hidden" readonly class="form-control">                                                      
+                                                        <label for="hospital" class="">Seleccione Hospital:</label>
+                                                        <input name="paso" id="paso" placeholder="" value="5" type="hidden" readonly class="form-control">
                                                         <select id='hospital' required name='hospital' class='form-control' >
                                                         </select>
-                                                    </div>  
-                                                    <div class=" form-group col-md-3 regis">   
+                                                    </div>
+                                                    <div class=" form-group col-md-3 regis">
                                                         <label for="ano" class="">Seleccione año:</label>
                                                         <select name="ano" id="ano" class="form-control">
                                                             <option value=''>--</option>
@@ -55,9 +55,10 @@ if(isset($_SESSION['usuario_sesion'])){
                                                             <option value='2022'>2022</option>
                                                             <option value='2023'>2023</option>
                                                             <option value='2024'>2024</option>
+                                                            <option value='2025'>2025</option>
                                                         </select>
-                                                    </div> 
-                                                    <div class=" form-group col-md-4 regis">   
+                                                    </div>
+                                                    <div class=" form-group col-md-4 regis">
                                                         <label for="trimestre" class="">Seleccione trimestre a diligenciar:</label>
                                                         <select name="trimestre" id="trimestre" class="form-control">
                                                             <option value=''>--</option>
@@ -88,17 +89,17 @@ if(isset($_SESSION['usuario_sesion'])){
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div> 
+                                                    </div>
 
 
                                                     </div>
                                         </div>
-                                    
+
                                     <div class="col-md-12">
-                                        <div class="main-card mb-3 card">                                         
+                                        <div class="main-card mb-3 card">
                                         <h5 class="card-title"></h5>
                                             <div class="card-body">
-                                                <div class="form-row">                                                                                     
+                                                <div class="form-row">
                                                     <div class="form-group col-md-10 offset-md-1 regis">
                                                         <label for="p51" class="">5.1 ¿El personal de salud brinda información oportuna y confiable a las madres, padres, familiar o persona cercana (incluyendo las usuarias en situaciones especiales y/o con necesidades adicionales) sobre promoción de la salud y la nutrición relacionados con su puerperio, fortalecimiento de los vínculos afectivos , la autoestima y el autocuidado, la importancia de la actividad física, anticoncepción, formas de violencia de género y sexual y los mecanismos de denuncia de las mismas,. información sobre los hábitos de sueño y descanso y se realiza tamizaje para depresión posparto, reevaluar el riesgo de presentar eventos tromboembólicos venosos , Proveer los anticonceptivos antes del alta hospitalaria?</label>
                                                         <select name="p51" id="p51" class="form-control">
@@ -244,18 +245,18 @@ if(isset($_SESSION['usuario_sesion'])){
                                                     </select></div>
 
                                                     </div>
-                                                    <div class=" form-group col-md-10 offset-md-1 regis">   
+                                                    <div class=" form-group col-md-10 offset-md-1 regis">
                                                     <a href="indiami.php"><button type="submit" class="mt-2 btn btn-lg btn-primary">Registrar Indicador</button></a>
                                                     </div>
                                                 </div>
-                                            </div>                                                                                         
                                             </div>
-                                        </form>                                       
+                                            </div>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>                                   
+                        </div>
 
                     </div>
                 </div>
@@ -277,12 +278,12 @@ if(isset($_SESSION['usuario_sesion'])){
                 },
                 success: function(rta){
                     if (rta.perfil == "IAMII")
-                    {                          
+                    {
                         $("#hospital").append("<option value='"+rta.data[0].id_hospital+"'>"+rta.data[0].nombre_hospital+"</option>");
                         $('#hospital').prop('disabled',true);
                     }
                     else
-                    {                        
+                    {
                         $("#hospital").append("<option value=''>--</option>");
                         for(var i=0;i<rta.data.length;i++){
                             $("#hospital").append("<option value='"+rta.data[i].id_hospital+"'>"+rta.data[i].nombre_hospital+"</option>");
@@ -308,10 +309,10 @@ if(isset($_SESSION['usuario_sesion'])){
             $.each($('#registro_paso').serializeArray(), function(i, field) {
                 if (field.name!='paso' && field.name!='hospital' && field.name!='trimestre' && field.name!='ano')
                 {
-                    $('#'+field.name).val(''); 
+                    $('#'+field.name).val('');
                 }
-                                            
-            }); 
+
+            });
             var hospital = $('#hospital').val();
             var trimestre = $('#trimestre').val();
             var ano = $('#ano').val();
@@ -334,7 +335,7 @@ if(isset($_SESSION['usuario_sesion'])){
                     success: function(rta){
                         if (rta.data.length > 0)
                         {
-                            $('#p51').val(rta.data[0].p51); 
+                            $('#p51').val(rta.data[0].p51);
                             $('#p52').val(rta.data[0].p52);
                             $('#p53').val(rta.data[0].p53);
                             $('#p54').val(rta.data[0].p54);
@@ -350,8 +351,8 @@ if(isset($_SESSION['usuario_sesion'])){
                             $('#p514').val(rta.data[0].p514);
                             $('#p515').val(rta.data[0].p515);
                             $('#p516').val(rta.data[0].p516);
-                        }        
-        
+                        }
+
                         var totalMissing = 0;
                         var totalQuestions = 16;
                         var barra = $('#loading-bar');
@@ -360,12 +361,12 @@ if(isset($_SESSION['usuario_sesion'])){
                             if (field.value=='')
                             {
                                 totalMissing++;
-                            }                          
+                            }
                         });
                         var totalProgress = (totalQuestions-totalMissing)*100/totalQuestions;
                         barra.attr('aria-valuenow', totalProgress).attr('style', 'width: '+totalProgress+'%');
                         if (totalProgress <100 && totalProgress>0)
-                        { 
+                        {
                             barra.addClass("progress-bar progress-bar-striped progress-bar-animated bg-warning");
                             $("#textProgress").addClass("widget-numbers mt-0 fsize-3 textProgress text-warning");
                         }
@@ -379,7 +380,7 @@ if(isset($_SESSION['usuario_sesion'])){
                             barra.addClass("progress-bar progress-bar-striped progress-bar-animated bg-success");
                             $("#textProgress").addClass("widget-numbers mt-0 fsize-3 textProgress text-success");
                         }
-                        $(".textProgress").html(totalProgress.toFixed(2)+"%");                        
+                        $(".textProgress").html(totalProgress.toFixed(2)+"%");
                         $(".progressBarIami").show();
 
                     },
@@ -394,16 +395,16 @@ if(isset($_SESSION['usuario_sesion'])){
             }
             return false;
 
-        }); 
+        });
 
         listarHospitales();
 
 });
 
- </script>           
-<?php 
+ </script>
+<?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
 }
 ?>

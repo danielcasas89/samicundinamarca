@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/header.php';
@@ -16,20 +16,20 @@ if(isset($_SESSION['usuario_sesion'])){
                                         <div class="page-title-subheading">Sistema de Acompañamiento Materno Infantíl
                                         </div>
                                     </div>
-                                </div>    
+                                </div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-header">Estrategia Instituciones Amigas de la Mujer y la Infancia Integral IAMII 
+                                    <div class="card-header">Estrategia Instituciones Amigas de la Mujer y la Infancia Integral IAMII
                                     </div>
                                     <div class="tab-content">
                                     <div class="alert alert-success fade show saveSuccess" role="alert">Registro creado exitosamente.</div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="main-card mb-12 card">      
+                                        <div class="main-card mb-12 card">
                                             <div class="card-body">
                                     <div class="card-body">
                                             <button class="mb-2 mr-2 btn btn-secondary btn-lg btn-block" style="padding: 15px;"><a href="iami1.php" style="color: white;text-decoration: none;">PASO 1. Disponer de una política institucional para la promoción, protección, atención y apoyo en salud y nutrición a la población materna e infantil.</a></button>
@@ -42,7 +42,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                             <button class="mb-2 mr-2 btn btn-secondary btn-lg btn-block" style="padding: 15px;"><a href="iami8.php" style="color: white;text-decoration: none;">PASO 8. Proveer atención integral en salud y nutrición para niños y niñas en primera infancia.</a></button>
                                             <button class="mb-2 mr-2 btn btn-secondary btn-lg btn-block" style="padding: 15px;"><a href="iami9.php" style="color: white;text-decoration: none;">PASO 9. Garantizar atención con calidad y calidez en todos sus servicios partiendo del reconocimiento de las usuarias y usuarios de los servicios como sujetos de derechos, promoviendo siempre el respeto a la diferencia, la participación y el trato digno para toda la población.</a></button>
                                             <button class="mb-2 mr-2 btn btn-secondary btn-lg btn-block" style="padding: 15px;"><a href="iami10.php" style="color: white;text-decoration: none;">PASO 10. Disponer de mecanismos y estrategias de apoyo institucional y comunitario que favorezcan la continuidad de las acciones más allá de los servicios institucionales, con el fin de favorecer la salud y la nutrición materna e infantil.</a></button>
-                                        </div>                                      
+                                        </div>
 
                                         </div>
                                         </div>
@@ -57,10 +57,10 @@ if(isset($_SESSION['usuario_sesion'])){
 
 });
 
- </script>           
-<?php 
+ </script>
+<?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
 }
 ?>

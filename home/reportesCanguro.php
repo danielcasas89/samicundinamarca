@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/cabecera.php';
@@ -13,40 +13,40 @@ if(isset($_SESSION['usuario_sesion'])){
                                         </i>
                                     </div>
                                     <div>Programa Madre Canguro
-                                        
+
                                     </div>
-                                </div> 
-                                   
+                                </div>
+
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-header">Reporte 
+                                    <div class="card-header">Reporte
                                     </div>
                                     <div class="tab-content">
                                     <div class="alert alert-success fade show saveSuccess" role="alert">Registro creado exitosamente.</div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="row">
-                                    <div class="col-md-12">  
+                                    <div class="col-md-12">
                                     <iframe title="SAMI_PMC - IND_PMC" width="1100" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiNjhiNzJlZmEtZGJhNC00NTgxLTg4NjktZTZhODU0YjFlOTkwIiwidCI6IjkwMjliMTUwLTg4NjQtNDBiNS1iYTM1LTQ1MGFmYTE5ZWJkZCJ9" frameborder="0" allowFullScreen="true"></iframe>
-                                            
-                                    </div>
-                                </div> 
-                            </div>                               
 
-            
+                                    </div>
+                                </div>
+                            </div>
+
+
  <script>
      $(document).ready(function(){
         $('.mm-active').removeClass('mm-active');
-        $("#menuReporteCanguro").addClass("mm-active");    
+        $("#menuReporteCanguro").addClass("mm-active");
 
 });
 
- </script>           
-<?php 
+ </script>
+<?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
 }
 ?>

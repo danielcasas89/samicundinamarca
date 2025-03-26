@@ -475,7 +475,7 @@ $(document).ready(function(){
             },
             subtitle: {
                 text:
-                    'Fuente: samicundinamarca.com',
+                    'Fuente: sami.cundinamarca.gov.co',
                 align: 'center'
             },
 	        xAxis: {
@@ -510,7 +510,7 @@ $(document).ready(function(){
             },
             subtitle: {
                 text:
-                    'Fuente: samicundinamarca.com',
+                    'Fuente: sami.cundinamarca.gov.co',
                 align: 'center'
             },
             plotOptions: {
@@ -554,7 +554,7 @@ $(document).ready(function(){
             },
             subtitle: {
                 text:
-                    'Fuente: samicundinamarca.com',
+                    'Fuente: sami.cundinamarca.gov.co',
                 align: 'center'
             },
             plotOptions: {
@@ -595,7 +595,7 @@ Highcharts.chart('graphCumplIami', {
     },
     subtitle: {
         text:
-            'Fuente: samicundinamarca.com',
+            'Fuente: sami.cundinamarca.gov.co',
         align: 'center'
     },
     xAxis: {
@@ -646,6 +646,6 @@ Highcharts.chart('graphCumplIami', {
 <?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
 }
 ?>

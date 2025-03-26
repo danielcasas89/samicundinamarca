@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/header.php';
@@ -16,9 +16,9 @@ if(isset($_SESSION['usuario_sesion'])){
                                         <div class="page-title-subheading">Sistema de Acompañamiento Materno Infantíl
                                         </div>
                                     </div>
-                                </div>    
+                                </div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                     <div class="alert alert-success fade show saveSuccess" style="padding: 23px;font-size: 15px;" role="alert">Número de frasco registrado: <b><span id="numFrasco"></span></b></div>
@@ -26,30 +26,30 @@ if(isset($_SESSION['usuario_sesion'])){
                                     <div class="card-header ">Registrar Donación
                                     </div>
                                     <div class="tab-content">
-                                    
-                                    
-                                    
+
+
+
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="row">
-                                    <div class="col-md-12"> 
+                                    <div class="col-md-12">
                                             <div class="card-body">
                                                 <form id="registro_donacion">
-                                                <div class="form-row">                               
+                                                <div class="form-row">
                                                     <div class=" form-group col-md-4 regis">
-                                                        <label for="donantes" class="">Seleccione donante:</label>                                                       
+                                                        <label for="donantes" class="">Seleccione donante:</label>
                                                         <select id='donantes' required name='donantes' class='form-control' >
                                                             <option value=''>--</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                     <hr/>
-                                                <div class="form-row">                                                       
+                                                <div class="form-row">
                                                     <div class=" form-group col-md-4 regis">
                                                         <label for="nombre" class="">Nombre:</label>
                                                         <input name="nombre" id="nombre" placeholder="" type="text" readonly class="form-control">
-                                                        <input name="id_registro_blh" id="id_registro_blh" placeholder="" type="hidden" readonly class="form-control">                                                    
-                                                    </div>                                    
-                                                        
+                                                        <input name="id_registro_blh" id="id_registro_blh" placeholder="" type="hidden" readonly class="form-control">
+                                                    </div>
+
                                                     <div class=" form-group col-md-4 regis">
                                                         <label for="celular" class="">Celular:</label>
                                                         <input name="celular" id="celular" placeholder="" type="number" readonly class="form-control">
@@ -68,68 +68,68 @@ if(isset($_SESSION['usuario_sesion'])){
                                         <div class="card-header  ">REGISTRO DONACIÓN</div><br>
                                         <div class="form-row">
 
-                                            <div class=" form-group col-md-4 regis">   
-                                                <label for="fecha_extraccion" class="">Fecha Extracción:</label>                                                 
+                                            <div class=" form-group col-md-4 regis">
+                                                <label for="fecha_extraccion" class="">Fecha Extracción:</label>
                                                 <input class="form-control" type="date" value="" id="fecha_extraccion" name='fecha_extraccion' required>
-                                            </div>  
+                                            </div>
 
                                             <div class="col-md-4">
                                                 <label for="cantidad" class="">Cantidad:</label>
-                                                <div class="input-group mb-2">        
+                                                <div class="input-group mb-2">
                                                 <input type="number" class="form-control" min="1" max="1500" name="cantidad" id="cantidad" required><div class="input-group-prepend">
                                                 <div class="input-group-text">mL</div>
                                                 </div>
                                                 </div>
-                                            </div>    
+                                            </div>
 
                                             <div class="form-group col-md-4 regis">
                                                 <label for="recoleccionEn" class="">Recolección en </label>
                                                 <select name="recoleccionEn" id="recoleccionEn" class="form-control" required>
                                                 <option value='CASA'>CASA</option>
                                                 <option value='Sala de Extraccion'>Sala de Extraccion</option>
-                                            </select></div>    
-                                            
-                                            <div class=" form-group col-md-4 regis">   
-                                                <label for="fecha_recepcion" class="">Fecha Recepción:</label>                                                 
+                                            </select></div>
+
+                                            <div class=" form-group col-md-4 regis">
+                                                <label for="fecha_recepcion" class="">Fecha Recepción:</label>
                                                 <input class="form-control" type="date" value="" id="fecha_recepcion" name='fecha_recepcion' required>
-                                            </div> 
+                                            </div>
 
                                             <div class="col-md-4">
                                                 <label for="tipoLeche" class="">Tipo de Leche:</label>
-                                                <div class="input-group mb-2">        
+                                                <div class="input-group mb-2">
                                                 <input type="number" class="form-control" name="tipoLeche" id="tipoLeche" readonly ><div class="input-group-prepend">
                                                 <div class="input-group-text">días</div>
                                                 </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="form-group col-md-4 regis">
                                                 <label for="dias" class="">Días de Extracción:</label>
                                                 <input name="dias" id="dias"  readonly type="number" class="form-control">
-                                            </div>                          
-                                            </div> 
-                                            </div> 
-                                            <div class=" form-group col-md-4 regis">   
-                                            <button type="submit" class="mt-2 btn btn-primary">Registrar Donación</button>
-                                                                                        
                                             </div>
-                                        </form>                                       
+                                            </div>
+                                            </div>
+                                            <div class=" form-group col-md-4 regis">
+                                            <button type="submit" class="mt-2 btn btn-primary">Registrar Donación</button>
+
+                                            </div>
+                                        </form>
                                         </div>
                                     </div>
 
-                        </div>                                 
+                        </div>
                     </div>
                 </div>
             </div>
             </div>
  <script>
      $(document).ready(function()
-     {         
+     {
         $('.mm-active').removeClass('mm-active');
         $("#menuRegistroDonacioneSala").addClass("mm-active");
         $("#regBLH").addClass("mm-show");
 
-        $("#registro_donacion").submit(function(e){        
+        $("#registro_donacion").submit(function(e){
 
             var values = {};
             $.each($('#registro_donacion').serializeArray(), function(i, field) {
@@ -148,7 +148,7 @@ if(isset($_SESSION['usuario_sesion'])){
                     campos: values
                 },
                 success: function(rta){
-                    if(rta.type=='info'){             
+                    if(rta.type=='info'){
                         $('html, body').animate({scrollTop: '0px'}, 0);
                         $('#registro_donacion')[0].reset();
                         $("#numFrasco").html(rta.id);
@@ -166,8 +166,8 @@ if(isset($_SESSION['usuario_sesion'])){
                         alert('Error en la conexion con el servidor: '+ textStatus);
                     }
                 }
-            });        
-            e.preventDefault();  
+            });
+            e.preventDefault();
             return false;
             });
 
@@ -220,8 +220,8 @@ if(isset($_SESSION['usuario_sesion'])){
                         $('#nombre').val(rta.data[0].nombre);
                         $('#celular').val(rta.data[0].celular);
                         $('#nombre_municipio').val(rta.data[0].nombre_municipio);
-                        $('#id_registro_blh').val(rta.data[0].id_registro_blh);  
-                        $('#fecha_parto').val(rta.data[0].fecha_parto);                        
+                        $('#id_registro_blh').val(rta.data[0].id_registro_blh);
+                        $('#fecha_parto').val(rta.data[0].fecha_parto);
                     },
                     error: function(objAjax, textStatus, strErrorThrown ){
                         if(typeof callbackError != 'undefined'){
@@ -231,7 +231,7 @@ if(isset($_SESSION['usuario_sesion'])){
                         }
                     }
                 });
-            });  
+            });
 
             // new Date("dateString") is browser-dependent and discouraged, so we'll write
             // a simple parse function for U.S. date format (which does no error checking)
@@ -245,7 +245,7 @@ if(isset($_SESSION['usuario_sesion'])){
                 // Round to nearest whole number to deal with DST.
                 return Math.round((second-first)/(1000*60*60*24));
             }
-            
+
 
             $('#fecha_extraccion').on('input',function(e)
             {
@@ -259,7 +259,7 @@ if(isset($_SESSION['usuario_sesion'])){
                 $("#dias").val(diasExtraccion);
 
 
-            }); 
+            });
 
         listarDonantes();
 });
@@ -287,10 +287,10 @@ if(isset($_SESSION['usuario_sesion'])){
     </div>
 
     </div>
-    </div>         
-<?php 
+    </div>
+<?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
 }
 ?>

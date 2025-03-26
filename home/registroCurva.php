@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
 	@require '../php/cabecera.php';
@@ -16,10 +16,10 @@ if(isset($_SESSION['usuario_sesion'])){
                                         <div class="page-title-subheading">Sistema de Acompañamiento Materno Infantíl
                                         </div>
                                     </div>
-                                </div> 
-                                   
+                                </div>
+
                             </div>
-                        </div>  
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="main-card mb-3 card">
@@ -29,14 +29,14 @@ if(isset($_SESSION['usuario_sesion'])){
                                     <div class="alert alert-success fade show saveSuccess" role="alert">Registro creado exitosamente.</div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="row">
-                                    <div class="col-md-12">                                      
+                                    <div class="col-md-12">
                                         <h5 class="card-title"></h5>
                                             <div class="card-body">
                                                 <form id="registro_curva">
                                                 <div class="form-row">
 
-                                                    <div class=" form-group col-md-4 regis">   
-                                                        <label for="fecha_elaboracion" class="">Fecha de Elaboración:</label>                                                 
+                                                    <div class=" form-group col-md-4 regis">
+                                                        <label for="fecha_elaboracion" class="">Fecha de Elaboración:</label>
                                                         <input class="form-control" type="date" id="fecha_elaboracion" name="fecha_elaboracion" required>
                                                     </div>
                                                     <div class=" form-group col-md-4 regis">
@@ -47,11 +47,11 @@ if(isset($_SESSION['usuario_sesion'])){
                                                     <div class=" form-group col-md-4 regis">
                                                         <label for="cantidadFrascos" class="">Cantidad de Frascos:</label>
                                                         <input name="cantidadFrascos" id="cantidadFrascos" type="number" min="0" max="40" class="form-control" required>
-                                                    </div> 
+                                                    </div>
 
                                                     <div class="col-md-4">
                                                         <label for="volumenFrasco" class="">Volumen por frasco (mL)</label>
-                                                        <div class="input-group mb-2">        
+                                                        <div class="input-group mb-2">
                                                         <input type="number"  class="form-control" id="volumenFrasco" name="volumenFrasco" min="0" max="900" required>
                                                         <div class="input-group-prepend">
                                                         <div class="input-group-text">mL</div>
@@ -66,13 +66,13 @@ if(isset($_SESSION['usuario_sesion'])){
                                                         <label for="certificadoTermometro" class="">Certificado de calibración del termometro:</label>
                                                         <input name="certificadoTermometro" id="certificadoTermometro"  type="text" class="form-control" required>
                                                     </div>
-                                                    <div class=" form-group col-md-4 regis">   
-                                                        <label for="vencimientoCalibrador" class="">Fecha vencimiento certificado de calibración:</label>                                                 
+                                                    <div class=" form-group col-md-4 regis">
+                                                        <label for="vencimientoCalibrador" class="">Fecha vencimiento certificado de calibración:</label>
                                                         <input class="form-control" type="date" id="vencimientoCalibrador" name="vencimientoCalibrador" required>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="temperaturaPasteurizador" class="">T° Pasteurizador</label>
-                                                        <div class="input-group mb-2">        
+                                                        <div class="input-group mb-2">
                                                         <input type="number"  class="form-control" id="temperaturaPasteurizador" name="temperaturaPasteurizador" min="40" step=".1" max="80" required>
                                                         <div class="input-group-prepend">
                                                         <div class="input-group-text">°C</div>
@@ -81,7 +81,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="tInicialFrasco" class="">T° Inicial frasco testigo</label>
-                                                        <div class="input-group mb-2">        
+                                                        <div class="input-group mb-2">
                                                         <input type="number"  class="form-control" id="tInicialFrasco" name="tInicialFrasco" min="0" step=".01"  max="10" required>
                                                         <div class="input-group-prepend">
                                                         <div class="input-group-text">°C</div>
@@ -90,7 +90,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="tFinalFrascoPre" class="">T° final frasco testigo precalentamiento</label>
-                                                        <div class="input-group mb-2">        
+                                                        <div class="input-group mb-2">
                                                         <input type="number"  class="form-control" id="tFinalFrascoPre" name="tFinalFrascoPre" min="50" step=".01" max="80" required>
                                                         <div class="input-group-prepend">
                                                         <div class="input-group-text">°C</div>
@@ -99,7 +99,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="tEnfriadorInicial" class="">T° Enfriador Inicial</label>
-                                                        <div class="input-group mb-2">        
+                                                        <div class="input-group mb-2">
                                                         <input type="number"  class="form-control" id="tEnfriadorInicial" name="tEnfriadorInicial" step=".01" min="-20" max="5" required>
                                                         <div class="input-group-prepend">
                                                         <div class="input-group-text">°C</div>
@@ -108,7 +108,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="tEnfriadorFinal" class="">T° Enfriador Final</label>
-                                                        <div class="input-group mb-2">        
+                                                        <div class="input-group mb-2">
                                                         <input type="number"  class="form-control" id="tEnfriadorFinal" name="tEnfriadorFinal" step=".01" min="-20" max="20" max="5000" required>
                                                         <div class="input-group-prepend">
                                                         <div class="input-group-text">°C</div>
@@ -117,7 +117,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="tFinalFrascoEnf" class="">T° final frasco testigo enfriamiento</label>
-                                                        <div class="input-group mb-2">        
+                                                        <div class="input-group mb-2">
                                                         <input type="number"  class="form-control" id="tFinalFrascoEnf" name="tFinalFrascoEnf" step=".01" min="-5"  max="15" required>
                                                         <div class="input-group-prepend">
                                                         <div class="input-group-text">°C</div>
@@ -126,7 +126,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="tPrecalentamiento" class="">Tiempo precalentamiento (minutos)</label>
-                                                        <div class="input-group mb-2">        
+                                                        <div class="input-group mb-2">
                                                         <input type="number"  class="form-control" id="tPrecalentamiento" name="tPrecalentamiento" min="2" max="30" required>
                                                         <div class="input-group-prepend">
                                                         <div class="input-group-text">Min</div>
@@ -135,7 +135,7 @@ if(isset($_SESSION['usuario_sesion'])){
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="tEnfriamiento" class="">Tiempo enfriamiento (minutos)</label>
-                                                        <div class="input-group mb-2">        
+                                                        <div class="input-group mb-2">
                                                         <input type="number"  class="form-control" id="tEnfriamiento" name="tEnfriamiento" min="2" max="30" required>
                                                         <div class="input-group-prepend">
                                                         <div class="input-group-text">Min</div>
@@ -144,25 +144,25 @@ if(isset($_SESSION['usuario_sesion'])){
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="tiempoTotalCurva" class="">Tiempo total curva (minutos)</label>
-                                                        <div class="input-group mb-2">        
+                                                        <div class="input-group mb-2">
                                                         <input type="number"  class="form-control" id="tiempoTotalCurva" name="tiempoTotalCurva" min="0" max="5000" readonly>
                                                         <div class="input-group-prepend">
                                                         <div class="input-group-text">Min</div>
-                                                        </div> 
+                                                        </div>
                                                         </div>
                                                     </div>
-                                            <div class=" form-group col-md-4 regis"> 
-                                                <br>   
+                                            <div class=" form-group col-md-4 regis">
+                                                <br>
                                             <button type="submit" class="mt-2 btn btn-primary">Registrar Curva</button>
-                                            </div>   
-                                                                                    
                                             </div>
-                                        </form>                                       
+
+                                            </div>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>                                   
+                        </div>
                     </div>
                 </div>
             </div>
@@ -200,7 +200,7 @@ if(isset($_SESSION['usuario_sesion'])){
         }
 
         $('#tPrecalentamiento').on('input',function(e)
-        { 
+        {
             var tPrecalentamiento = $(this).val();
             var tEnfriamiento = $('#tEnfriamiento').val();
             if (tEnfriamiento !=""){
@@ -211,7 +211,7 @@ if(isset($_SESSION['usuario_sesion'])){
         });
 
         $('#tEnfriamiento').on('input',function(e)
-        { 
+        {
             var tEnfriamiento = $(this).val();
             var tPrecalentamiento = $('#tPrecalentamiento').val();
             if (tPrecalentamiento !=""){
@@ -221,15 +221,15 @@ if(isset($_SESSION['usuario_sesion'])){
 
         });
 
- 
+
 
     listarDepartamentos();
 });
 
- </script>           
-<?php 
+ </script>
+<?php
 	require '../php/footer.php';
 }else{
-	header('Location: http://samicundinamarca.com/');
+	header('Location: https://sami.cundinamarca.gov.co/');
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy();
-header('Location: http://samicundinamarca.com/');
+header('Location: https://sami.cundinamarca.gov.co/);
 ?>
