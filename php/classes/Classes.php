@@ -698,8 +698,8 @@ class Sami{
 		$today = new DateTime("now", $tz_obj);
 		$today_formatted = $today->format('Y-m-d H:i:s');
 
-		$query = "INSERT INTO `core__atencion_sala`(`creado_por`, `fecha_creacion`, `fk_atributos__estados`, `id_core__registro_sala`, `fecha_atencion`, `hora_llegada`, `hora_salida`, `atencion_prestada`, `tipo_extraccion`, `tipoLeche`, `num_frascos`, `cantidad`, `total`, `destino_leche`, `observaciones`)
-		VALUES ('".$_SESSION['usuario_sesion']."','".$today_formatted."',2,'".$campos['id_core__registro_sala']."','".$campos['fecha_atencion']."','".$campos['hora_llegada']."','".$campos['hora_salida']."','".$campos['atencion_prestada']."','".$campos['tipo_extraccion']."','".$campos['tipoLeche']."','".$campos['num_frascos']."','".$campos['cantidad']."','".$campos['total']."','".$campos['destino_leche']."','".$campos['observaciones']."')";
+		$query = "INSERT INTO `core__atencion_sala`(`creado_por`, `fecha_creacion`, `fk_atributos__estados`, `id_core__registro_sala`, `fecha_atencion`, `hora_llegada`, `hora_salida`, `atencion_prestada`, `tipo_extraccion`, `tipoLeche`, `cantidad`, `destino_leche`, `observaciones`)
+		VALUES ('".$_SESSION['usuario_sesion']."','".$today_formatted."',2,'".$campos['id_core__registro_sala']."','".$campos['fecha_atencion']."','".$campos['hora_llegada']."','".$campos['hora_salida']."','".$campos['atencion_prestada']."','".$campos['tipo_extraccion']."','".$campos['tipoLeche']."','".$campos['cantidad']."','".$campos['destino_leche']."','".$campos['observaciones']."')";
 		$rta = new StdClass();
 		$rta->msg = '';
 		try{
