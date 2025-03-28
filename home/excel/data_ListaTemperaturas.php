@@ -17,11 +17,11 @@ if (PHP_SAPI == 'cli')
 /** Include PHPExcel */
 require_once dirname(__FILE__) . '/Classes/PHPExcel.php';
 include_once('../../php/classes/Database.php');
-include_once('../../php/classes/Encuesta.php');
+include_once('../../php/classes/Classes.php');
 
 if ($perfil == "Administrador Sistema")
 {
-    $consulta="SELECT hosp.nombre_hospital,gu.nombre as UsuarioRegistro,ct.fecha_creacion as fechaRegistro,ct.*,ce.equipo, ce.identificacion 
+    $consulta="SELECT hosp.nombre_hospital,gu.nombre as UsuarioRegistro,ct.fecha_creacion as fechaRegistro,ct.*,ce.equipo, ce.identificacion
     FROM core__temperaturas ct
     INNER JOIN core__equipos ce ON ct.fk_equipos = ce.id_core__equipos
     INNER JOIN gestion__usuarios gu ON ct.creado_por = gu.id__usuarios
@@ -29,7 +29,7 @@ if ($perfil == "Administrador Sistema")
 }
 else
 {
-    $consulta="SELECT hosp.nombre_hospital,gu.nombre as UsuarioRegistro,ct.fecha_creacion as fechaRegistro,ct.*,ce.equipo, ce.identificacion 
+    $consulta="SELECT hosp.nombre_hospital,gu.nombre as UsuarioRegistro,ct.fecha_creacion as fechaRegistro,ct.*,ce.equipo, ce.identificacion
     FROM core__temperaturas ct
     INNER JOIN core__equipos ce ON ct.fk_equipos = ce.id_core__equipos
     INNER JOIN gestion__usuarios gu ON ct.creado_por = gu.id__usuarios
@@ -39,11 +39,11 @@ else
 //echo $consulta;exit();
 
 try{
-    $dataListaTemp = Database::ejecutarQuerySelectVerificacion($consulta);  
+    $dataListaTemp = Database::ejecutarQuerySelectVerificacion($consulta);
 }catch(Exception $ex){
     echo  'error generando reporte';
-}  
-  
+}
+
 
 
 
@@ -65,42 +65,42 @@ $objPHPExcel->getProperties()->setCreator("Secretaria Salud Cundinamarca")
 							 ->setKeywords("office 2007 openxml php")
 							 ->setCategory("Test result file");
 
-            
-$objPHPExcel->getActiveSheet()->setCellValue('A1', 'ID EQUIPO'); 
-$objPHPExcel->getActiveSheet()->setCellValue('B1','TIPO EQUIPO'); 
+
+$objPHPExcel->getActiveSheet()->setCellValue('A1', 'ID EQUIPO');
+$objPHPExcel->getActiveSheet()->setCellValue('B1','TIPO EQUIPO');
 $objPHPExcel->getActiveSheet()->setCellValue('C1','FECHA TEMPERATURA');
-$objPHPExcel->getActiveSheet()->setCellValue('D1','HORA TEMPERATURA');  
-$objPHPExcel->getActiveSheet()->setCellValue('E1','TEMPERATURA ACTUAL'); 
-$objPHPExcel->getActiveSheet()->setCellValue('F1','TEMPERATURA MINIMA'); 
-$objPHPExcel->getActiveSheet()->setCellValue('G1','TEMPERATURA MAXIMA'); 
-$objPHPExcel->getActiveSheet()->setCellValue('H1','FECHA REGISTRO'); 
+$objPHPExcel->getActiveSheet()->setCellValue('D1','HORA TEMPERATURA');
+$objPHPExcel->getActiveSheet()->setCellValue('E1','TEMPERATURA ACTUAL');
+$objPHPExcel->getActiveSheet()->setCellValue('F1','TEMPERATURA MINIMA');
+$objPHPExcel->getActiveSheet()->setCellValue('G1','TEMPERATURA MAXIMA');
+$objPHPExcel->getActiveSheet()->setCellValue('H1','FECHA REGISTRO');
 $objPHPExcel->getActiveSheet()->setCellValue('I1','USUARIO REGISTRO');
 $objPHPExcel->getActiveSheet()->setCellValue('J1','HOSPITAL');
 
 $j=2;
-for ($i=0; $i < count($dataListaTemp); $i++) 
+for ($i=0; $i < count($dataListaTemp); $i++)
 {
-	$cell1 = 'A'.$j; 
-    $cell2 = 'B'.$j; 
-    $cell3 = 'C'.$j; 
-    $cell4 = 'D'.$j; 
-    $cell5 = 'E'.$j; 
-    $cell6 = 'F'.$j; 
-    $cell7 = 'G'.$j;  
-    $cell8 = 'H'.$j; 
-    $cell9 = 'I'.$j; 
-    $cell10 = 'J'.$j; 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataListaTemp[$i]['identificacion']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataListaTemp[$i]['equipo']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataListaTemp[$i]['fecha']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataListaTemp[$i]['hora']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataListaTemp[$i]['temp_actual']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataListaTemp[$i]['temp_minima']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataListaTemp[$i]['temp_maxima']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataListaTemp[$i]['fechaRegistro']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataListaTemp[$i]['UsuarioRegistro']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataListaTemp[$i]['nombre_hospital']); 
-    $j++;	
+	$cell1 = 'A'.$j;
+    $cell2 = 'B'.$j;
+    $cell3 = 'C'.$j;
+    $cell4 = 'D'.$j;
+    $cell5 = 'E'.$j;
+    $cell6 = 'F'.$j;
+    $cell7 = 'G'.$j;
+    $cell8 = 'H'.$j;
+    $cell9 = 'I'.$j;
+    $cell10 = 'J'.$j;
+    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataListaTemp[$i]['identificacion']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataListaTemp[$i]['equipo']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataListaTemp[$i]['fecha']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataListaTemp[$i]['hora']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataListaTemp[$i]['temp_actual']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataListaTemp[$i]['temp_minima']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataListaTemp[$i]['temp_maxima']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataListaTemp[$i]['fechaRegistro']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataListaTemp[$i]['UsuarioRegistro']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataListaTemp[$i]['nombre_hospital']);
+    $j++;
 }
 
 

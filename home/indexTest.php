@@ -3,7 +3,7 @@
 session_start();
 if(isset($_SESSION['usuario_sesion'])){
     @require '../php/header.php';
-    include_once('../php/classes/Encuesta.php');
+    include_once('../php/classes/Classes.php');
 
 $estadistica = new Encuesta();
 $estadisticaIami = new Encuesta();

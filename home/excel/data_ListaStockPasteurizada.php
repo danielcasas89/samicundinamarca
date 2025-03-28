@@ -18,7 +18,7 @@ if (PHP_SAPI == 'cli')
 /** Include PHPExcel */
 require_once dirname(__FILE__) . '/Classes/PHPExcel.php';
 include_once('../../php/classes/Database.php');
-include_once('../../php/classes/Encuesta.php');
+include_once('../../php/classes/Classes.php');
 
 $perfil = $_SESSION['perfil'];
 $hospital = $_SESSION['fk_aux__hospitales'];
@@ -28,18 +28,18 @@ if ($perfil == "Administrador Sistema")
 }
 else
 {
-    $consulta="SELECT *,r.fk_atributos__estados as EstadoFrasco,r.fecha_creacion as FechaFrasco FROM core__pool_blh r 
+    $consulta="SELECT *,r.fk_atributos__estados as EstadoFrasco,r.fecha_creacion as FechaFrasco FROM core__pool_blh r
     INNER JOIN gestion__usuarios gu ON r.creado_por = gu.id__usuarios
     WHERE  gu.fk_aux__hospitales=".$hospital;
 }
 
 //echo $consulta;exit();
 try{
-    $dataLista = Database::ejecutarQuerySelectVerificacion($consulta);  
+    $dataLista = Database::ejecutarQuerySelectVerificacion($consulta);
 }catch(Exception $ex){
     echo  'error generando reporte';
-}  
-  
+}
+
 
 //print_r($dataLista);
 //exit();
@@ -60,64 +60,64 @@ $objPHPExcel->getProperties()->setCreator("Secretaria Salud Cundinamarca")
 							 ->setKeywords("office 2007 openxml php")
 							 ->setCategory("Test result file");
 
-            
-$objPHPExcel->getActiveSheet()->setCellValue('A1', 'ID FRASCO PASTEURIZADO'); 
-$objPHPExcel->getActiveSheet()->setCellValue('B1', 'CANTIDAD'); 
-$objPHPExcel->getActiveSheet()->setCellValue('C1', 'ACIDEZ 1'); 
-$objPHPExcel->getActiveSheet()->setCellValue('D1', 'ACIDEZ 2'); 
-$objPHPExcel->getActiveSheet()->setCellValue('E1', 'ACIDEZ 3'); 
-$objPHPExcel->getActiveSheet()->setCellValue('F1', 'MEDIA'); 
-$objPHPExcel->getActiveSheet()->setCellValue('G1', 'RESULTADO'); 
-$objPHPExcel->getActiveSheet()->setCellValue('H1', 'CT1'); 
-$objPHPExcel->getActiveSheet()->setCellValue('I1', 'CT2'); 
-$objPHPExcel->getActiveSheet()->setCellValue('J1', 'CT3'); 
-$objPHPExcel->getActiveSheet()->setCellValue('K1', 'MEDIA CT'); 
-$objPHPExcel->getActiveSheet()->setCellValue('L1', 'CC1'); 
-$objPHPExcel->getActiveSheet()->setCellValue('M1', 'CC2'); 
+
+$objPHPExcel->getActiveSheet()->setCellValue('A1', 'ID FRASCO PASTEURIZADO');
+$objPHPExcel->getActiveSheet()->setCellValue('B1', 'CANTIDAD');
+$objPHPExcel->getActiveSheet()->setCellValue('C1', 'ACIDEZ 1');
+$objPHPExcel->getActiveSheet()->setCellValue('D1', 'ACIDEZ 2');
+$objPHPExcel->getActiveSheet()->setCellValue('E1', 'ACIDEZ 3');
+$objPHPExcel->getActiveSheet()->setCellValue('F1', 'MEDIA');
+$objPHPExcel->getActiveSheet()->setCellValue('G1', 'RESULTADO');
+$objPHPExcel->getActiveSheet()->setCellValue('H1', 'CT1');
+$objPHPExcel->getActiveSheet()->setCellValue('I1', 'CT2');
+$objPHPExcel->getActiveSheet()->setCellValue('J1', 'CT3');
+$objPHPExcel->getActiveSheet()->setCellValue('K1', 'MEDIA CT');
+$objPHPExcel->getActiveSheet()->setCellValue('L1', 'CC1');
+$objPHPExcel->getActiveSheet()->setCellValue('M1', 'CC2');
 $objPHPExcel->getActiveSheet()->setCellValue('N1', 'CC3');
-$objPHPExcel->getActiveSheet()->setCellValue('O1', 'MEDIA CC'); 
-$objPHPExcel->getActiveSheet()->setCellValue('P1', 'CREMA'); 
-$objPHPExcel->getActiveSheet()->setCellValue('Q1', 'KCAL'); 
+$objPHPExcel->getActiveSheet()->setCellValue('O1', 'MEDIA CC');
+$objPHPExcel->getActiveSheet()->setCellValue('P1', 'CREMA');
+$objPHPExcel->getActiveSheet()->setCellValue('Q1', 'KCAL');
 
 
 $j=2;
-for ($i=0; $i < count($dataLista); $i++) { 
-	$cell1 = 'A'.$j; 
-    $cell2 = 'B'.$j; 
-    $cell3 = 'C'.$j; 
-    $cell4 = 'D'.$j; 
-    $cell5 = 'E'.$j; 
-    $cell6 = 'F'.$j; 
-    $cell7 = 'G'.$j; 
-    $cell8 = 'H'.$j; 
-    $cell9 = 'I'.$j; 
-    $cell10 = 'J'.$j; 
-    $cell11 = 'K'.$j; 
-    $cell12 = 'L'.$j; 
-    $cell13 = 'M'.$j; 
-    $cell14 = 'N'.$j; 
-    $cell15 = 'O'.$j; 
-    $cell16 = 'P'.$j; 
-    $cell17 = 'Q'.$j; 
+for ($i=0; $i < count($dataLista); $i++) {
+	$cell1 = 'A'.$j;
+    $cell2 = 'B'.$j;
+    $cell3 = 'C'.$j;
+    $cell4 = 'D'.$j;
+    $cell5 = 'E'.$j;
+    $cell6 = 'F'.$j;
+    $cell7 = 'G'.$j;
+    $cell8 = 'H'.$j;
+    $cell9 = 'I'.$j;
+    $cell10 = 'J'.$j;
+    $cell11 = 'K'.$j;
+    $cell12 = 'L'.$j;
+    $cell13 = 'M'.$j;
+    $cell14 = 'N'.$j;
+    $cell15 = 'O'.$j;
+    $cell16 = 'P'.$j;
+    $cell17 = 'Q'.$j;
 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataLista[$i]['frasco_pasteurizado']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataLista[$i]['cantidad']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataLista[$i]['acidez1']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataLista[$i]['acidez2']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataLista[$i]['acidez3']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataLista[$i]['media']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataLista[$i]['resultado']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataLista[$i]['ct1']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataLista[$i]['ct2']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataLista[$i]['ct3']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell11, $dataLista[$i]['mediact']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell12, $dataLista[$i]['cc1']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell13, $dataLista[$i]['cc2']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell14, $dataLista[$i]['cc3']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell15, $dataLista[$i]['mediacc']); 
-    $objPHPExcel->getActiveSheet()->setCellValue($cell16, $dataLista[$i]['crema']);  
-    $objPHPExcel->getActiveSheet()->setCellValue($cell17, $dataLista[$i]['kcal']);   
-    $j++;	
+    $objPHPExcel->getActiveSheet()->setCellValue($cell1, $dataLista[$i]['frasco_pasteurizado']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell2, $dataLista[$i]['cantidad']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell3, $dataLista[$i]['acidez1']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell4, $dataLista[$i]['acidez2']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell5, $dataLista[$i]['acidez3']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell6, $dataLista[$i]['media']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell7, $dataLista[$i]['resultado']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell8, $dataLista[$i]['ct1']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell9, $dataLista[$i]['ct2']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell10, $dataLista[$i]['ct3']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell11, $dataLista[$i]['mediact']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell12, $dataLista[$i]['cc1']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell13, $dataLista[$i]['cc2']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell14, $dataLista[$i]['cc3']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell15, $dataLista[$i]['mediacc']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell16, $dataLista[$i]['crema']);
+    $objPHPExcel->getActiveSheet()->setCellValue($cell17, $dataLista[$i]['kcal']);
+    $j++;
 }
 
 $objPHPExcel->getActiveSheet()->getStyle('A1')->applyFromArray($styleArray);
