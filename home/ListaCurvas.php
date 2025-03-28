@@ -77,12 +77,12 @@ if(isset($_SESSION['usuario_sesion'])){
                                                         if ($usuario['fk_atributos__estados']==2)
                                                         {
                                                             $label="badge-success";
-                                                            echo "<td id='estado_$usuario[id_core__donacion_blh]'><div class='mb-2 mr-2 badge $label'>ACTIVO</div></td>";
+                                                            echo "<td id='estado_$usuario[id_core__registro_curva]'><div class='mb-2 mr-2 badge $label'>ACTIVO</div></td>";
                                                         }
                                                         else
                                                         {
                                                             $label="badge-danger";
-                                                            echo "<td id='estado_$usuario[id_core__donacion_blh]'><div class='mb-2 mr-2 badge $label'>DESCARTAR</div></td>";
+                                                            echo "<td id='estado_$usuario[id_core__registro_curva]'><div class='mb-2 mr-2 badge $label'>DESCARTAR</div></td>";
 
                                                         }
                                                         echo "<td>$usuario[ciclos]</td>";
